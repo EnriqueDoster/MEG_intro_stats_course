@@ -1,0 +1,17 @@
+#SampleID,ID,City,Treatment,Dilution,Packaging,Lean,Blinded_Store,Store,Raw_paired_reads,QC_filtered_reads,taxa_reads,filtered_taxa_reads
+FC_112,FC_112,Fort Collins,RWA,NA,Vacuum,90,Store6,Whole Foods,206239,191802,46543,46355
+FC_113,FC_113,Fort Collins,RWA,NA,Vacuum,90,Store2,Natural Grocers,202019,188456,45206,45039
+FC_122,FC_122,Fort Collins,RWA,NA,Vacuum,85,Store4,Sprouts,213646,197900,40696,40451
+FC_123,FC_123,Fort Collins,RWA,NA,Vacuum,90,Store4,Sprouts,210004,184008,75558,75204
+FC_133,FC_133,Fort Collins,RWA,NA,Vacuum,92,Store1,King Soopers,212618,198432,30161,30078
+FC_134,FC_134,Fort Collins,RWA,NA,Vacuum,80,Store1,King Soopers,219822,198879,19258,18978
+FC_142,FC_142,Fort Collins,RWA,NA,Vacuum,93,Store3,Safeway,187892,174760,33405,33298
+FC_143,FC_143,Fort Collins,RWA,NA,Vacuum,85,Store3,Safeway,155859,143060,13081,12877
+FC_161,FC_161,Fort Collins,CONV,NA,Chub,80,Store1,King Soopers,180094,167597,42412,42122
+FC_162,FC_162,Fort Collins,CONV,NA,Chub,93,Store1,King Soopers,200365,188043,36662,36519
+FC_172,FC_172,Fort Collins,CONV,NA,TrayOverwrap,80,Store3,Safeway,100939,94569,16556,16363
+FC_177,FC_177,Fort Collins,CONV,NA,TrayOverwrap,93,Store5,Walmart,178300,162800,30436,28153
+FC_181,FC_181,Fort Collins,CONV,NA,StoreGrind,90,Store1,King Soopers,216235,203920,38858,38709
+FC_186,FC_186,Fort Collins,CONV,NA,Chub,80,Store5,Walmart,205446,192819,42174,41987
+FC_195,FC_195,Fort Collins,CONV,NA,Chub,85,Store5,Walmart,207711,192730,46749,46658
+FC_199,FC_199,Fort Collins,CONV,NA,TrayOverwrap,93,Store3,Safeway,213344,203177,32762,32708
