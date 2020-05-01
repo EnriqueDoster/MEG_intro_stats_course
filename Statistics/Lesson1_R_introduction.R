@@ -1,4 +1,6 @@
-# MEG_onboarding_lessons
+# MEG_onboarding_tutorials 
+
+
 #
 ##
 ### Arithmetic operators
@@ -15,24 +17,31 @@
 7 %% 2  # Modulo operation (remainder of integer division)
 7 %/% 2 # Integer division
 
+
+
+
+#
+##
+### Logic
+##
+#
+
+
+# Binary operators
+1 == 1
+1 != 1
+1 != 2
+1 < 2
+1 > 2
+1 <= 2 
+1 >= 2
+
 # Logical operators return TRUE or FALSE
 #    Unary:
 TRUE
 FALSE
 ! TRUE  # read carefully: the "!" (meaning "not") is easily overlooked
 ! FALSE
-
-#    Binary operators
-
-1 == 2
-1 != 2
-1 < 2
-1 > 2
-
-1 > 1
-1 >= 1
-1 < 1
-1 <= 1
 
 #    & (means AND)
 TRUE & TRUE
@@ -47,19 +56,32 @@ FALSE | FALSE
 # Predict what this will return
 !(FALSE | (! FALSE))
 
+
+
 #
 ##
-### Variables
+### Data types
 ##
-# You can store values or results using variables. 
+#
+# Basic data types
+# R Programming works with numerous data types, including:
+## Scalars
+## Vectors (numerical, character, logical)
+## Lists
+## Data frames
+## Matrices
+
+# You can store these data types in an R object (or variable). 
 # Variables are created by R when you first use them and space in your computer's memory is allocated to store that variable.
 # Variables are case-sensitive 
 # A small number of names are reserved and cannot be overwritten.
 ?reserved
 
-#To assign a value to a constant, use the assignment operator <-. This is the default way of assigning values in R. 
+# To assign a value to a constant, use the assignment operator <-. This is the default way of assigning values in R. 
 # You could also use the = sign, but there are subtle differences. (See: ?"<-")
-a <- 5
+
+# Scalar objects only contain a single value
+a <- 5 
 a
 a + 3
 b <- 8
@@ -72,22 +94,31 @@ a < b  # less than
 rm(a) # Delete variables
 a
 
-###### Data Types #####
-Integer<-5      
-Integer
-IntegerVector<-c(5,2,7,3,9)   #Assign the vector
-IntegerVector                 #Call/Print the vector
+
+# Vectors
+# A vector is a sequence of data elements of the same basic type (i.e. numerical, character, logical)
+# Group elements using "c()" 
+integer <-500      
+integer
+a_vector <- c(5,2,7,3,integer)   #Assign a vector, including the variable "integer"
+a_vector                 # Call/Print the vector
 
 
-Double<-5.5   #Doubles: also known as "numeric"
+Double <- 9.865768   # Doubles: also known as "numeric"
 Double
-DoubleVector<-c(5.5,2.2,7.7,3.3,9.865768)
+DoubleVector <- c(5.5,2.2,7.7,3.3,Double) # Assign the vector
 DoubleVector
 
-Char<-"Jesse is an excellent teacher"
+Char <- "Bioinformatics is easy peasy" # Create a variable with a "character" object
 Char
-CharVector<-c("Jesse","Is","An","Excellent","Teacher")
+CharVector <- c("Bioinformatics","is","easy","peasy") #
 CharVector
+
+truth <- ", not!"
+
+CharVector[4] <- truth # replace the fourth element in the vector
+CharVector
+
 
 Bool1<-TRUE
 Bool2<-1 #1 for TRUE or 0 for FALSE
@@ -113,11 +144,7 @@ Char + Bool2       #What's wrong with this one?!
 #Add the Data Type Vectors together here:
 
 
-
-
-#### Data Structures ####
-
-## Vectors
+## Naming and subsetting vectors
 # Poker and roulette winnings from Monday to Friday:
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -126,17 +153,7 @@ names(poker_vector) <- days_vector
 names(roulette_vector) <- days_vector
 
 # Select poker results for Monday, Tuesday and Wednesday
-poker_start <- poker_vector[c("Monday", "Tuesday", "Wednesday")]
-
-# Calculate the average of the elements in poker_start
-mean(poker_start)
-
-# Poker and roulette winnings from Monday to Friday:
-poker_vector <- c(140, -50, 20, -120, 240)
-roulette_vector <- c(-24, -50, 100, -350, 10)
-days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-names(poker_vector) <- days_vector
-names(roulette_vector) <- days_vector
+poker_start <- poker_vector[c("Monday", "Tuesday")]
 
 # Which days did you make money on poker?
 selection_vector <- poker_vector > 0
@@ -145,7 +162,11 @@ selection_vector <- poker_vector > 0
 poker_winning_days <- poker_vector[selection_vector]
 
 
-###################Lists
+#
+##
+### Lists
+##
+#
 
 #If you're ever having trouble understanding what a function does, type ??function_name
 ?list
@@ -154,7 +175,7 @@ poker_winning_days <- poker_vector[selection_vector]
 ?plot
 
 
-Listy<-list(1,2,5,7,9,c(1,2,5,7,9),1:9,"Hello world!",rep("Hello World!",3))    #Lists can hold any data type
+Listy <- list(1,2,5,7,9,c(1,2,5,7,9),1:9,"Hello world!",rep("Hello World!",3))    #Lists can hold any data type
 Listy
 #In order to access elements of a list we use [] or [[]]
 Listy[6]      #Calls "List Element" 6
@@ -182,7 +203,13 @@ ListPrime
 #Lists are notoriously hard to use. If you don't really get it, that's A OK, feel free to move on.
 
 
-####### Dataframes ######
+
+#
+##
+### Data frames
+##
+#
+
 df<-data.frame(Variable1=21:40, Variable2= rep(seq(2,10,by=2),4), Category1= rep(c("Jesse","Is","A","Cool","Guy"),4),stringsAsFactors = FALSE)
 df        #How does this look?
 View(df)  #How does THIS look?
@@ -212,22 +239,27 @@ df[c(4,9,14,19),3] <- rep("Uncool",4)
 
 
 
+#
+##
+### Matrices
+##
+#
 
+# Box office Star Wars (in millions!)
+new_hope <- c(460.998, 314.4)
+empire_strikes <- c(290.475, 247.900)
+return_jedi <- c(309.306, 165.8)
 
+# Create box_office, combines all movies
+box_office <- c(new_hope, empire_strikes, return_jedi)
 
+# Construct star_wars_matrix
+star_wars_matrix <- matrix(box_office, nrow=3,byrow=TRUE)
 
+worldwide_vector <- rowSums(star_wars_matrix)
 
-
-##################################Logic
-1 == 1
-1 != 1
-1 != 2
-1 < 2
-1 > 2
-1 <= 2 
-1 >= 2
-
-
+#########  Logical Subsetting #####
+#We can use logic to group data according to certain conditions!
 x<- c(1:5,5,9)
 y<- c(2:6,4,9)
 
@@ -249,8 +281,6 @@ z<-c(3:7,3,9)
 
 
 
-#########  Logical Subsetting #####
-#We can use logic to group data according to certain conditions!
 View(df)  #Reminder
 
 #Select only data where the condition is TRUE
@@ -264,19 +294,8 @@ df$Category1[df$Variable1<=35,]   #Can be used on Columns too!
 #Dataframe df SUCH THAT values of Variable2 of df are not equal to 10
 #Column Category1 of dataframe df SUCH THAT values of Variable1 are less than or equal to 35
 
-#### MATRICES #### 
 
-# Box office Star Wars (in millions!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
 
-# Create box_office, combines all movies
-box_office <- c(new_hope, empire_strikes, return_jedi)
 
-# Construct star_wars_matrix
-star_wars_matrix <- matrix(box_office, nrow=3,byrow=TRUE)
-
-worldwide_vector <- rowSums(star_wars_matrix)	
 
 ### Congratulations! If you weren't already, you are now officially a programmer!
