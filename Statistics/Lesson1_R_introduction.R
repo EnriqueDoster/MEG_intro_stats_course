@@ -1,6 +1,5 @@
 # MEG_onboarding_tutorials 
 
-
 #
 ##
 ### Arithmetic operators
@@ -16,8 +15,6 @@
 8 ^ (1/3) # Third root via exponentiation
 7 %% 2  # Modulo operation (remainder of integer division)
 7 %/% 2 # Integer division
-
-
 
 
 #
@@ -255,8 +252,13 @@ box_office <- c(new_hope, empire_strikes, return_jedi)
 
 # Construct star_wars_matrix
 star_wars_matrix <- matrix(box_office, nrow=3,byrow=TRUE)
+# Use RStudio "View" to see the matrix
+View(star_wars_matrix)
 
+## Sum values in the rows and output a vector
 worldwide_vector <- rowSums(star_wars_matrix)
+
+
 
 #########  Logical Subsetting #####
 #We can use logic to group data according to certain conditions!
