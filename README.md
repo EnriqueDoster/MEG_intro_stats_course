@@ -1,1 +1,1 @@
-# MEG_onboarding_lessons
+# MEG training tutorials
