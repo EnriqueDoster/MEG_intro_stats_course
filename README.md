@@ -4,7 +4,8 @@ Start Date: May 11, 2020
 
 Email: meglab.metagenomics@gmail.com
 
-Slack group: microbialecol-1s68204.slack.com
+Slack group: https://meg-research.slack.com
+[Slack invite link](https://join.slack.com/t/meg-research/shared_invite/zt-ej7f576o-QfNwH_yfg0ljyvk3K~ORDg)
 
 ### Summary
 These lessons are designed to introduce researchers to the R statistical language for statistical analysis of microbiome and resistome results. The focus of lesson 1 is to help students install R on their computer, install the necessary R packages, and start playing around with R's functionality. In Lesson 2, students will learn how to calculate and plot summary statistics, including alpha-diversity indices to summarize the microbiome and resistome. In Lesson 3, we'll dive into count normalization using cumulative sum scaling (CSS), ordination with non-metric multidimensional scaling, differential abundance testing with a zero-inflated Gaussian (ZIG) model, and advanced plotting using ggplot2.
@@ -14,10 +15,10 @@ While we are primarily developing these training resources for the Microbial Eco
   * There is 1 "deliverable" per step. Some steps require something be sent to "meglab.metagenomics@gmail.com" or will have a link to a corresponding set of questions.
 
 ### Techie time
-We wholeheartedly encourage students to independently troubleshoot the majority of problems they encounter using resources like:
-* google (or other search engine)
-* our slackgroup channel #2020-stats-tutorial-group 
-* Bioinformatic forums such as (stackoverflow.com, biostars.org, seqanswers.com, etc.)
+We wholeheartedly encourage students to independently troubleshoot the majority of problems they might encounter by:
+* googling it (or using another search engine)
+* getting help from other students by using our slackgroup channel #2020-stats-tutorial-group 
+* searching bioinformatic forums such as (stackoverflow.com, biostars.org, seqanswers.com, etc.)
 
 In addition, we will have "techie time" every Thursday at 12pm MST on Slack to help address any ongoing issues.
 
