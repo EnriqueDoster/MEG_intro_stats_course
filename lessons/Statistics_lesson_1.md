@@ -45,6 +45,11 @@ We will break up this lesson into 4 steps. We'll meet once a week to discuss eac
 * Explore these websites for troubleshooting errors with R.
   * [R mailing list](https://www.r-project.org/mail.html)
   * [Stack overflow](https://stackoverflow.com/questions/tagged/r)
+* Watch the following videos from our workshop on Bioinformatics for Shotgun Metagenomic Research – December 2, 2017
+Held in Conjunction with the Conference of Research Workers in Animal Diseases, Chicago, IL.
+  * [Introduction to Genetic Sequencing for Metagenomic Research (46 min)](https://echo360.org/media/94fbcc5c-093e-423c-88e1-447e6888e3a0/public)
+  * [Skillsets and Teams Needed for Metagenomic Research (11 min)](https://echo360.org/media/89db59b5-5dc8-4774-8b1b-37b9c560ff71/public)
+  
 ### Step 1) Deliverable
 * Using RStudio, run the command below and send a screenshot to "meglab.metagenomics@gmail.com"
 ```
@@ -81,6 +86,9 @@ In the task for Step 2, we'll install all of the R packages that are relevant to
   * From Bioconductor (try to install these, but move on if you are getting errors):
     * phyloseq
     * metagenomeSeq
+* Watch the following videos from our previous workshop:
+  * [Sequencer Output Files (19 min)](https://echo360.org/media/029c1462-2e28-4899-99b5-d759bd8f0d2b/public)
+ 
 ### Step 2) Deliverable
 * Just like in Step 1, run "sessionInfo()" and send a screenshot to "meglab.metagenomics@gmail.com"
 
@@ -144,9 +152,16 @@ getwd():
   * Open the "Lesson1_R_introduction.R" script by clicking on it.
   * Follow instructions on the script to get familiarized with R.
     * When editing a script with RStudio, you can use "CTRL + ENTER" to run one line at time.
+* After playing around with R, watch the following videos from our previous workshop to prepare for Step 4:
+  * [Sequence Data QC & Introduction to Computing Pipelines (17 min)](https://echo360.org/media/cbfa8587-ee54-4ba7-810c-cfefdd082258/public)
+  * [Databases (19 min)](https://echo360.org/media/153f0f30-ad90-4949-93e9-cc12f19be9ce/public)
+  * [Kmer Classification Algorithms (18 min)](https://echo360.org/media/bf9507a5-ad60-4528-bcb7-e70e5422595b/public)
+  
+
 
 ### Step 3) Deliverable
-* Answer the questions for ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_onboarding_lessons/blob/master/Statistics/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
+* Answer the questions on this doccument ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
+
 
 # Step 4 - Reading-in data
 ### Getting microbiome and resistome results into R
@@ -154,6 +169,8 @@ getwd():
 
 ### Task
 
+* Before moving on to the R script, watch this video which highlights the output from our bioinformatic pipeline AMR++. There are many other bioinformatic pipelines, but ultimately the results are a count matrix which we will learn to analyze statistically.
+  * [AMR++ Pipeline Output (42 min)](https://echo360.org/media/6b50819b-0920-48eb-a6fa-9ca7996c723d/public)
 * Using the same project from step 3 and follow instructions in the R script, "Lesson1_R_file_exploration.R".
 * Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit an email with the following information:
   * The number of rows and columns for each file.
