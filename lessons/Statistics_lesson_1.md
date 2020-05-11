@@ -57,6 +57,7 @@ The basic functions included with base R are useful on their own, but the power 
 R packages are developed for specific purposes and are often uploaded to public repositories, where they can be easily accessed. The most popular repositories for R packages are:
 * The [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/) is the main repository for R packages and has > 10,000 packages and has been growing steadily since it R was developed.
 <img src="https://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d2594d25970c-800wi" width="400" height="300" />  
+
 * [Bioconductor](https://www.bioconductor.org/) is a repository emphasizing R packages for bioinformatics.
 * [Github](https://github.com/) is not specifically for R packages, Github is probably the most popular repository for open source projects. However, unlike CRAN and Bioconductor, github does not have a review process associated with it.
 
