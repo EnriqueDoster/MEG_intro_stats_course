@@ -3,6 +3,9 @@
 Start Date: May 11, 2020
 
 Email: meglab.metagenomics@gmail.com
+  * Paul Morley - pmorley@tamu.edu
+  * Noelle Noyes - nnoyes@umn.edu
+  * Enrique Doster - enriquedoster@gmail.com
 
 Slack group: https://meg-research.slack.com
 
