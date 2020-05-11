@@ -40,22 +40,29 @@ Upon completion of these lessons, students will:
   * Differential abundance testing using a zero-inflated Gaussian (ZIG) model
 
 ### Resources:
-* [Installing R](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu)
+R programming
 * [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
   * This is a free online book that goes over many useful topics in a quirky, but fun way! Follow along with our simplified R scripts in Lesson 1 and reference this book if you have any other questions.
 * [R programming coursera course](https://www.coursera.org/learn/r-programming)
   * This free coursera course goes in-depth with all of the functionality of R. It combines videos with example R scripts for you to follow along with. We recommend this course after you have been playing around with R a bit and want to learn more about the details into how R works.
 * [Introduction to R workshop](https://bioinformatics.ca/workshops/2018-introduction-to-R/)
+  * We haven't personally tried this workshop, but they have a combination of videos, slides, and R code for various topics.
+
+Statistics
 * [GUide to STatistical Analysis in Microbial Ecology (GUSTA ME)](https://mb3is.megx.net/gustame)
+* [LHS 610: Exploratory Data Analysis for Health](https://kdpsingh.lab.medicine.umich.edu/lhs-610)
+  * We haven't personaly tried this course, but they provide great videos and code examples for learning how to explore data using R.
+* [#bioinformatics live twitter feed](https://twitter.com/search?q=%23bioinformatics&src=hash)
 
 
 ## Timeline
-We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings with zoom.
+We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom. Please check Slack for updates!
 
 [Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/scripts/Lesson1_R_introduction.R)
 * Step 1 - Download and install R/RStudio
   * Start: May 11, 2020 
   * Requested completion: May 17, 2020
+    * If you finish with time to spare, move on to Step 2. In the case that everyone finishes Step 2 before our next meeting on May 18, we can move on to Step 3 ahead of schedule.
 * Step 2 - Install R packages
   * Start: May 18, 2020
   * Requested completion: May 24, 2020
