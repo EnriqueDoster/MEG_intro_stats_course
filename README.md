@@ -65,7 +65,7 @@ Statistics
 ## Timeline
 We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom. Please check Slack for updates!
 
-[Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/scripts/Lesson1_R_introduction.R)
+[Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/MEG_intro_stats_course/edit/master/lessons/Statistics_lesson_1.md)
 * Step 1 - Download and install R/RStudio
   * Start: May 11, 2020 
   * Requested completion: May 17, 2020
