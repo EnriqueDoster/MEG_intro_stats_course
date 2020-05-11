@@ -5,6 +5,7 @@ Start Date: May 11, 2020
 Email: meglab.metagenomics@gmail.com
 
 Slack group: https://meg-research.slack.com
+
 [Slack invite link](https://join.slack.com/t/meg-research/shared_invite/zt-ej7f576o-QfNwH_yfg0ljyvk3K~ORDg)
 
 ### Summary
@@ -40,6 +41,12 @@ Upon completion of these lessons, students will:
   * Differential abundance testing using a zero-inflated Gaussian (ZIG) model
 
 ### Resources:
+MEG resources
+* [MEG bioinformatic term glossary](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Glossary.md)
+* [AMR ++ pipeline overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/AMR%2B%2B_v2_pipeline_overview.pdf)
+* [Bioinformatic AMR and 16S pipeline overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Bioinformatic_AMR_and_16S_pipeline_overview.pdf)
+* [Bioinformatics statistics overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Bioinformatic_statistics_overview.pdf)
+
 R programming
 * [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
   * This is a free online book that goes over many useful topics in a quirky, but fun way! Follow along with our simplified R scripts in Lesson 1 and reference this book if you have any other questions.
