@@ -13,6 +13,14 @@ While we are primarily developing these training resources for the Microbial Eco
 * We'll organize a group to all take the same lesson together and we'll have a virtual meeting once per week for 30 minutes to go over each of the steps in that lesson. The majority of the work will be self-directed and on your own time, but we encourage you to work in groups and participate in asking questions in the slack group. If you don't have any questions and find this all extremely easy, please help others with their questions and help us improve our tutorial.
   * There is 1 "deliverable" per step. Some steps require something be sent to "meglab.metagenomics@gmail.com" or will have a link to a corresponding set of questions.
 
+### Techie time
+We wholeheartedly encourage students to independently troubleshoot the majority of problems they encounter using resources like:
+* google (or other search engine)
+* our slackgroup channel #2020-stats-tutorial-group 
+* Bioinformatic forums such as (stackoverflow.com, biostars.org, seqanswers.com, etc.)
+
+In addition, we will have "techie time" every Thursday at 12pm MST on Slack to help address any ongoing issues.
+
 
 ### Learning objectives:
 Upon completion of these lessons, students will:
@@ -39,6 +47,7 @@ Upon completion of these lessons, students will:
 
 
 ## Timeline
+We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings with zoom.
 [Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/Bioinformatic_resources/blob/master/Onboarding_training/Statistics_onboarding/Statistics_lesson_1.md)
 * Step 1 - Download and install R/RStudio
   * Start: May 11, 2020 
