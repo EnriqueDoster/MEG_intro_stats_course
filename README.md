@@ -49,6 +49,7 @@ Upon completion of these lessons, students will:
 
 ## Timeline
 We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings with zoom.
+
 [Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/Bioinformatic_resources/blob/master/Onboarding_training/Statistics_onboarding/Statistics_lesson_1.md)
 * Step 1 - Download and install R/RStudio
   * Start: May 11, 2020 
@@ -82,7 +83,7 @@ Lesson 3 - Advanced statistical analyses and plotting
    
    
 
-# Deliverables:
+## Deliverables:
 Lesson 1 deliverables
 * For Step 1 and 2, students must send a screenshot of their "sessionInfo()" to ensure that R and R studio are installed in addition to the necessary R packages, respectively.
 * Step 3 - After familiarizing themselves with some basic R functionality, students will submit a short quiz.
