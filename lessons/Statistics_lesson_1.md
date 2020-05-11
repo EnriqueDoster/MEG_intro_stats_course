@@ -163,6 +163,7 @@ getwd():
 * Answer the questions on this doccument ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
 
 
+
 # Step 4 - Reading-in data
 ### Getting microbiome and resistome results into R
 - Under development - 
