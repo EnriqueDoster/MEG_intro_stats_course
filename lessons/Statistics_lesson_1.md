@@ -78,12 +78,6 @@ In the task for Step 2, we'll install all of the R packages that are relevant to
     * vegan
     * ggplot2
     * data.table
-    * gridExtra
-    * geometry
-    * rgl
-    * scales
-    * RColorBrewer
-    * ggthemes
   * From Bioconductor (try to install these, but move on if you are getting errors):
     * phyloseq
     * metagenomeSeq
@@ -97,9 +91,25 @@ R code can be run directly in the R terminal, or can be organized in to a series
 
 [RStudio projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) make it easy to organize different datasets, each with their own working directory, workspace, history, and source documents.
 * The working directory is just a file path on your computer that sets the default location of any files you read into R, or save out of R. In other words, a working directory is like a little flag somewhere on your computer which is tied to a specific analysis project.
-  * If you ask R to import a dataset from a text file, or save a dataframe as a text file, it will assume that the file is inside of your working directory.
+  * If you ask R to import a dataset from a text file, or save a dataframe as a text file, it will assume that the file is inside of your working directory, also known as the "relative path". For example, if you know that there is a folder in your working directory called "scripts" and it contains a "file.txt", you could specify it's location like this:
+```
+scripts/file.txt
+```
+  * Alternatively, you can access files from anywhere in your computer if you know it's exact location, or "absolute path". For example, on windows computers you could specify the location of the "file.txt" on your desktop like this:
+
+```
+# Windows
+c:\Users\username\Desktop\file.txt
+
+# Linux
+/home/username/Desktop/file.txt
+
+# Mac
+/Users/username/Desktop/file.txt
+```
+  
   * You can only have one working directory active at any given time. The active working directory is called your current working directory. We simplify how to manage these working directories by creating a workspace for each of your projects or datasets.
-  * To see your current working directory, use
+  * To see your current working directory, use the following command:
 ```
 getwd():
 ```
@@ -119,32 +129,32 @@ getwd():
 
 
 ### Task
-1. Open Rstudio and set working directory to the newly downloaded directory, "MEG_onboarding_lessons"
-2. Create a new R project called "Lesson 1 project" and follow the instructions to familiarize yourself with basic R functions.
-3. Open RStudio.
-4. Select File → NewProject…
-5. Click on Version Control.
-6. Click on Git.
-7. Enter "https://github.com/EnriqueDoster/MEG_training_tutorials" as the Repository URL
-8. The project directory name should automatically fill out, or you could change it to anything else you want.
-9. Click on Browse… to find where you want the project to be created.
-10. Click Open.
-11. Click Create Project; the project files should be downloaded and RStudio should re-start with the new project data.
+1. Open RStudio.
+2. Select File → NewProject…
+3. Click on Version Control.
+4. Click on Git.
+5. Enter "https://github.com/EnriqueDoster/MEG_intro_stats_course" as the Repository URL
+6. The project directory name should automatically fill out, or you could change it to anything else you want.
+7. Click on Browse… to find where you want the project to be created.
+8. Click Open.
+9. Click Create Project; the project files should be downloaded and RStudio should re-start with the new project data.
   * NB. Your working directory is now wherever you selected to download the github files. 
-12. Look at the bottom right panel in Rstudio to view files in your new working directory.
-  * Click on the "Statistics" directory
+10. Look at the bottom right panel in Rstudio to view files in your new working directory.
+  * Click on the "scripts" directory (NB This does not change your working directory)
   * Open the "Lesson1_R_introduction.R" script by clicking on it.
-  * Follow instructions on the script to get familiarized with R. 
+  * Follow instructions on the script to get familiarized with R.
+    * When editing a script with RStudio, you can use "CTRL + ENTER" to run one line at time.
 
 ### Step 3) Deliverable
 * Answer the questions for ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_onboarding_lessons/blob/master/Statistics/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
 
 # Step 4 - Reading-in data
 ### Getting microbiome and resistome results into R
+- Under development - 
 
 ### Task
 
-* Follow instructions in the R script, (XXXX), to load all three files and calculate summary statistics for each file.
+* Using the same project from step 3 and follow instructions in the R script, "Lesson1_R_file_exploration.R".
 * Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit an email with the following information:
   * The number of rows and columns for each file.
   * A short description of what kind of samples are being analyzed.
