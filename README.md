@@ -60,6 +60,11 @@ R programming
 * [Introduction to R workshop](https://bioinformatics.ca/workshops/2018-introduction-to-R/)
   * We haven't personally tried this workshop, but they have a combination of videos, slides, and R code for various topics.
 
+Command-line 
+* [Explain shell](https://explainshell.com/)
+  * cool website that explains bash commands piece by piece
+
+
 Statistics
 * [GUide to STatistical Analysis in Microbial Ecology (GUSTA ME)](https://mb3is.megx.net/gustame)
 * [LHS 610: Exploratory Data Analysis for Health](https://kdpsingh.lab.medicine.umich.edu/lhs-610)
