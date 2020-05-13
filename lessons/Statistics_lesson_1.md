@@ -93,7 +93,7 @@ In the task for Step 2, we'll install all of the R packages that are relevant to
 * Just like in Step 1, run "sessionInfo()" and send a screenshot to "meglab.metagenomics@gmail.com"
 
 
-# Step 3 - Introduction to R programming
+# Step 3 - Explore basic R functionality
 ### R scripts and "projects"
 R code can be run directly in the R terminal, or can be organized in to a series of steps within an [R script](http://mercury.webster.edu/aleshunas/R_learning_infrastructure/R%20scripts.html). R scripts facilitate reproducibility as all your code can be stored in a single file and shared for others to replicate.
 
@@ -164,7 +164,7 @@ getwd():
 
 
 
-# Step 4 - Reading-in data
+# Step 4 - Learn how to read-in data to R and provide general information about files
 ### Getting microbiome and resistome results into R
 - Under development - 
 
