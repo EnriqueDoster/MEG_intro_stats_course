@@ -54,7 +54,7 @@ MEG resources
 
 R programming
 * [RStudio cheatsheets](https://rstudio.com/resources/cheatsheets/)
-  * This website has tons of helpful cheatsheets for various R packages and analyses methods. Also includes cheatsheets in other languages.
+  * This website has tons of helpful cheatsheets for various R packages and analyses methods. Also includes cheatsheets translated to other languages.
 * [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
   * This is a free online book that goes over many useful topics in a quirky, but fun way! Follow along with our simplified R scripts in Lesson 1 and reference this book if you have any other questions.
 * [R programming coursera course](https://www.coursera.org/learn/r-programming)
