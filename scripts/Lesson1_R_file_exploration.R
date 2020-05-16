@@ -2,7 +2,9 @@
 # In this lesson we'll go over how to read in results from microbiome and resistome analysis.
 
 
+# Using your computer's file explorer (finder), navigate to where you downloaded this github repository.
 # Open the folder "data" and explore the file "test_AMR_analytic_matrix.csv" using excel
+
 # We''ll use an R command, read.table(), to read in the data, but we need to know a few things about the file.
 # Please notice that the file has column names "header=T", the first column has names for each of rows "row.names=1",
 # and it is a comma seperated file "sep=','
