@@ -25,7 +25,7 @@ This will be the first time that we attempt going through this lesson with a gro
 ### Techie time
 We wholeheartedly encourage students to independently troubleshoot the majority of problems they might encounter by:
 * googling it (or using another search engine)
-* getting help from other students by using our slackgroup channel #2020-stats-tutorial-group 
+* getting help from other students by using our slackgroup channel #2020-stats-tutorial-group
 * searching bioinformatic forums such as (stackoverflow.com, biostars.org, seqanswers.com, etc.)
 
 In addition, we will have "techie time" every Thursday at 12pm MST on Slack to help address any ongoing issues.
@@ -62,7 +62,7 @@ R programming
 * [Introduction to R workshop](https://bioinformatics.ca/workshops/2018-introduction-to-R/)
   * We haven't personally tried this workshop, but they have a combination of videos, slides, and R code for various topics.
 
-Command-line 
+Command-line
 * [Explain shell](https://explainshell.com/)
   * cool website that explains bash commands piece by piece
 
@@ -70,7 +70,7 @@ Command-line
 Statistics
 * [GUide to STatistical Analysis in Microbial Ecology (GUSTA ME)](https://mb3is.megx.net/gustame)
 * [LHS 610: Exploratory Data Analysis for Health](https://kdpsingh.lab.medicine.umich.edu/lhs-610)
-  * We haven't personaly tried this course, but they provide great videos and code examples for learning how to explore data using R.
+  * We haven't personally tried this course, but they provide great videos and code examples for learning how to explore data using R.
 * [#bioinformatics live twitter feed](https://twitter.com/search?q=%23bioinformatics&src=hash)
 
 
@@ -79,7 +79,7 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
 
 [Lesson 1 "Getting set-up with R"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_1.md)
 * Step 1 - Download and install R/RStudio
-  * Start: May 11, 2020 
+  * Start: May 11, 2020
   * Requested completion: May 17, 2020
     * If you finish with time to spare, move on to Step 2. In the case that everyone finishes Step 2 before our next meeting on May 18, we can move on to Step 3 ahead of schedule.
 * Step 2 - Install R packages
@@ -95,21 +95,20 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
 Lesson 2 - Data exploration and basic statistics
 * Scheduled to begin June 8, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Calculating summary statistics
+  * Count aggregation by taxa
   * Alpha diversity indices
   * count summaries (e.g. mean, standard deviation, etc)
-* Step 2 - Count aggregation by taxa
-* Step 3 - Introduction to plotting
-* Step 4 - Basic statistical testing (wilcoxon, linear models)
+* Step 2 - Introduction to plotting
+* Step 3 - Basic statistical testing (wilcoxon, linear models)
 
 Lesson 3 - Advanced statistical analyses and plotting
 * Scheduled to begin July 6, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Count normalization
-* Step 2 - Learn to run R GUI code for exploratory figures
-* Step 3 - Ordination with non-metric multidimensional (NMDS) and statistical comparisons
-* Step 4 - Differential abundance testing with Zero-inflated Gaussian (ZIG) model
+* Step 2 - Ordination with non-metric multidimensional and statistical comparisons
+* Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
+* Step 4 - Learn to run R GUI code for exploratory figures
 * Step 5 - Advanced plotting (heatmaps, volcano plots, ordination)
-   
-   
+
 
 ## Deliverables:
 Lesson 1 deliverables
@@ -125,4 +124,3 @@ Lesson 2 deliverables
 
 Lesson 3 deliverables
 * TBD
-
