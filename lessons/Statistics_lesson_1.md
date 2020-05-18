@@ -165,6 +165,7 @@ During an R session, you might define a large number of R-objects: variables, da
 
 
 ### Task
+R task
 1. Open RStudio.
 2. Select File → NewProject…
 3. Click on Version Control.
@@ -210,10 +211,20 @@ Additionally, we'll learn how to read-in results from analyzing 16S samples with
 
 ### Task
 
-* Before moving on to the R script, watch this video which highlights the output from our bioinformatic pipeline AMR++. There are many other bioinformatic pipelines, but ultimately the results are a count matrix which we will learn to analyze statistically.
+Before moving on to the R script, watch this video which highlights the output from our bioinformatic pipeline AMR++. There are many other bioinformatic pipelines, but ultimately the results are a count matrix which we will learn to analyze statistically.
   * [AMR++ Pipeline Output (42 min)](https://echo360.org/media/6b50819b-0920-48eb-a6fa-9ca7996c723d/public)
-* Using the same R project from step 3 and follow instructions in the R script, "Lesson1_R_file_exploration.R".
-* Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit an email with the following information:
-  * The number of rows and columns for each file.
-  * A short description of what kind of samples are being analyzed.
-  * A short description of what the taxonomy file contains and how it relates to the count table.
+Use the same R project from step 3 and follow instructions in the R script, "Lesson1_R_file_exploration.R".
+
+To ensure you have the most up-to-date code,
+1. Open RStudio.
+2. Select File → Open Project…
+3. Find your R project from Lesson 1 → Click Open.
+4. Click on Tools → Version Control → Pull branches
+  * As long as you saved any changes you made with new file names, this will update everything else in the repository to catch up with the "master" branch.
+5. Follow the instructions in the script, "Lesson1_R_file_exploration.R"
+
+### Step 3) Deliverable
+Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit an email with the following information:
+* The number of rows and columns for each file.
+* A short description of what kind of samples are being analyzed.
+* A short description of what the taxonomy file contains and how it relates to the count table.
