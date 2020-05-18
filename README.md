@@ -84,9 +84,9 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
     * If you finish with time to spare, move on to Step 2. In the case that everyone finishes Step 2 before our next meeting on May 18, we can move on to Step 3 ahead of schedule.
 * Step 2 - Install R packages
   * Start: May 18, 2020
-  * Requested completion: May 24, 2020
+  * Requested completion: May 31, 2020
 * Step 3 - Introduction to R
-  * Start: May 25, 2020
+  * Start: May 18, 2020
   * Requested completion: May 31, 2020
 * Step 4 - Reading-in data to R
   * Start: June 1, 2020
