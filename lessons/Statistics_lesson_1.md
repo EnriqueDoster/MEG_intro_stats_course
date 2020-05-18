@@ -190,7 +190,7 @@ After playing around with R, watch the following videos from our previous worksh
 
 
 ### Step 3) Deliverable
-* Answer the questions on this doccument ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
+* Answer the questions on this document ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment1_IntrotoRandRStudio.docx) and submit the answers to meglab.metagenomics@gmail.com
 
 
 
@@ -198,8 +198,8 @@ After playing around with R, watch the following videos from our previous worksh
 ### Analyzing data from files
 Undoubtedly, we really couldn't do cool statistics in R without importing data from the outside world. For example, in Step 3 we saw that you could manually input all of the data into an R object, but clearly this is highly inefficient for large datasets. Luckily, R in combination with other packages, can read-in just about any type of file format.
 
-In Step 4, we'll go over how to read-in data from common text file formats, comma-delimited and tab-delimited. We'll introduce you to typical results from microbiome and resistome analysis by going over:
-* count matrices
+In this step, we'll go over how to read-in data from common text file formats, comma-delimited and tab-delimited. We'll introduce you to typical results from microbiome and resistome analysis by going over:
+* count tables
 * annotation files (taxonomic and for AMR)
 * sample metadata
 
@@ -207,6 +207,12 @@ Additionally, we'll learn how to read-in results from analyzing 16S samples with
 * count tables in the ".biom" format
 * phylogenetic trees
 * aligned fasta sequences
+
+Once we have the data in R, we will learn how to explore bioinformatic results and describe:
+* the number of rows and columns for each file
+* what each file contains
+* what the taxonomy file is used for and how it relates to the count tables.
+
 
 
 ### Task
@@ -224,7 +230,6 @@ To ensure you have the most up-to-date code,
 5. Follow the instructions in the script, "Lesson1_R_file_exploration.R"
 
 ### Step 3) Deliverable
-Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit an email with the following information:
-* The number of rows and columns for each file.
-* A short description of what kind of samples are being analyzed.
-* A short description of what the taxonomy file contains and how it relates to the count table.
+Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and answer the questions on this document ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment2_FileExploration.docx) and submit the answers to meglab.metagenomics@gmail.com
+
+
