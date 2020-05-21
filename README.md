@@ -72,6 +72,8 @@ Statistics
 * [LHS 610: Exploratory Data Analysis for Health](https://kdpsingh.lab.medicine.umich.edu/lhs-610)
   * We haven't personally tried this course, but they provide great videos and code examples for learning how to explore data using R.
 * [#bioinformatics live twitter feed](https://twitter.com/search?q=%23bioinformatics&src=hash)
+* [ggpubr](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/)
+  * Nice package for "publication-ready" figures.
 
 
 ## Timeline
