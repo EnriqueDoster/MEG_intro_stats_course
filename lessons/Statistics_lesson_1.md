@@ -172,15 +172,15 @@ R task
 4. Click on Git.
 5. Enter "https://github.com/EnriqueDoster/MEG_intro_stats_course" as the Repository URL
 6. The project directory name should automatically fill out, or you could change it to anything else you want.
-7. Click on Browse… to find where you want the project to be created.
+7. Click on Browse… navigate to where you want the project to be created on your computer.
 8. Click Open.
-9. Click Create Project; the project files should be downloaded and RStudio should re-start with the new project data.
-  * NB. Your working directory is now wherever you selected to download the github files.
-10. Look at the bottom right panel in Rstudio to view files in your new working directory.
+9. Click Create Project which will cause the project files to be downloaded and RStudio should re-start with the new project data.
+  * NB. Your working directory is now set to the location you selected in step 7 and should include all of the files in the course github directory.
+10. Look at the bottom right panel in Rstudio to view the files in your new working directory.
   * Click on the "scripts" directory (NB This does not change your working directory)
   * Open the "Lesson1_R_introduction.R" script by clicking on it.
   * Follow instructions on the script to get familiarized with R.
-    * When editing a script with RStudio, you can use "CTRL + ENTER" to run one line at time.
+    * To move through the script one line at a time, you can use "CTRL + ENTER" or "CMD + ENTER" in the 
 
 After playing around with R, watch the following videos from our previous workshop to prepare for Step 4:
   * [Sequence Data QC & Introduction to Computing Pipelines (17 min)](https://echo360.org/media/cbfa8587-ee54-4ba7-810c-cfefdd082258/public)
