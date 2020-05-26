@@ -229,7 +229,7 @@ To ensure you have the most up-to-date code,
   * As long as you saved any changes you made with new file names, this will update everything else in the repository to catch up with the "master" branch.
 5. Follow the instructions in the script, "Lesson1_R_file_exploration.R"
 
-### Step 3) Deliverable
+### Step 4) Deliverable
 Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and answer the questions on this document ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment2_FileExploration.docx) and submit the answers to meglab.metagenomics@gmail.com
 
 
