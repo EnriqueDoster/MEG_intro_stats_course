@@ -2,12 +2,26 @@
 # In this lesson we'll go over how to read in results from microbiome and resistome analysis.
 
 
-# Using your computer's file explorer (finder), navigate to where you downloaded this github repository.
-# Open the folder "data" and explore the file "test_AMR_analytic_matrix.csv" using excel
+# Using your computer's file explorer (in mac it's called "finder"), navigate to where you created the R project
+# and contains the github repository. 
+# Open the folder "data" and explore the file "test_AMR_analytic_matrix.csv" using excel or another program.
+# This file contains the count results of bioinformatic analysis with AMR++ and alignment to the MEGARes resistance database.
+# Based on the names on the spreadsheet, where are the samples and where can we find the gene accessions?
+
+# It's easy to answer a lot of questions about your data using R. However, importing data into R can be done
+# in many ways and can be the first challenge you face in analyzing your data.
+
+# Often, data is in a text format and delimited by tabs (.tsv) or commas (.csv). 
 
 # We''ll use an R command, read.table(), to read in the data, but we need to know a few things about the file.
-# Please notice that the file has:
-# column names "header=T", the first column has names for each of rows "row.names=1", and it is a comma seperated file "sep=','
+# We'll give the R command extra information by filling in "flags" or "parameters" for that function. 
+# Remember how to get more information about a function? That documentation will also show the parameters you can modify.
+
+
+# Please notice that the file we are opening up has the following attributes and the flags we use to address it:
+# column names "header=T", 
+# the first column has names for each of rows "row.names=1"
+# and it is a comma seperated file "sep=','
 amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',')
 
 # View structure of the data
@@ -30,27 +44,59 @@ amr[CF24]
 View(amr)
 
 
-# What samples did we analyze? How many samples are in the "amr" project?
+# What samples did we analyze? 
 colnames(amr)
+
+# How many samples are in the "amr" project?
 length(amr)
 
 # Which genes were identified?
 row.names(amr)
 
 # How many genes were identified?
-length(row.names(amr))
+# hint: try nesting a function inside another function
+
+# Can you think of how we might be able to determine how many total counts each sample had?
+# hint: where in the data are the values you are trying to add?
+
+# What about counts per feature? Try looking up a function that could do this for you. 
+
+
+# We'll dive into this topic further in lesson 3, but let's take a look at the distribution of count for different AMR gene accessions
+# First, we can take a look at just one of the row names in the data.frame and see those counts
+amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",]
+
+# We want to use the function "hist()" to create a simple histogram of the counts for the gene accession above, but
+# we get an error when we run the following command:
+hist(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
+
+# Take a look at the error, it says "x must be numeric".
+# Our results from running amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",] looked "numeric", but 
+# the outut also includes the row name and column names. Let's check the structure of the data
+str(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",]) # we can see it's a dataframe with numeric values 
+
+# We can use "typeof()" to see the object type
+typeof(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
+
+# Fortunately, we can convert between some R object types. For example we can use "as.integer()"
+as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
+
+# Check what type of R object you get when using "as.integer()"
+
+
+# Try the following command to create a simple histogram. 
+hist(as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",]))
+
+# Does this distribution seem to be normally distrubuted? What about the Poisson distribution?
+
+# Take a look at a few other taxa, notice that a lot of them are poorly represented across samples in this study. 
+# We refer to this as "sparse" data and this is a major consideration for decision-making around statistical analysis of metagenomic data.
 
 #
-## Can you think of how we might be able to determine how many total counts each sample had? What about counts per feature?
-#
-
-
-
-
-#
+##
 ###
 ####
-##### Annotation file for 
+##### Annotation file for MEGARes gene accessions
 ####
 ###
 ##
@@ -95,4 +141,31 @@ str(subset_annotations)
 
 # Now, how many unique mechanisms did we identify in our data?
 length(unique(subset_annotations$mechanism))
+
+#
+##
+###
+####
+##### Reading-in results from analysis of 16S reads with qiime2
+####
+###
+##
+#
+
+# Qiime2 is another common pipeline used for the analysis of 16S sequencing reads
+# Qiime2 has their own type of file format (.qza) that works with their pipeline and built-in tools
+# For our purposes, we use qiime2 to filter reads based on read quality and use DADA2 to create amplicon sequence variants (ASV).
+# These ASV are then treated as the microbiome features that must be taxonomically classified (labeled) using a bayesian classifier.
+# We use functions in qiime2 to export the results into a format we can use (https://docs.qiime2.org/2019.10/tutorials/exporting/)
+
+# We need to load the phyloseq library which contains special functions
+library(phyloseq)
+
+# We can use the function "import_biom()" from the phyloseq object to read-in a file in the .biom format
+microbiome <- import_biom("data/Exported_16S_qiime2_results/16S_asv_table.biom") # this has count table and phylogenetic tree
+
+# You can use all of the functions we tried above to explore the microbiome dataset
+# Use this count table to answer questions for the Lesson 1 Step 4 deliverable
+head(microbiome)
+
 
