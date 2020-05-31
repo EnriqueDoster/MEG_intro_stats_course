@@ -198,6 +198,19 @@ After playing around with R, watch the following videos from our previous worksh
 ### Analyzing data from files
 Undoubtedly, we really couldn't do cool statistics in R without importing data from the outside world. For example, in Step 3 we saw that you could manually input all of the data into an R object, but clearly this is highly inefficient for large datasets. Luckily, R in combination with other packages, can read-in just about any type of file format.
 
+Here are some common pipelines you might have heard about:
+* AMR++
+  * For resistome and microbiome analysis of shotgun metagenomic sequencing data
+  * Uses alignment to the MEGARes resistance database for resistome characterization and kraken2 for k-mer based classification of the microbiome.
+  * The results are comma-delimited (.csv) count matrices summarizing the counts of features in the rows for samples in the columns.
+* Qiime2
+  * For microbiome analysis of 16S sequencing data. 
+  * Uses DADA2 to create "amplicon sequence variants" (ASVs) and classifies them using a bayesian classifier trained on the GreenGenes 16S rRNA sequence database. 
+  * ASVs are basically the new "operational taxonomic unit (OTU)" that you might have seen in other manuscripts, but now defined with 100% sequence identity compared to the typical 97% used for manuscript.
+  * Results are provided in the ".qza" format and can be analyzed using other plugins included with Qiime2.
+  * As this can limit our analysis options, we export the results into a ".biom" format which contains the counts for each sample.
+  
+
 In this step, we'll go over how to read-in data from common text file formats, comma-delimited and tab-delimited. We'll introduce you to typical results from microbiome and resistome analysis by going over:
 * count tables
 * annotation files (taxonomic and for AMR)
