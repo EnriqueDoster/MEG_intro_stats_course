@@ -206,7 +206,7 @@ From a statistical point of view, the output of both microbiome approaches, ampl
 
 For example, we'll be using the following count matrix with AMR features in the rows and sample names in the colummns:
 
-<img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/example_megares_matrix.png" width="900" height="300" />  
+<img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/example_megares_matrix.png" width="1600" height="400" />  
 
 Depending on your goals and type of data, there are many different bioinformatic pipelines that you could use. Here are two pipelines we'll discuss in this course:
 * [AMR++](https://github.com/meglab-metagenomics/amrplusplus_v2)
