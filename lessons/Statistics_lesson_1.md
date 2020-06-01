@@ -204,9 +204,10 @@ Undoubtedly, we couldn't do all of the cool statistics in R without importing da
 From a statistical point of view, the output of both microbiome approaches, amplicon and shotgun sequencing, as well as resistome sequencing, is similar: an abundance table of counts representing the number of sequences per sample for a specific feature (e.g. taxa, AMR gene, etc.).
 
 
-For example, we'll be using the following count matrix with AMR features in the rows and sample names in the colummns:
+For example, we'll be using the following count matrix with AMR features in the rows (MEG..) and sample names in the colummns (CF..):
 
 <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/example_megares_count_matrix.png" width="1200" height="400" />  
+
 
 Depending on your goals and type of data, there are many different bioinformatic pipelines that you could use. Here are two pipelines we'll discuss in this course:
 * [AMR++](https://github.com/meglab-metagenomics/amrplusplus_v2)
