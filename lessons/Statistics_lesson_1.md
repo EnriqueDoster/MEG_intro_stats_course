@@ -196,17 +196,18 @@ After playing around with R, watch the following videos from our previous worksh
 
 # Step 4 - Reading-in data to R
 ### Analyzing data from files
-Undoubtedly, we really couldn't do cool statistics in R without importing data from the outside world. For example, in Step 3 we saw that you could manually input all of the data into an R object, but clearly this is highly inefficient for large datasets. Luckily, R in combination with other packages, can read-in just about any type of file format.
+Undoubtedly, we really couldn't do cool statistics in R without importing data from the outside world. For example, in Step 3 we saw that you could manually input all of the data into an R object, but clearly this is highly inefficient for large datasets. Luckily, by using R in combination with other packages, we can read-in just about any type of file format.
+
 
 Here are some common pipelines you might have heard about:
-* AMR++
+* [AMR++](https://github.com/meglab-metagenomics/amrplusplus_v2)
   * For resistome and microbiome analysis of shotgun metagenomic sequencing data
   * Uses alignment to the MEGARes resistance database for resistome characterization and kraken2 for k-mer based classification of the microbiome.
   * The results are comma-delimited (.csv) count matrices summarizing the counts of features in the rows for samples in the columns.
-* Qiime2
+* [Qiime2](https://qiime2.org/)
   * For microbiome analysis of 16S sequencing data. 
   * Uses DADA2 to create "amplicon sequence variants" (ASVs) and classifies them using a bayesian classifier trained on the GreenGenes 16S rRNA sequence database. 
-  * ASVs are basically the new "operational taxonomic unit (OTU)" that you might have seen in other manuscripts, but now defined with 100% sequence identity compared to the typical 97% used for manuscript.
+  * ASVs are basically the new "operational taxonomic unit (OTU)" that you might have seen in other manuscripts, but now defined by clustering reads with 100% sequence identity compared to the typical 97% used for manuscript.
   * Results are provided in the ".qza" format and can be analyzed using other plugins included with Qiime2.
   * As this can limit our analysis options, we export the results into a ".biom" format which contains the counts for each sample.
   
@@ -230,7 +231,7 @@ Once we have the data in R, we will learn how to explore bioinformatic results a
 
 ### Task
 
-Before moving on to the R script, watch this video which highlights the output from our bioinformatic pipeline AMR++. There are many other bioinformatic pipelines, but ultimately the results are a count matrix which we will learn to analyze statistically.
+Before moving on to the R script below, watch this video which highlights the output from our bioinformatic pipeline, AMR++. There are many other bioinformatic pipelines, but ultimately the results are a count matrix which we will learn to analyze statistically.
   * [AMR++ Pipeline Output (42 min)](https://echo360.org/media/6b50819b-0920-48eb-a6fa-9ca7996c723d/public)
 Use the same R project from step 3 and follow instructions in the R script, "Lesson1_R_file_exploration.R".
 
