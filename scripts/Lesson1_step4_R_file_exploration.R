@@ -17,28 +17,72 @@
 # We'll give the R command extra information by filling in "flags" or "parameters" for that function. 
 # Remember how to get more information about a function? That documentation will also show the parameters you can modify.
 
-
 # Please notice that the file we are opening up has the following attributes and the flags we use to address it:
 # column names "header=T", 
-# the first column has names for each of rows "row.names=1"
 # and it is a comma seperated file "sep=','
-amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',')
-
-# View structure of the data
-str(amr)
+# Load in the metadata file
+sample_metadata <- read.table('./data/sample_metadata.csv', header=T, sep=',')
 
 # Let's see the first 10 lines of the file
-head(amr)
+head(sample_metadata)
 
-# Think back to viewing data frames, how can you just see the first column?
+# View structure of the data
+str(sample_metadata)
+
+
+# Think back to viewing data frames in Lesson 1 step 3, how can you just see the first column?
 
 
 # What about just the last column?
+# hint, we can determine how many columns we have with results from "str" or by counting the number of columns
 
+# We also know the names for the columns and they can be accessed like this:
+sample_metadata$Sample
+
+# We can check how many samples we have like this by seeing how many values we have in that column
+length(sample_metadata$Sample)
+
+# Now, we want to know many treatment groups we have in the column, "Group"
+# Just using length() gives us a total count
+length(sample_metadata$Group)
+
+# But, we can specify that we only want the unique variables
+unique(sample_metadata$Group)
+length(unique(sample_metadata$Group))
+
+# In Lesson 2 we'll use this metadata information to inform statistical comparisons.
+
+#
+##
+###
+####
+##### Resistome results from alignment to the MEGARes database
+####
+###
+##
+#
+
+# Load in the count table
+# and it is a comma seperated file "sep=','
+# column names "header=T", 
+# the first column has names for each of rows "row.names=1", we add this flag to address a common format with count matrices
+# If you open the AMR_analytic_matrix.csv file with excel, you'll notice the sample names (columns) appear to be shifted over incorrectly.
+# However, the file actually contains an empty spot over that first column because we use it to specify "row.names" for the R object.
+amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',')
+
+# look at data structure. Notice that the gene accessions don't show up as a column.
+str(amr)
+
+# This way, only the sample data is in the count table and you can easily sum values in these columns.
+sum(amr)
+
+# You can access the row.names like this:
+row.names(amr)
 
 # This almost works to just show you the results for a single sample, can you fix it?
 # hint - difference is whether CF24 is a variable or a string
-amr[CF24]
+amr[,CF24]
+
 
 # View the entire count table
 View(amr)
@@ -59,7 +103,7 @@ row.names(amr)
 # Can you think of how we might be able to determine how many total counts each sample had?
 # hint: where in the data are the values you are trying to add?
 
-# What about counts per feature? Try looking up a function that could do this for you. 
+# What about counts per feature? Try looking up a function that "sum" this for you. 
 
 
 # We'll dive into this topic further in lesson 3, but let's take a look at the distribution of count for different AMR gene accessions
@@ -113,7 +157,7 @@ hist(as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzy
 annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names=1, sep="\t")
 
 # Explore the annotation object, which column matches the rows in the amr object?
-annotations[1]
+annotations[,1]
 
 # Get all the row names for the "amr" object and place it in a new object called "amr_headers"
 amr_headers <- row.names(amr)
@@ -157,6 +201,11 @@ length(unique(subset_annotations$mechanism))
 # As we went over in the notes for Lesson 1 step 4, depending on your bioinformatic analysis
 kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, row.names=1, sep=',')
 
+
+# Take a look at the row names. As part of AMR++, we created a python script that can parse the kraken2 report
+# and provide it in a better format for use with R. 
+# Notice that the row names contain taxomic ranks  
+
 # Use this object to answer questions for the Lesson 1 Step 4 deliverable
 
 
@@ -173,6 +222,7 @@ kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, r
 # We use functions in qiime2 to export the results into a format we can use (https://docs.qiime2.org/2019.10/tutorials/exporting/)
 
 # We need to load the phyloseq library which contains special functions, in this case to load .biom files
+# NB. People often load libraries at the beginning of each script.
 library(phyloseq)
 
 # We can use the function "import_biom()" from the phyloseq object to read-in a file in the .biom format
@@ -184,6 +234,15 @@ head(microbiome)
 str(microbiome)
 # This is specific to the "phyloseq" package which we'll explore further in Lesson, so for now we can just convert it to a data.frame
 microbiome.df <- as.data.frame(microbiome)
+
+# You'll notice that the row.names or ASVs don't have useful names so we'll have to also use an annotation file 
+# that gives us more information about how each ASV was classified.
+
+# There is a file called "taxonomy.tsv" in the "data/Exported_16S_qiime2_results/" directory. Try loading it here:
+taxa <- read.table()
+
+# Take a look at the taxa object. We'll have to modify the row the data for easier use.
+# We'll go deeper into this with Lesson 2.
 
 # Now you can use all of the functions we tried above to explore the microbiome dataset
 # Use this count table to answer questions for the Lesson 1 Step 4 deliverable
