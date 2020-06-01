@@ -228,8 +228,9 @@ In this step, we'll go over how to read-in data from common text file formats, c
 
 Additionally, we'll learn how to read-in results from analyzing 16S samples with Qiime2 by using phyloseq to import:
 * count tables in the ".biom" format
-* phylogenetic trees
-* aligned fasta sequences
+* In the next steps we'll add:
+  * phylogenetic trees
+  * aligned fasta sequences
 
 Once we have the data in R, we will learn how to explore bioinformatic results and describe:
 * the number of rows and columns for each file
