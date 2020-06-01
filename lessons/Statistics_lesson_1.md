@@ -178,7 +178,7 @@ R task
   * NB. Your working directory is now set to the location you selected in step 7 and should include all of the files in the course github directory.
 10. Look at the bottom right panel in Rstudio to view the files in your new working directory.
   * Click on the "scripts" directory (NB This does not change your working directory)
-  * Open the "Lesson1_R_introduction.R" script by clicking on it.
+  * Open the "Lesson1_step3_R_introduction.R" script by clicking on it.
   * Follow instructions on the script to get familiarized with R.
     * To move through the script one line at a time, you can use "CTRL + ENTER" or "CMD + ENTER" in the 
 
@@ -241,9 +241,10 @@ To ensure you have the most up-to-date code,
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
   * As long as you saved any changes you made with new file names, this will update everything else in the repository to catch up with the "master" branch.
-5. Follow the instructions in the script, "Lesson1_R_file_exploration.R"
+5. Follow the instructions in the script, "Lesson1_step4_R_file_exploration.R"
 
 ### Step 4) Deliverable
-Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and answer the questions on this document ["Lesson1-Assignment1_IntrotoRandRStudio.docx"](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/deliverables/Lesson1-Assignment2_FileExploration.docx) and submit the answers to meglab.metagenomics@gmail.com
+After finishing the task in Lesson 1 step 4, use the skills you've learned so far to answer the questions on the following survey:
+
 
 
