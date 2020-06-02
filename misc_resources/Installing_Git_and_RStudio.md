@@ -2,11 +2,15 @@
 
 Once you have RStudio installed in your computer. We recommend using R projects to manage your various datasets. Additionaly, we recommend you use RStudio in combination with github for version control. In this course, we use github to store all of the material for the MEG intro stats course. By following the instructions below, we can each create an R project on our computer with the MEG course materials, but most importantly, we can update the code on our local computer to match any updates made to the code on the github repository. This is called "pulling" the branches for the latest update and will update all of the files besides any that you give a new name too. There are many other uses for this, but we'll focus on using it for this course. 
 
-# Installing R studio
+## Table of contents
+* 
+
+
+# Installing R and RStudio
 This tutorial shows you how to install R and R studio on your computer following [these instructions](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu).
 * This installation can include "git", the software required to interface with github. If you run into issues using git, use the details below to troubleshoot the installation of git and connection with Rstudio.
 
-# Creating an R project tied to a github account
+# Creating an R project tied to a github repository
 
 1. Open RStudio.
 
@@ -45,7 +49,7 @@ To ensure you have the most up-to-date code,
  
  
     
-# Troubleshooting missing Git on RStudio
+# Troubleshooting Git on RStudio
 Are you getting this error?
 
 <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_error.PNG" width="500" height="400" />
