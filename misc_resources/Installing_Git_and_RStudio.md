@@ -75,6 +75,7 @@ Follow these steps to try and fix it:
 ```
 /usr/bin/git
 ```
+
 * For Windows, you can often find it here:
 ```
 C:/Program Files/Git/bin/git.exe
