@@ -24,10 +24,10 @@ This tutorial shows you how to install R and R studio on your computer following
 
 4. Click on Git.
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_make_project_git.PNG" width="500" height="400" />  
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_make_project_git.PNG" width="500" height="400" />  
 
 5. Enter "https://github.com/EnriqueDoster/MEG_intro_stats_course" as the Repository URL
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_make_project_git_repository.PNG" width="500" height="400" />  
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_make_project_git_repository.PNG" width="500" height="400" />  
 
 6. The project directory name should automatically fill out, or you could change it to anything else you want.
 7. Click on Browse… navigate to where you want the project to be created on your computer.
@@ -54,7 +54,7 @@ To ensure you have the most up-to-date code,
 # Troubleshooting Git on RStudio
 Are you getting this error?
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_error.PNG" width="500" height="400" />
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_error.PNG" width="500" height="400" />
 
 Follow these steps to try and fix it:
 1. Make sure you have Git installed on your computer. 
@@ -62,11 +62,11 @@ Follow these steps to try and fix it:
 * If you can find git on your computer and it seems to open up, move on to step 2.
 2. Next, you have to change the settings on RStudio to find git. Click on "Tools" --> "Global Options"
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_step1.PNG" width="1000" height="400" />
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_step1.PNG" width="1000" height="400" />
 
 3. Click on the "Git/SVN" panel to pull up the following options:
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_step2.PNG" width="500" height="400" />
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_Rstudio_github_step2.PNG" width="500" height="400" />
 
 4. Make sure the box is checked on to "Enable version control interface for RStudio projects"
 
@@ -83,10 +83,10 @@ C:/Program Files/Git/bin/git.exe
 6. If it looks like the image below, go ahead and press "OK":
 * On linux (similar to macOS)
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_installed_linux_git.png" width="500" height="400" />
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_installed_linux_git.png" width="500" height="400" />
 
 * On Windows
 
-<img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_installed_windows_git.png" width="500" height="400" />
+  <img src="https://raw.githubusercontent.com/EnriqueDoster/MEG_intro_stats_course/master/misc_resources/example_pictures/example_installed_windows_git.png" width="500" height="400" />
 
 7. Re-start RStudio and try setting up the R project again.
