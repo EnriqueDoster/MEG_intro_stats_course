@@ -1,4 +1,4 @@
-# Installing Git and RStudio
+# Installing RStudio and Git
 
 Once you have RStudio installed in your computer. We recommend using R projects to manage your various datasets. Additionaly, we recommend you use RStudio in combination with github for version control. In this course, we use github to store all of the material for the MEG intro stats course. By following the instructions below, we can each create an R project on our computer with the MEG course materials, but most importantly, we can update the code on our local computer to match any updates made to the code on the github repository. This is called "pulling" the branches for the latest update and will update all of the files besides any that you give a new name too. There are many other ways you can use the connection with gitub, but we'll focus on the uses relevant for this course. 
 
@@ -36,7 +36,7 @@ This tutorial shows you how to install R and R studio on your computer following
   * NB. Your working directory is now set to the location you selected in step 7 and should include all of the files in the course github directory.
 10. Look at the bottom right panel in Rstudio to view the files in your new working directory.
   * Click on the "scripts" directory (NB This does not change your working directory)
-  * Open the "Lesson1_step3_R_introduction.R" script by clicking on it.
+  * As an example, open the "Lesson1_step3_R_introduction.R" script by clicking on it.
   * Follow instructions on the script to get familiarized with R.
     * To move through the script one line at a time, you can use "CTRL + ENTER" or "CMD + ENTER" in the 
  
