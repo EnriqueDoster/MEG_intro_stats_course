@@ -3,8 +3,10 @@
 Once you have RStudio installed in your computer. We recommend using R projects to manage your various datasets. Additionaly, we recommend you use RStudio in combination with github for version control. In this course, we use github to store all of the material for the MEG intro stats course. By following the instructions below, we can each create an R project on our computer with the MEG course materials, but most importantly, we can update the code on our local computer to match any updates made to the code on the github repository. This is called "pulling" the branches for the latest update and will update all of the files besides any that you give a new name too. There are many other uses for this, but we'll focus on using it for this course. 
 
 ## Table of contents
-* 
-
+* [Installing R and RStudio](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Installing_Git_and_RStudio.md#creating-an-r-project-tied-to-a-github-repository)
+* [Creating an R project tied to a github repository](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Installing_Git_and_RStudio.md#installing-r-and-rstudio)
+* [Updating a local R project with Git](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Installing_Git_and_RStudio.md#updating-a-local-R-project-with-git)
+* [Troubleshooting Git on RStudio](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Installing_Git_and_RStudio.md#troubleshooting-git-on-rstudio)
 
 # Installing R and RStudio
 This tutorial shows you how to install R and R studio on your computer following [these instructions](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu).
@@ -38,7 +40,7 @@ This tutorial shows you how to install R and R studio on your computer following
   * Follow instructions on the script to get familiarized with R.
     * To move through the script one line at a time, you can use "CTRL + ENTER" or "CMD + ENTER" in the 
  
- # Updating your project
+# Updating a local R project with Git
 To ensure you have the most up-to-date code,
 1. Open RStudio.
 2. Select File → Open Project…
