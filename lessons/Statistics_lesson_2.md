@@ -44,16 +44,21 @@ Before getting the more complicated statistical analyses, it is important to exp
 In this step we'll go over how we can use the "phyloseq" object to answer these questions.
 
 ### Task
-* To ensure you have the most up-to-date code,
+* First, [watch this video](https://www.dropbox.com/s/hc0eu3e3povstvy/Video-Introduction_to_dataset.mp4?dl=0) for a description of the dataset we'll be using for the rest of the course.
+* Then, to ensure you have the most up-to-date code,
 1. Open RStudio.
 2. Select File → Open Project…
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
   * As long as you saved any changes you made with new file names, this will update everything else in the repository to catch up with the "master" branch.
-5. Follow the instructions in the script, "Lesson2_Summary_statistics.R"
+5. Follow the instructions in the script, "Lesson2_Step1_R_Data_summary_statistics.R"
 
 ### Step 1) Deliverable
-*
+* 
+
+
+
+
 
 # Step 2 - Introduction to plotting
 ### A picture is worth a thousand words
