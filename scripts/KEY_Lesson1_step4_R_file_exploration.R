@@ -11,7 +11,8 @@
 # It's easy to answer a lot of questions about your data using R. However, importing data into R can be done
 # in many ways and can be the first challenge you face in analyzing your data.
 
-# Often, data is in a text format and delimited by tabs (.tsv) or commas (.csv). 
+# Often, data is in a text format and delimited by tabs (.tsv) or commas (.csv). Check the format with excel first
+# to choose the right flags needed for read.table()
 
 # We'll use an R command, read.table(), to read in the data, but we need to know a few things about the file.
 # We'll give the R command extra information by filling in "flags" or "parameters" for that function. 
@@ -48,6 +49,7 @@ length(sample_metadata$Group)
 
 # But, we can specify that we only want the unique variables
 unique(sample_metadata$Group)
+
 length(unique(sample_metadata$Group))
 
 # In Lesson 2 we'll use this metadata information to inform statistical comparisons.
@@ -77,15 +79,21 @@ str(amr)
 sum(amr)
 
 # You can access the row.names like this:
-row.names(amr)
+length(row.names(amr))
 
 # This almost works to just show you the results for a single sample, can you fix it?
 # hint - difference is whether CF24 is a variable or a string
-amr[,"CF24"]
+
+CF24 <- "CF24"
+interesting_samples <- c("CF24", "CF25")
+
+amr[,interesting_samples]
+amr[,CF24]
 
 # Calculate sum of counts for sample CF24
 sum(amr[,"CF24"])
 
+sum(amr$CF24)
 
 # View the entire count table
 View(amr)
@@ -165,13 +173,16 @@ hist(as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzy
 
 # This almost works...
 # hint: the difference is what is seperating the values in your text file. What does "\t" mean?
-annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names=1, sep=",")
+annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names= 1, sep=",")
 
 # Explore the annotation object, which column matches the rows in the amr object?
 annotations[,1]
 
 # Bit of a trick question, the gene names in the annotation files become the row.names()
 row.names(annotations)
+
+# Count number of rows
+length(row.names(annotations))
 
 # Get all the row names for the "amr" object and place it in a new object called "amr_headers"
 amr_headers <- row.names(amr)
@@ -192,6 +203,12 @@ length(unique(subset_annotations$class))
 # Check the structure of "annotations" and"subset_annotations"
 str(annotations)
 str(subset_annotations)
+
+# Get unique Classes in annotation file
+length(unique(annotations$class))
+
+# example of pulling out columns from annotations
+annotations[,c("class","mechanism")]
 
 # This might seem like a pointless thing to bring up, but it can cause issues with other R functions that use factors
 # Simple remove the extra factors using "droplevels"
