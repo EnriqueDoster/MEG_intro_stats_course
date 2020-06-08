@@ -1,4 +1,5 @@
 ##### Set up environment
+library("phyloseq")
 library("dplyr")
 library("ggplot2")
 library("data.table")
@@ -12,10 +13,6 @@ ls() # If you don't have any variables created, this will show "character(0)"
 
 # To delete them all, we have to use the 
 rm(list=ls())  # If your environment is empty already, this won't show anything
-
-# Now, we can use the script from Lesson 1, step 4 to load your files from last week. 
-# In this case, we provide the KEY, but you should be able to run your script instead to see if everything worked the same
-source("./scripts/KEY_Lesson1_step4_R_file_exploration.R") # As this runs, you'll see some of the output from other commands
 
 # You can now see variables in your environment panel
 ls() # This should now show 9 variables
@@ -33,6 +30,9 @@ ls() # This should now show 9 variables
 ### Sample metadata
 ##
 #
+
+# Load sample metadata
+sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, sep=',', row.names = 1)
 
 # View the sample metadata again. Notice how variables starting with numeric values (16S) now have an added X to their name
 # R prefers that column names and row names not start with a numeric value.
@@ -68,8 +68,10 @@ all(sample_names(microbiome) %in% rownames(sample_metadata))
 ##
 #
 
+# We import the .biom as in Lesson 1 step 4
+microbiome <- import_biom("data/Exported_16S_qiime2_results/Lesson2_16S_asv_table.biom")
 
-# We'll now merge our microbiome object with:
+# We'll now  work to merge our phyloseq object with:
 # updated taxa file, 
 # metadata file
 # and an additional phylogenetic tree that is part of the qiime2 output
@@ -79,6 +81,10 @@ str(microbiome) # only contains the counts right now
 #
 ## Editing the 16S microbiome taxonomy file
 #
+
+# Load the taxonomy file from qiime2
+taxa <- read.table("data/Exported_16S_qiime2_results/Lesson2_taxonomy.tsv", header=T, row.names=1, sep='\t')
+
 
 # We'll change the rownames of the taxa to include entire taxonomic lineage in the first column
 # We'll paste together these values and seperate them with the same format as in the lineage '; '
@@ -123,7 +129,7 @@ taxa.df <- taxa.df[, -1] # We now erase the feature variable which is the first 
 
 # We can use the read_tree() function to load the phylogenetic tree created with qiime2
 # We'll use this tree in later to calculate beta diversity indices that can incorporate phylogenetic tree distances
-microbiome_phylo_tree <- read_tree("./data/Exported_16S_qiime2_results/tree.nwk")
+microbiome_phylo_tree <- read_tree("./data/Exported_16S_qiime2_results/Lesson2_tree.nwk")
 
 # Due to requirements from phyloseq, we have to
 ## convert the taxa.df object to a matrix and we have to specify that this is the tax_table()
@@ -236,18 +242,19 @@ plot_richness(phylum.ps, x = "Group", color = "Group", measures = c("Observed", 
 
 
 
-
-
-
 #
 ##
 ### Loading the kraken2 microbiome results (shotgun reads)
 ##
 #
 
+# Load the kraken count table                                        
+kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, row.names=1, sep=',')
 
+# Convert to format that phyloseq likes with otu_table()                                      
 kraken_microbiome <- otu_table(kraken_microbiome, taxa_are_rows = TRUE)
 
+# Repeat similar steps to what we did with the qiime2 taxonomy
 kraken_taxonomy <- data.table(id=rownames(kraken_microbiome))
 kraken_taxonomy[, c('domain',
                      'kingdom',
@@ -277,13 +284,17 @@ plot_bar(kraken_microbiome.ps)
 ### Loading the resistome results (shotgun reads)
 ##
 #
-
+                                         
+# Load MEGARes counts                                         
+amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',')
 
 # We can convert our amr count object to the otu_table format required for phyloseq
 amr <- otu_table(amr, taxa_are_rows = TRUE)
 
 # Remember how we had to split up the taxa names for the microbiome features?
 # Well, our MEGARes annotation file allows us to skip that step.
+annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names=1, sep=",")
+                                                      
 annotations
 
 # However, if you didn't have the annotations file, we created the AMR gene accession header to provide the information you need.
