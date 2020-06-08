@@ -53,14 +53,6 @@ sample_metadata %>%
 sample_metadata %>%
   mutate(percent_host_removed = (Shotgun_raw_reads - Shotgun_nonhost_reads) / Shotgun_nonhost_reads)
 
-# Before we move on to the microbiome and resistome results, we can confirm that we have all of the samples names in our metadata
-all(rownames(sample_metadata) %in% sample_names(microbiome)) # Check that the rownames in the metadata file matches the names in the microbiome
-
-# Think about the difference to this command
-all(sample_names(microbiome) %in% rownames(sample_metadata)) 
-
-
-
 
 #
 ##
@@ -120,11 +112,11 @@ taxa.dt
 taxa.df <- as.data.frame(taxa.dt)
 
 # erase the id column  
-taxa.df <- within(taxa.dt, rm(id))
+taxa.df <- within(taxa.df, rm(id))
 
 # Use the feature variable to rename the row.names
 row.names(taxa.df) <- taxa.df$feature
-taxa.df <- taxa.df[, -1] # We now erase the feature variable which is the first column. NB In line 112, we erase a column by name.
+taxa.df <- within(taxa.df, rm(feature))
 
 
 # We can use the read_tree() function to load the phylogenetic tree created with qiime2
@@ -221,10 +213,15 @@ plot_bar(phylum.ps.rel, fill= "phylum")
 ## Microbiome diversity indices 
 #
 
+# Alpha-diversity indices are a common measurement to summarize the composition of the microbiome and resistome.
+# "Richness" or "Observed" simply describes the number of unique taxa identified in a sample
+# On the other hand, we use "Shannon's index" or "Inverse Simpsons's index" to describe "evenness", or
+# distribution of counts among taxa in a sample
 
+# Find more infomation about diversity indices here: http://www.jmb.or.kr/submission/Journal/027/JMB027-12-02_FDOC_2.pdf
 
 # Estimating richness and diversity using the easy-to-use function estimate_richness()
-estimate_richness(microbiome.ps)
+microbiome_16S_diversity_values <- estimate_richness(microbiome.ps)
 
 # We can do the same for the phylum counts
 estimate_richness(phylum.ps) # Notice the error you get.
@@ -279,6 +276,11 @@ kraken_microbiome.ps <- merge_phyloseq(kraken_microbiome, tax_table(as.matrix(kr
 # We can now use the same functions as shown above with the 16S microbiome to explore the kraken microbiome counts
 plot_bar(kraken_microbiome.ps)
 
+# Estimating richness and diversity using the easy-to-use function estimate_richness()
+microbiome_shotgun_diversity_values <- estimate_richness(kraken_microbiome.ps)
+
+
+
 #
 ##
 ### Loading the resistome results (shotgun reads)
@@ -311,6 +313,31 @@ plot_bar(amr.ps)
 
 
 
+#
+##
+### Merge diversity values for the microbiome
+##
+#
+
+
+# We can make a new column, named "SeqType" and give it the value of "16S"
+microbiome_16S_diversity_values$SeqType <- "16S"
+microbiome_16S_diversity_values$Sample <- row.names(microbiome_16S_diversity_values)
+
+# We can make a new column, named "SeqType" and give it the value of "shotgun"
+microbiome_shotgun_diversity_values$SeqType <- "shotgun"
+microbiome_shotgun_diversity_values$Sample <- row.names(microbiome_shotgun_diversity_values)
+
+# Now we can merge these tables based on identical row
+combined_diversity_values <- bind_rows(microbiome_16S_diversity_values, microbiome_shotgun_diversity_values)
+
+plot.diversity <- ggplot(combined_diversity_values, aes(x = Sample, y = Observed)) +
+  geom_point(stat = "identity") +
+  facet_wrap(~SeqType, scales = "free_x") +
+  theme_bw()
+
+plot.diversity
+
 
 #
 ##
@@ -322,6 +349,7 @@ plot_bar(amr.ps)
 
 ##### Convert phyloseq object to data.frame
 phylum.ps.melt <- psmelt(phylum.ps.rel)
+
 head(phylum.ps.melt)
 
 ##### Plot phyla abundances
