@@ -263,3 +263,4 @@ taxa["114739acf9d470c3d23c70e47a26c8cd",]
 
 # Now you can use all of the functions we tried above to explore the microbiome dataset
 # Use this count table to answer questions for the Lesson 1 Step 4 deliverable
+
