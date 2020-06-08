@@ -6,7 +6,7 @@
 * make statistical comparisons between sample groups
 
 
-## Task overview:
+## Lesson 2 overview:
 We will break up this lesson into 3 steps. We'll meet once a week to discuss each step and students will independently work on the "task" and associated "deliverable" that must be sent to meglab.metagenomics@gmail.com.
 * [Step 1](#step-1---calculating-summary-statistics): Calculating summary statistics
 * [Step 2](#step-2---introduction-to-plotting): Introduction to plotting
