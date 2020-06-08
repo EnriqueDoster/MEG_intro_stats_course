@@ -13,7 +13,7 @@
 
 # Often, data is in a text format and delimited by tabs (.tsv) or commas (.csv). 
 
-# We''ll use an R command, read.table(), to read in the data, but we need to know a few things about the file.
+# We'll use an R command, read.table(), to read in the data, but we need to know a few things about the file.
 # We'll give the R command extra information by filling in "flags" or "parameters" for that function. 
 # Remember how to get more information about a function? That documentation will also show the parameters you can modify.
 
@@ -169,6 +169,9 @@ annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, ro
 
 # Explore the annotation object, which column matches the rows in the amr object?
 annotations[,1]
+
+# Bit of a trick question, the gene names in the annotation files become the row.names()
+row.names(annotations)
 
 # Get all the row names for the "amr" object and place it in a new object called "amr_headers"
 amr_headers <- row.names(amr)
