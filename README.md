@@ -95,7 +95,7 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
   * Start: June 1, 2020
   * Requested completion: June 7, 2020
 
-Lesson 2 - Data exploration and basic statistics
+[Lesson 2 - Data exploration and basic statistics](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_2.md)
 * Scheduled to begin June 8, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Calculating summary statistics
   * Count aggregation by taxa
