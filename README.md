@@ -98,14 +98,17 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
 [Lesson 2 - Data exploration and basic statistics](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_2.md)
 * Scheduled to begin June 8, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Calculating summary statistics
-  * Count aggregation by taxa
-  * Alpha diversity indices
-  * count summaries (e.g. mean, standard deviation, etc)
+  * Start: June 9, 2020
+  * Requested completion: June 14, 2020
 * Step 2 - Introduction to plotting
+  * Start: June 15, 2020
+  * Requested completion: June 21, 2020
 * Step 3 - Basic statistical testing (wilcoxon, linear models)
+  * Start: June 22, 2020
+  * Requested completion: June 28, 2020
 
 Lesson 3 - Advanced statistical analyses and plotting
-* Scheduled to begin July 6, 2020. Dates will be updated as we finalize scheduling.
+* Scheduled to begin June 29, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Count normalization
 * Step 2 - Ordination with non-metric multidimensional and statistical comparisons
 * Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
