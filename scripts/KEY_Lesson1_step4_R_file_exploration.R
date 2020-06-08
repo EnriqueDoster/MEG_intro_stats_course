@@ -83,10 +83,12 @@ row.names(amr)
 # hint - difference is whether CF24 is a variable or a string
 amr[,"CF24"]
 
+# Calculate sum of counts for sample CF24
+sum(amr[,"CF24"])
+
 
 # View the entire count table
-#View(amr)
-
+View(amr)
 
 # What samples did we analyze? 
 colnames(amr)
@@ -98,21 +100,28 @@ length(amr)
 row.names(amr)
 
 # How many genes were identified?
+length(row.names(amr))
+
 # hint: try nesting a function inside another function
 
 # Can you think of how we might be able to determine how many total counts each sample had?
 # hint: where in the data are the values you are trying to add?
+colSums(amr)
+
 
 # What about counts per feature? Try looking up a function that "sum" this for you. 
-
+rowSums(amr)
 
 # We'll dive into this topic further in lesson 3, but let's take a look at the distribution of count for different AMR gene accessions
 # First, we can take a look at just one of the row names in the data.frame and see those counts
 amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",]
 
+# sum counts for this feature
+sum(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
+
 # We want to use the function "hist()" to create a simple histogram of the counts for the gene accession above, but
 # we get an error when we run the following command:
-#hist(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
+hist(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
 
 # Take a look at the error, it says "x must be numeric".
 # Our results from running amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",] looked "numeric", but 
@@ -125,7 +134,9 @@ typeof(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX"
 # Fortunately, we can convert between some R object types. For example we can use "as.integer()"
 as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",])
 
+
 # Check what type of R object you get when using "as.integer()"
+typeof(as.integer(amr["MEG_7240|Drugs|Tetracyclines|Tetracycline_inactivation_enzymes|TETX",]))
 
 
 # Try the following command to create a simple histogram. 
@@ -206,9 +217,8 @@ kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, r
 # and provide it in a better format for use with R. 
 # Notice that the row names contain taxomic ranks  
 
+
 # Use this object to answer questions for the Lesson 1 Step 4 deliverable
-
-
 
 
 ###
@@ -235,6 +245,11 @@ str(microbiome)
 # This is specific to the "phyloseq" package which we'll explore further in Lesson, so for now we can just convert it to a data.frame
 microbiome.df <- as.data.frame(microbiome)
 
+
+# Counts to 16S feature, 114739acf9d470c3d23c70e47a26c8cd
+sum(microbiome.df["114739acf9d470c3d23c70e47a26c8cd",])
+
+
 # You'll notice that the row.names or ASVs don't have useful names so we'll have to also use an annotation file 
 # that gives us more information about how each ASV was classified.
 
@@ -244,6 +259,7 @@ taxa <- read.table("data/Exported_16S_qiime2_results/taxonomy.tsv", header=T, ro
 # Take a look at the taxa object. We'll have to modify the row the data for easier use.
 # We'll go deeper into this with Lesson 2.
 
+taxa["114739acf9d470c3d23c70e47a26c8cd",]
+
 # Now you can use all of the functions we tried above to explore the microbiome dataset
 # Use this count table to answer questions for the Lesson 1 Step 4 deliverable
-
