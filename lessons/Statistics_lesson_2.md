@@ -1,7 +1,8 @@
 # Lesson 2 - "Data exploration and basic statistics"
 
 ## Learning objectives
-* know how to read-in count matrices from bioinformatic analysis of sequence data
+* read-in count matrices from bioinformatic analysis of sequence data
+* process annotations for microbiome taxa or resistome features
 * be able to explore and summarize bioinformatic results using diversity indices basic plots
 * make statistical comparisons between sample groups
 
