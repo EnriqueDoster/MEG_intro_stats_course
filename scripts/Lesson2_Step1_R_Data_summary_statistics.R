@@ -195,7 +195,7 @@ plot_bar(phylum.ps, fill = "phylum")
 plot_bar(phylum.ps, fill = "phylum", facet_grid = "Group")
 
 
-# We group counts 
+# We group counts by the treatement Group
 plot_bar(phylum.ps, fill = "phylum", x = "Group")
 
 
@@ -321,22 +321,34 @@ plot_bar(amr.ps)
 
 
 # We can make a new column, named "SeqType" and give it the value of "16S"
-microbiome_16S_diversity_values$SeqType <- "16S"
-microbiome_16S_diversity_values$Sample <- row.names(microbiome_16S_diversity_values)
+
+
+microbiome_16S_diversity_values <- microbiome_16S_diversity_values %>%
+  mutate(SeqType = "16S", Sample = row.names(microbiome_16S_diversity_values))
 
 # We can make a new column, named "SeqType" and give it the value of "shotgun"
-microbiome_shotgun_diversity_values$SeqType <- "shotgun"
-microbiome_shotgun_diversity_values$Sample <- row.names(microbiome_shotgun_diversity_values)
+microbiome_shotgun_diversity_values <- microbiome_shotgun_diversity_values %>%
+  mutate(SeqType = "shotgun", Sample = row.names(microbiome_shotgun_diversity_values))
+
+
 
 # Now we can merge these tables based on identical row
 combined_diversity_values <- bind_rows(microbiome_16S_diversity_values, microbiome_shotgun_diversity_values)
 
-plot.diversity <- ggplot(combined_diversity_values, aes(x = Sample, y = Observed)) +
-  geom_point(stat = "identity") +
-  facet_wrap(~SeqType, scales = "free_x") +
-  theme_bw()
+# To help us better summarize the results, we can add the metadata information 
+# First, we need to add a "Sample" column in the sample_metadata like in the combined_diversity_values object
+sample_metadata$Sample <- row.names(sample_metadata)
 
-plot.diversity
+# Now, we use left_join() to add the sample_metadata to the combined_diversity_values object
+combined_diversity_values <- left_join(combined_diversity_values, sample_metadata, by = "Sample")
+
+# Now try using "mutate" to get the average "Observed" and "Shannon" diversity values by SeqType
+# Modify the code below to answer questions on the online quiz
+# Check out this website for some more ways we can use "dplyr" to summarize our data: https://blog.dominodatalab.com/manipulating-data-with-dplyr/
+combined_diversity_values %>%
+  group_by(SeqType) %>%
+  summarize(mean_observed = mean(Observed), mean_shannon = mean(Shannon))
+
 
 
 #
@@ -347,17 +359,17 @@ plot.diversity
 
 # While phyloseq has built-in functions for easy plotting, we might want to export these counts for easier use with ggplot2
 
-##### Convert phyloseq object to data.frame
+##### Convert phyloseq object with relative abundance to data.frame
 phylum.ps.melt <- psmelt(phylum.ps.rel)
 
 head(phylum.ps.melt)
 
 ##### Plot phyla abundances
-plot.phylum <- ggplot(phylum.ps.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
+plot.phylum.rel.bar <- ggplot(phylum.ps.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
   geom_bar(stat = "identity") +
   facet_wrap(~Group, scales = "free") +
   theme_bw()
 
-plot.phylum 
+plot.phylum.rel.bar
 
 
