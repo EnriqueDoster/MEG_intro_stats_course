@@ -55,7 +55,7 @@ In this step we'll go over how we can use the "phyloseq" object to answer these 
 5. Follow the instructions in the script, "Lesson2_Step1_R_Data_summary_statistics.R"
 
 ### Step 1) Deliverable
-* 
+* Use the script from the task above to explore the data and answer questions in this survey: https://www.surveymonkey.com/r/HML87W3
 
 
 
