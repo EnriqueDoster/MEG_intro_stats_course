@@ -42,7 +42,10 @@ Before getting the more complicated statistical analyses, it is important to exp
   * Mapping statistics - "Are there differences in the number of reads mapped to the microbiome and resistome?"
   * Counts mapped to each taxonomic level - "What percentage of reads mapped to each taxonomic level (i.e. Phylum, Class, Order, etc.)?"
 
-In this step we'll go over how we can use the "phyloseq" object to answer these questions.
+### Goals for step 1:
+* Import counts, annotation file, and sample metadata into a "phyloseq" object to begin exploring the microbiome and resistome
+* We'll learn some basic ways to start summarizing the microbiome and resistome
+* Prepare the phyloseq objects for creating exploratory graphs and performing statistical analyses in the later steps.
 
 ### Task
 * First, [watch this video](https://www.dropbox.com/s/hc0eu3e3povstvy/Video-Introduction_to_dataset.mp4?dl=0) for a description of the dataset we'll be using for the rest of the course.
