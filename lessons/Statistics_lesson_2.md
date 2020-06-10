@@ -44,7 +44,7 @@ Before getting the more complicated statistical analyses, it is important to exp
 
 ### Goals for step 1:
 * Import counts, annotation file, and sample metadata into a "phyloseq" object to begin exploring the microbiome and resistome
-* We'll learn some basic ways to start summarizing the microbiome and resistome
+* Begin calculating summary statistics for the microbiome and resistome
 * Prepare the phyloseq objects for creating exploratory graphs and performing statistical analyses in the later steps.
 
 ### Task
