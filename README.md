@@ -64,6 +64,11 @@ R programming
 * [Introduction to R workshop](https://bioinformatics.ca/workshops/2018-introduction-to-R/)
   * We haven't personally tried this workshop, but they have a combination of videos, slides, and R code for various topics.
 
+Data visualization
+* [dataviz project](https://datavizproject.com/)
+  * This website is for a private company, but they have a great interface for exploring different figure types
+* [Visual vocabulary](https://gramener.github.io/visual-vocabulary-vega/#)
+
 Command-line
 * [Explain shell](https://explainshell.com/)
   * cool website that explains bash commands piece by piece
@@ -122,13 +127,12 @@ Lesson 3 - Advanced statistical analyses and plotting
 Lesson 1 deliverables
 * For Step 1 and 2, students must send a screenshot of their "sessionInfo()" to ensure that R and R studio are installed in addition to the necessary R packages, respectively.
 * Step 3 - After familiarizing themselves with some basic R functionality, students will submit a short quiz.
-* Step 4 - Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and provide:
-  * The number of rows and columns for each file
-  * A short description of what kind of samples are being analyzed
-  * A short description of what the taxonomy contains and how it relates to the count table.
+* Step 4 - Given a count matrix file, taxonomy file, and sample metadata file, students must read-in all data to R and submit a short quiz.
 
 Lesson 2 deliverables
-* TBD
+* Step 1 - Students will calculate summary statistics for the microbiome/resistome and will submit a quiz.
+* Step 2 - Students will learn to create different figures using ggplot2. They will follow instructions to create and submit two custom figures.
+* Step 3 - Using the summary statistics from step 2, students will test for statistical differences between sample groups.
 
 Lesson 3 deliverables
 * TBD
