@@ -121,20 +121,20 @@ ggplot(sample_metadata, aes(Group, Shotgun_raw_reads, color = Group)) +
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  ggtitle("Shotgun metagenomic sequencing results")
+  ggtitle("Metagenomic sequencing results")
 
 # We can change the x and y axis labels with labs()
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  ggtitle("Shotgun metagenomic sequencing results") +
+  ggtitle("Metagenomic sequencing results") +
   labs(x = "Treatment group", y = "raw paired reads")
 
 # Or we can use xlab() and ylab()
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  ggtitle("Shotgun metagenomic sequencing results") +
+  ggtitle("Metagenomic sequencing results") +
   ylab("raw paired reads") +
   xlab("Treatment group")
 
@@ -164,7 +164,7 @@ ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) +
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme(axis.text.x = element_text( size = 18),
         axis.text.y = element_text(size = 18),
         plot.title = element_text(hjust = 0.5),
@@ -174,28 +174,28 @@ ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) +
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_classic()
  
 # Here's "theme_minimal()" 
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_minimal()
 
 # Here's "theme_bw()" 
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_bw()
 
 # Here's "theme_dark()" 
 ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) + 
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_dark()
 
 
@@ -210,7 +210,7 @@ ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) +
 
 # For example, our sample_metadata file has 12 columns.
 # We can "gather" these results so that the 4 column with read numbers is made into a unique row for each sample.
-# We use the "-" to specify which variables to maintain in the new object, but not use for making unique combinations
+# We use the "-" to specify which variables to maintain in the new object, but should not be used for making unique combinations
 
 melted_metadata <- gather(sample_metadata, Paired_reads, Value,
                           -Group , -Sample, -Lot, -Host, -Matrix, -Head, -PREVCAT_A_APLUS, -PREVCAT_ALL,
@@ -226,7 +226,7 @@ melted_metadata <- melted_metadata %>%
 # Plot the results without ordering the factors
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
   geom_boxplot() +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_classic()
 
 # Note that the factors are ordered alphabetically, but we can also change the order of the factors by using "fct_relevel"
@@ -236,21 +236,21 @@ melted_metadata <- melted_metadata %>%
 # Plot the results with ordered factors
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
   geom_boxplot() +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_classic()
 
 
 # It can also be useful to make "facets" for splitting data into multiple figures
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
   geom_boxplot() +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_classic() +
   facet_wrap( ~ SeqType)
 
 # We can also make sure the scales are free to change depending on the facet.
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
   geom_boxplot() +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
   theme_classic() +
   facet_wrap( ~ SeqType, scales = "free")
 
@@ -267,7 +267,7 @@ ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) +
 # Notice the extra flags we used in "geom_bar()". Below, we'll make a stacked bar plot leave out the "position" flag
 fig1 <- ggplot(melted_metadata, aes(x = Sample , y = Value, fill = Paired_reads)) + 
   geom_bar(stat="identity", position = position_dodge()) +
-  labs(title = "Shotgun metagenomic sequencing results", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results", x = "Sample", y = "raw paired reads") + 
   theme_classic() 
 fig1
 
@@ -275,7 +275,7 @@ fig1
 # We can make a boxplot to show the spread of values by treatment group and sequencing type.
 fig2 <- ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
   geom_boxplot() +
-  labs(title = "Shotgun metagenomic sequencing results by treatment group", x = "Treatment group", y = "raw paired reads") + 
+  labs(title = "Metagenomic sequencing results by treatment group", x = "Treatment group", y = "raw paired reads") + 
   theme_classic() +
   facet_wrap( ~ SeqType, scales = "free")
 fig2
@@ -405,7 +405,7 @@ plot_bar(phylum_qiime.ps.rel, fill= "phylum")
 
 # We can use the phyloseq object for some of these exploratory figures, but we recommend converting the data into "long" format
 phylum_qiime.ps.rel.melt <- psmelt(phylum_qiime.ps.rel)
-head(phylum_qiime.ps.melt)
+head(phylum_qiime.ps.rel.melt)
 
 ##### Plot phyla relative abundances
 ggplot(phylum_qiime.ps.rel.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
@@ -414,7 +414,33 @@ ggplot(phylum_qiime.ps.rel.melt, aes(x = Sample, y = Abundance, fill = phylum)) 
   theme_classic()
 
 
+## We can use the data in long form with the dplyr functions we learned to summarize the results
+
+# Mean relative abundance of phyla across all samples
+phylum_qiime.ps.rel.melt %>%
+  group_by(phylum) %>%
+  summarize(mean_rel_abundance = mean(Abundance)) %>%
+  arrange(-mean_rel_abundance)
+
+# Mean relative abundance of phyla by treatment group
+phylum_qiime.ps.rel.melt %>%
+  group_by(Group, phylum) %>%
+  summarize(mean_rel_abundance = mean(Abundance)) %>%
+  arrange(-mean_rel_abundance)
 
 
+#
+##
+### Exporting figures
+##
+#
+
+# To export figures, we can output a jpeg file if we first run the command to view the plot, then run ggsave()
+fig1
+# This will save to your working directory
+ggsave("fig1_barplot_sequencing_results_by_sample.jpeg", width = 60, height = 30, units = "cm") 
+
+fig2
+ggsave("fig2_barplot_sequencing_results_by_sequencing_type.jpeg", width = 60, height = 30, units = "cm") 
 
 
