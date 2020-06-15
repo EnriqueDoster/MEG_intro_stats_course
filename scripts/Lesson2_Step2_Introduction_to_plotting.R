@@ -406,15 +406,14 @@ plot_bar(phylum_qiime.ps, fill = "phylum") +
 # As you saw in the figures above, you can end up with too many features that make your figures messy.
 # To solve this, we can filter out features that are in low abundance
 
-# OTU across all samples is greater than 0.5% of all OTUs.
-
+# only keep OTUs present in greater than 0.5% of all OTUs across all samples.
 minTotRelAbun = 0.005
 x = taxa_sums(phylum_qiime.ps)
 keepTaxa = (x / sum(x)) > minTotRelAbun
 length(keepTaxa[keepTaxa ==TRUE])
 pruned_phylum_qiime.ps = prune_taxa(keepTaxa, phylum_qiime.ps)
-
 plot_bar(pruned_phylum_qiime.ps, fill = "phylum")
+
 
 #
 ##
@@ -433,6 +432,20 @@ plot_bar(phylum_qiime.ps.rel, fill= "phylum")
 # We can use the phyloseq object for some of these exploratory figures, but we recommend converting the data into "long" format
 phylum_qiime.ps.rel.melt <- psmelt(phylum_qiime.ps.rel)
 head(phylum_qiime.ps.rel.melt)
+
+# We can see that we still have 40 unique phyla in this object
+unique(phylum_qiime.ps.rel.melt$phylum)
+
+# Lets change the names of phyla to "low abundance phyla" for features present at a relative
+# proportion less than 0.05 across all samples
+phylum_qiime.ps.rel.melt <- phylum_qiime.ps.rel.melt %>%
+  group_by(phylum) %>%
+  mutate(mean_phylum_rel_abundance = mean(Abundance))
+
+phylum_qiime.ps.rel.melt$phylum <- as.character(phylum_qiime.ps.rel.melt$phylum)
+phylum_qiime.ps.rel.melt$mean_phylum_rel_abundance <- as.numeric(phylum_qiime.ps.rel.melt$mean_phylum_rel_abundance)
+
+phylum_qiime.ps.rel.melt$phylum[phylum_qiime.ps.rel.melt$mean_phylum_rel_abundance < 0.005] <- "Low abundance phyla"
 
 ##### Plot phyla relative abundances
 ggplot(phylum_qiime.ps.rel.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
