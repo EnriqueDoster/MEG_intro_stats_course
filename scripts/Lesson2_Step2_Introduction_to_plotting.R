@@ -212,15 +212,16 @@ ggplot(sample_metadata, aes(x = Group , y = Shotgun_raw_reads, color = Group)) +
 # We can "gather" these results so that the 4 column with read numbers is made into a unique row for each sample.
 # We use the "-" to specify which variables to maintain in the new object, but not use for making unique combinations
 
-melted_metadata <- gather(sample_metadata, Paired_reads, Value, -Group , -Sample, -Lot, -Host, -Matrix, -Head, -PREVCAT_A_APLUS, -PREVCAT_ALL)
+melted_metadata <- gather(sample_metadata, Paired_reads, Value,
+                          -Group , -Sample, -Lot, -Host, -Matrix, -Head, -PREVCAT_A_APLUS, -PREVCAT_ALL,
+                          -Sample_block, -shotgun_seq_lane, -shotgun_mean_phred_scores)
 
 # For the next command, we want to make a new variable, "SeqType"
 # Notice we use the "ifelse()" function to check for rows in the $Paired_reads column that starts with "X16". 
 # If it finds that name, it makes "16S sequencing" the new value for the new column SeqType,
 # Else, the value is "shotgun sequencing"
 melted_metadata <- melted_metadata %>% 
-  mutate(SeqType = ifelse(startsWith(melted_metadata$Paired_reads, "X16S"), "16S sequencing", "shotgun sequencing")) %>%
-  mutate(Paired_reads = fct_relevel(Paired_reads,"X16S_Raw_paired_reads", "X16S_Filtered_paired_reads","Shotgun_raw_reads","Shotgun_nonhost_reads"))
+  mutate(SeqType = ifelse(startsWith(melted_metadata$Paired_reads, "X16S"), "16S sequencing", "shotgun sequencing"))
 
 # Plot the results without ordering the factors
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
@@ -230,6 +231,7 @@ ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) +
 
 # Note that the factors are ordered alphabetically, but we can also change the order of the factors by using "fct_relevel"
 melted_metadata <- melted_metadata %>% 
+  mutate(Paired_reads = fct_relevel(Paired_reads,"X16S_Raw_paired_reads", "X16S_Filtered_paired_reads","Shotgun_raw_reads","Shotgun_nonhost_reads"))
 
 # Plot the results with ordered factors
 ggplot(melted_metadata, aes(x = Group , y = Value, color = Paired_reads)) + 
@@ -287,7 +289,24 @@ melted_metadata %>%
 
 
 # Other variables that should be tested for systematic bias in sequencing include:
-# batch effects in collection, DNA extraction, and sequencing 
+# sample blocks made in the study design, batch effects in sample collection, DNA extraction, and sequencing 
+
+# As an example, here's a plot comparing shotgun sequencing results based on study design sample block
+# Notice that we used "as.factor()" because the values in Sample_block are integers. Check what happens if you don't use as.factor()
+fig3 <- ggplot(melted_metadata, aes(x = as.factor(Sample_block) , y = Value, color = Paired_reads)) + 
+  geom_boxplot() +
+  labs(title = "Shotgun metagenomic sequencing results by sample block", x = "Treatment group", y = "raw paired reads") + 
+  theme_classic() +
+  facet_wrap( ~ SeqType, scales = "free")
+fig3
+
+# For another example, we are often interested in the effect of sequencing lane with shotgun metagenomic sequencing
+fig4 <- ggplot(melted_metadata, aes(x = as.factor(shotgun_seq_lane) , y = Value, color = Paired_reads)) + 
+  geom_boxplot() +
+  labs(title = "Shotgun metagenomic sequencing results by sequencing lane", x = "Treatment group", y = "raw paired reads") + 
+  theme_classic() +
+  facet_wrap( ~ SeqType, scales = "free")
+fig4
 
 
 
@@ -297,21 +316,105 @@ melted_metadata %>%
 ##
 #
 
-# We can use similar figures to explore the "combined_diversity_values" object
-ggplot(combined_diversity_values, aes(x = Group, y = Observed, color = Group)) +
+# We use diversity indices to summarize the # of unique features (richness) and how the counts are distributed (evenness)
+
+# Here, we plot the observed values for by treatment group, faceted by DataType
+fig5 <- ggplot(combined_diversity_values, aes(x = Group, y = Observed, color = Group)) +
+  geom_boxplot() +
+  labs(title = "Unique features by treatment group and data type", x = "Treatment group", y = "Observed features") + 
+  theme_classic() +
+  facet_wrap( ~ DataType, scales = "free")
+fig5
+
+# And here, we can plot the evenness using Shannon's index
+fig6 <- ggplot(combined_diversity_values, aes(x = Group, y = Shannon, color = Group)) +
   geom_boxplot() +
   labs(title = "Unique features by data type", x = "Treatment group", y = "Observed features") + 
   theme_classic() +
   facet_wrap( ~ DataType, scales = "free")
+fig6
 
 
+# Remember, these diversity indices were calculated based on the entire dataset containing all features.
+# Often, you'll want to aggregate your counts to other taxonomic levels and calculate diversity indices on those counts.
 
+# Here's an example of how we can do that at the phylum level for the microbiome and drug class level for the resistome
+# The code below is just like what you saw in Lesson 2 step 1
 
+# Aggregate counts to the phylum level, calculate diversity values, and mutate the object to include SeqType and DataType
+phylum_kraken.ps <- tax_glom(kraken_microbiome.ps, "phylum")
+phylum_kraken_shotgun_diversity_values <- estimate_richness(phylum_kraken.ps)
+phylum_kraken_shotgun_diversity_values <- phylum_kraken_shotgun_diversity_values %>%
+  mutate(SeqType = "shotgun", DataType = "shotgun microbiome", Sample = row.names(phylum_kraken_shotgun_diversity_values))
 
+# Aggregate counts to the phylum level, calculate diversity values, and mutate the object to include SeqType and DataType
+phylum_qiime.ps <- tax_glom(microbiome.ps, "phylum")
+phylum_qiime_diversity_values <- estimate_richness(phylum_qiime.ps)
+phylum_qiime_diversity_values <- phylum_qiime_diversity_values %>%
+  mutate(SeqType = "16S", DataType = "16S microbiome", Sample = row.names(phylum_qiime_diversity_values))
+
+# Aggregate counts to the drug class level, calculate diversity values, and mutate the object to include SeqType and DataType
+class_amr.ps <- tax_glom(amr.ps, "class")
+class_amr_shotgun_diversity_values <- estimate_richness(class_amr.ps)
+class_amr_shotgun_diversity_values <- class_amr_shotgun_diversity_values %>%
+  mutate(SeqType = "shotgun", DataType = "resistome", Sample = row.names(class_amr_shotgun_diversity_values))
+
+# Now we can merge these tables based on identical row
+phylum_and_class_combined_diversity_values <- bind_rows(phylum_kraken_shotgun_diversity_values, phylum_qiime_diversity_values,class_amr_shotgun_diversity_values)
+
+# Add the metadata file to the new object
+phylum_and_class_combined_diversity_values <- left_join(phylum_and_class_combined_diversity_values, sample_metadata, by = "Sample")
+
+# Create boxplots for observed features at the phylum and drug class levels
+fig7 <- ggplot(phylum_and_class_combined_diversity_values, aes(x = Group, y = Observed, color = Group)) +
+  geom_boxplot() +
+  labs(title = "Unique phyla and resistome AMR drug classes by data type", x = "Treatment group", y = "Observed features") + 
+  theme_classic() +
+  facet_wrap( ~ DataType, scales = "free")
+fig7
 
 
 #
 ##
-### ggplot facets
+### Microbiome plots
 ##
 #
+
+# When plotting the microbiome, we often focus on aggregate counts
+# We saw that we can use phyloseq to easily make barplots like this:
+plot_bar(phylum_qiime.ps, fill = "phylum")
+
+# The cool thing is that phyloseq plays nicely with ggplot and you use what you learned above to modify these figures
+plot_bar(phylum_qiime.ps, fill = "phylum") + 
+  facet_wrap(~ Group, scales = "free_x") +
+  theme_classic()
+
+# You can also make facets based on the unique phyla in the phyloseq object
+# Notice we had to specify that we want "free" scales on both axes
+plot_bar(phylum_qiime.ps, fill = "phylum") + 
+  facet_wrap(~ phylum, scales = "free") +
+  theme_classic()
+
+# We'll talk more about how to we can account for differences in sequencing depth between samples with count normalization.
+# One of the easiest way we can begin to compare the microbiome and resistome composition is by plotting relative abundance
+##### Convert OTU abundances to relative abundances
+phylum_qiime.ps.rel <- transform_sample_counts(phylum_qiime.ps, function(x) x / sum(x) )
+
+# We can plot these results, notice the y-axis relative abundance plots
+plot_bar(phylum_qiime.ps.rel, fill= "phylum")
+
+# We can use the phyloseq object for some of these exploratory figures, but we recommend converting the data into "long" format
+phylum_qiime.ps.rel.melt <- psmelt(phylum_qiime.ps.rel)
+head(phylum_qiime.ps.melt)
+
+##### Plot phyla relative abundances
+ggplot(phylum_qiime.ps.rel.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~Group, scales = "free") +
+  theme_classic()
+
+
+
+
+
+
