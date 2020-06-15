@@ -14,17 +14,6 @@ ls() # If you don't have any variables created, this will show "character(0)"
 # To delete them all, we have to use the 
 rm(list=ls())  # If your environment is empty already, this won't show anything
 
-# You can now see variables in your environment panel
-ls() # This should now show 9 variables
-
-# The important variables for this lesson are:
-# amr
-# annotations
-# kraken_microbiome
-# microbiome.df
-# sample_metadata
-# taxa
-
 #
 ##
 ### Sample metadata
