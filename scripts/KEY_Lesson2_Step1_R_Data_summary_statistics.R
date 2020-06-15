@@ -48,7 +48,7 @@ sample_metadata %>%
 sample_metadata %>%
   mutate(percent_host_removed = (Shotgun_raw_reads - Shotgun_nonhost_reads) / Shotgun_nonhost_reads)
 
-# For question 3, get the mean percentage of host reads removed from each sample read
+# For question 3, get the mean percentage of host reads removed from each sample raw reads
 updated_sample_metadata <- sample_metadata %>%
   mutate(percent_host_removed = (Shotgun_raw_reads - Shotgun_nonhost_reads) / Shotgun_raw_reads)
 
