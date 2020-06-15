@@ -88,7 +88,6 @@ With that power, unfortunately, comes a steep learning curve. The syntax for con
 In lesson 2 step 2, we'll show you some of the ways that we explore microbiome and resistome results. As with other multivariate data, there isn't a single measure or statistical test that captures everything about your data. Therefore, we'll teach you the basics of how to use ggplot2 as we go over some of the typical figures that we use in the Microbial Ecology Group. We'll go over some basic plots for summary statistics and then learn how to test statistical comparisons between sample groups in lesson 2 step 3.
 
 
-
 ## Learning objectives for step 2
 Become familiar with ggplot2 and the following ggplot2 components:
 * layers
@@ -98,9 +97,10 @@ Become familiar with ggplot2 and the following ggplot2 components:
 
 Calculate summary statistics and visualize the results using ggplot figures:
 * boxplots
+* scatterplots
 * barplots
 * relative abundance plots
-* rarefaction plots
+
 
 
 ### Task
@@ -112,16 +112,35 @@ Calculate summary statistics and visualize the results using ggplot figures:
 5. Follow the instructions in the script, "Lesson2_Step2_Introduction_to_plotting.R"
 
 ### Step 2) Deliverable
-* Create a boxplot comparing raw reads by "Treatment" group.
-  * Color the boxplots by sample
-  * Label the y-axis accordingly
-  * Make the x-axis labels be at a 45 degree angle
-  * Look up how to remove the grid and change the background color to any color you want
-* Make a relative abundance plot of the microbiome at the phylum level
-  * Make another another plot that only includes phyla present at a relative abundance rate > 5% across all samples (or a number of your choice).
-  * Make sure both files have descriptive titles
-* Create a rarefaction curve for resistome counts, compare this to rarefaction curves for the microbiome.
-  * Which dataset would have benefited the most from deeper sequencing?
+* For Lessson 2, step 2 we'll be asking you create 2 figures using ggplot2 flags that we haven't showed you yet. This is meant to emulate the process you'll go through as you try making your own figures. You'll follow the instructions below to create two figures, export them figures into jpeg files, and then send those files to us at "meglab.metagenomics@gmail.com"
+
+1. Create a boxplot comparing Shannon's diversity indices in the resistome at the AMR mechanism level
+  * Plot sample groups on the x-axis
+  * Color the boxplots by treatment group
+  * add data points to the boxplots
+  * add facets by "DataType"
+  * y-axis 
+    * label it "Shannon's diversity index"
+    * change the size to "18"
+  * x-axis 
+    * make x-axis labels be at a 45 degree angle
+    * change the size to "18"
+  * change the background grid color to "white" (hint: modify the theme)
+  * change the title of the legend to "Treatment group"
+  * change the set of colors you are using to grey scale. Look up the ggplot2 layer that allows you to easily do this.
+ 
+2. Make a relative abundance plot of the kraken2 microbiome at the phylum level
+  * Only include phyla present at a relative abundance rate > 0.5% across all samples.
+  * Add a plot label that describes what's in the figure
+  * add facets by treatment "Group"
+  * y-axis 
+    * label it "Relative abundance"
+    * change the size to "18"
+  * x-axis 
+    * make x-axis labels be at a 45 degree angle
+    * change the size to "18"
+  * change the colors by using finding and using a different theme
+
 
 
 
@@ -138,7 +157,7 @@ This is where R scripts come in handy. Instead of just having a spreadsheet of p
 * diversity indices
 
 
-**Disclaimer:** We don't intend to go over the finer points of performing statistical analyses. We are doing something much more dangerous. We will show you how to get metagenomic data and get p-values. What you do with those values is then all up to you!
+**Disclaimer:** We don't intend to go over the finer points of performing statistical analyses. We are doing something much more dangerous. We will show you how to analyze metagenomic data and get p-values. What you do with those values is then all up to you!
 
 ### Task
 * To ensure you have the most up-to-date code,
