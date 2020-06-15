@@ -5,6 +5,7 @@ library("ggplot2")
 library("data.table")
 library("tidyr")
 library("forcats")
+library("vegan")
 
 # http://deneflab.github.io/MicrobeMiseq/demos/mothur_2_phyloseq.html
 
@@ -330,8 +331,8 @@ fig5
 fig6 <- ggplot(combined_diversity_values, aes(x = Group, y = Shannon, color = Group)) +
   geom_boxplot() +
   labs(title = "Unique features by data type", x = "Treatment group", y = "Observed features") + 
-  theme_classic() +
-  facet_wrap( ~ DataType, scales = "free")
+  facet_wrap( ~ DataType, scales = "free")+
+  scale_color_grey()
 fig6
 
 
@@ -395,6 +396,32 @@ plot_bar(phylum_qiime.ps, fill = "phylum") +
   facet_wrap(~ phylum, scales = "free") +
   theme_classic()
 
+
+#
+##
+### Filtering out low abundance samples
+##
+#
+
+# As you saw in the figures above, you can end up with too many features that make your figures messy.
+# To solve this, we can filter out features that are in low abundance
+
+# OTU across all samples is greater than 0.5% of all OTUs.
+
+minTotRelAbun = 0.005
+x = taxa_sums(phylum_qiime.ps)
+keepTaxa = (x / sum(x)) > minTotRelAbun
+length(keepTaxa[keepTaxa ==TRUE])
+pruned_phylum_qiime.ps = prune_taxa(keepTaxa, phylum_qiime.ps)
+
+plot_bar(pruned_phylum_qiime.ps, fill = "phylum")
+
+#
+##
+### Converting data to relative abundances
+##
+#
+
 # We'll talk more about how to we can account for differences in sequencing depth between samples with count normalization.
 # One of the easiest way we can begin to compare the microbiome and resistome composition is by plotting relative abundance
 ##### Convert OTU abundances to relative abundances
@@ -429,6 +456,40 @@ phylum_qiime.ps.rel.melt %>%
   arrange(-mean_rel_abundance)
 
 
+
+#
+##
+### Rarefaction plots
+##
+#
+
+# Rarefaction is a technique used to estimate how many features (labeled "species") would be identified
+# at different sequencing depths (labeled "Sample Size"). 
+
+# Generally, if the curves are relatively flat at the actual sample size, this suggests adequate sequencing depth.
+# Alternatively, steep curves suggest that increasing the sequencing depth 
+
+# Rarefaction for the qiime2 microbiome at the phylum level
+# Notice, that we had to get the "otu_table()" from the phyloseq object, then we had use "t()" to transpose the table
+phylum_qiime_rarefaction <- rarecurve(t(otu_table(phylum_qiime.ps)), step = 200, se = TRUE)
+# Let's see if the rarefaction looks different at the genus level
+genus_qiime.ps <- tax_glom(microbiome.ps, "genus")
+genus_qiime_rarefaction <- rarecurve(t(otu_table(genus_qiime.ps)), step = 200, se = TRUE)
+
+# Rarefaction for the kraken microbiome at the phylum level
+# All samples had 40 phyla
+phylum_kraken_rarefaction <- rarecurve(t(otu_table(phylum_kraken.ps)), step = 200, se = TRUE)
+# Let's see if the rarefaction looks different at the genus level
+genus_kraken.ps <- tax_glom(kraken_microbiome.ps, "genus")
+genus_kraken_rarefaction <- rarecurve(t(otu_table(genus_kraken.ps)), step = 200, se = TRUE)
+
+# Rarefaction for the resistome at the AMR drug class level
+class_amr_rarefaction <- rarecurve(t(otu_table(class_amr.ps)), step = 200, se = TRUE)
+# Let's see if the rarefaction looks different at the AMR gene group level
+group_amr.ps <- tax_glom(amr.ps, "group")
+group_amr_rarefaction <- rarecurve(t(otu_table(group_amr.ps)), step = 200, se = TRUE)
+
+
 #
 ##
 ### Exporting figures
@@ -442,5 +503,6 @@ ggsave("fig1_barplot_sequencing_results_by_sample.jpeg", width = 60, height = 30
 
 fig2
 ggsave("fig2_barplot_sequencing_results_by_sequencing_type.jpeg", width = 60, height = 30, units = "cm") 
+
 
 
