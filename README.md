@@ -68,6 +68,8 @@ Data visualization
 * [dataviz project](https://datavizproject.com/)
   * This website is for a private company, but they have a great interface for exploring different figure types
 * [Visual vocabulary](https://gramener.github.io/visual-vocabulary-vega/#)
+   * Handy outline and explanation for the uses of different plots.
+   * You can also check out [this interactive figure](http://ft-interactive.github.io/visual-vocabulary/) of the same material
 
 Command-line
 * [Explain shell](https://explainshell.com/)
