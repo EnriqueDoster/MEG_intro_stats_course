@@ -3,7 +3,8 @@
 ## Learning objectives
 * read-in count matrices from bioinformatic analysis of sequence data
 * process annotations for microbiome taxa or resistome features
-* be able to explore and summarize bioinformatic results using diversity indices basic plots
+* create a "phyloseq" object containing counts, annotations, and sample metadata for the microbiome and resistome
+* be able to explore and summarize bioinformatic results using diversity indices and plotting of summary statistics
 * make statistical comparisons between sample groups
 
 
@@ -20,6 +21,13 @@ MEG resources
 * [AMR ++ pipeline overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/AMR%2B%2B_v2_pipeline_overview.pdf)
 * [Bioinformatic AMR and 16S pipeline overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Bioinformatic_AMR_and_16S_pipeline_overview.pdf)
 * [Bioinformatics statistics overview](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Bioinformatic_statistics_overview.pdf)
+
+
+Graphing:
+* [ggplot2 tutorial](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)
+  * simple tutorial with example code for various ggplot2 figures
+* [ggplot2 layers](https://rpubs.com/hadley/ggplot2-layers)
+  * this page goes into details on ways you can modify ggplot2 figures 
 
 
 Statistics
@@ -42,7 +50,7 @@ Before getting the more complicated statistical analyses, it is important to exp
   * Mapping statistics - "Are there differences in the number of reads mapped to the microbiome and resistome?"
   * Counts mapped to each taxonomic level - "What percentage of reads mapped to each taxonomic level (i.e. Phylum, Class, Order, etc.)?"
 
-### Goals for step 1:
+### Learning objectives for step 1:
 * Import counts, annotation file, and sample metadata into a "phyloseq" object to begin exploring the microbiome and resistome
 * Begin calculating summary statistics for the microbiome and resistome
 * Prepare the phyloseq objects for creating exploratory graphs and performing statistical analyses in the later steps.
@@ -66,8 +74,31 @@ Before getting the more complicated statistical analyses, it is important to exp
 
 # Step 2 - Introduction to plotting
 ### A picture is worth a thousand words
-Visualizing data is useful for exploring complex datasets and often makes up a critical component of research manuscripts. In Step 2 we'll build on the skills we learned in Step 1 and plot those summary statistics. Specifically, we'll learn to make:
+Visualizing data is useful for exploring complex datasets and often makes up a critical component of research manuscripts. In Lesson 2 step 2 we'll build on the skills we learned in Step 1 and plot those summary statistics to explore our data.
+
+### ggplot2 package for graphing
+
+ggplot2 is the "most elegant and aesthetically pleasing graphics framework available in R."
+
+With that power, unfortunately, comes a steep learning curve. The syntax for constructing ggplots could be puzzling if you are a beginner or work primarily with base graphics. The main difference is that, unlike base graphics, ggplot:
+* works with dataframes and not individual vectors (remember using hist() with integer values)
+  * the data needed to make the plot is typically be contained within the dataframe supplied to the ggplot() itself or can be supplied to respective "geoms". More on that later.
+* you can keep enhancing the plot by adding more layers (and themes) to an existing plot created using the ggplot() function.
+
+In lesson 2 step 2, we'll show you some of the ways that we explore microbiome and resistome results. As with other multivariate data, there isn't a single measure or statistical test that captures everything about your data. Therefore, we'll teach you the basics of how to use ggplot2 as we go over some of the typical figures that we use in the Microbial Ecology Group. We'll go over some basic plots for summary statistics and then learn how to test statistical comparisons between sample groups in lesson 2 step 3.
+
+
+
+## Learning objectives for step 2
+Become familiar with ggplot2 and the following ggplot2 components:
+* layers
+* labels
+* themes
+* facets
+
+Calculate summary statistics and visualize the results using ggplot figures:
 * boxplots
+* barplots
 * relative abundance plots
 * rarefaction plots
 
@@ -78,7 +109,7 @@ Visualizing data is useful for exploring complex datasets and often makes up a c
 2. Select File → Open Project…
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
-5. Follow the instructions in the script, "Lesson2_basic_plotting.R"
+5. Follow the instructions in the script, "Lesson2_Step2_Introduction_to_plotting.R"
 
 ### Step 2) Deliverable
 * Create a boxplot comparing raw reads by "Treatment" group.
