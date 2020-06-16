@@ -70,6 +70,8 @@ Data visualization
 * [Visual vocabulary](https://gramener.github.io/visual-vocabulary-vega/#)
    * Handy outline and explanation for the uses of different plots.
    * You can also check out [this interactive figure](http://ft-interactive.github.io/visual-vocabulary/) of the same material
+* [FT Visual Journalism Team](https://www.ft.com/visual-and-data-journalism)
+  * Awesome site with articles covering various topics and with the emphasis on creating awesome graphics to convey
 
 Command-line
 * [Explain shell](https://explainshell.com/)
