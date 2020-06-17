@@ -111,7 +111,8 @@ Calculate summary statistics and visualize the results using ggplot figures:
 4. Click on Tools → Version Control → Pull branches
 5. Follow the instructions in the script, "Lesson2_Step2_Introduction_to_plotting.R"
 
-### Step 2) Deliverable
+### Step 2) Deliverable 
+* We made some minor changes to this on June 17, 2020. No worries if you finished the deliverable before the update!
 * For Lessson 2, step 2 we'll be asking you create 2 figures using ggplot2 flags that we haven't showed you yet. This is meant to emulate the process you'll go through as you try making your own figures. You'll follow the instructions below to create two figures, export them figures into jpeg files, and then send those files to us at "meglab.metagenomics@gmail.com"
 
 1. Create a boxplot comparing Shannon's diversity indices in the resistome at the AMR mechanism level
