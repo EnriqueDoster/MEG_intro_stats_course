@@ -118,29 +118,28 @@ Calculate summary statistics and visualize the results using ggplot figures:
   * Plot sample groups on the x-axis
   * Color the boxplots by treatment group
   * add data points to the boxplots
-  * add facets by "DataType"
+  * look up how to flip the x and y axis by adding another ggplot layer
   * y-axis 
     * label it "Shannon's diversity index"
-    * change the size to "18"
+    * change the size of the "text" and "title" of the y axis to "18"
   * x-axis 
     * make x-axis labels be at a 45 degree angle
-    * change the size to "18"
+    * change the size of the "text" and "title" of the y axis to "18"
   * change the background grid color to "white" (hint: modify the theme)
   * change the title of the legend to "Treatment group"
   * change the set of colors you are using to grey scale. Look up the ggplot2 layer that allows you to easily do this.
  
 2. Make a relative abundance plot of the kraken2 microbiome at the phylum level
-  * Only include phyla present at a relative abundance rate > 0.5% across all samples.
-  * Add a plot label that describes what's in the figure
-  * add facets by treatment "Group"
+  * Include phyla present at a relative abundance rate > 0.5% across all samples and change the label of all other phyla to "Low abundance phyla (<0.5%)"
+  * Add a facet by treatment "Group" and correctly change the "scales"
+  * Add a plot label that describes what's in the figure.
   * y-axis 
-    * label it "Relative abundance"
-    * change the size to "18"
+    * label it "Shannon's diversity index"
+    * change the size of the "text" and "title" of the y axis to "18"
   * x-axis 
     * make x-axis labels be at a 45 degree angle
-    * change the size to "18"
-  * change the colors by using finding and using a different theme
-
+    * change the size of the "text" and "title" of the y axis to "18"
+  * change the colors by finding and using a different set of colors (hint: search for "palette")
 
 
 
