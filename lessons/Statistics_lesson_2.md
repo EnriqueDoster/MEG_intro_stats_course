@@ -153,7 +153,7 @@ The value of statistics lies with organizing and simplifying data, to permit som
 In Step 3, we'll introduce you to using R for univariate statiscal testing of microbiome/resistome data. This means that there is only a single "dependent variable" involved. However, depending on the the type of dependent variable in question, we could use different statistical tests including t-tests, analysis of variance (ANOVA), analysis of covariance, linear regression, and generalized linear models such as binary logistic regression.  
 
 ### Learning objectives for step 3:
-Statistical testing is necessary to assess differences between sample groups in a dataset. Studets will learn to perform statistical comparisons of the following values:
+Statistical testing is necessary to assess differences between sample groups in a dataset. Students will learn to perform statistical comparisons of the following values:
 * raw sequencing reads
 * non-host reads
 * mapped reads
