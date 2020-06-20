@@ -171,10 +171,15 @@ Statistical testing is necessary to assess differences between sample groups in 
 
 ### Step 3) Deliverable
 
-For both the microbiome and resistome, test for statistical differences between:
- * mapped reads
-   * at phylum and species level for the microbiome
-   * at the class and gene level for the microbiome
- * diversity indices
-   * at phylum and species level for the microbiome
-   * at the class and gene level for the microbiome
+Test for differences in sequencing results, 16S raw reads and shotgun raw reads, by the following sample metadata:
+* Treatment "Group"
+* "Sample_block"
+* "Lot"
+* For the shotgun reads, test by "shotgun_seq_lane"
+For both the microbiome and resistome, test for statistical differences between treatment groups for the following values:
+* mapped reads
+  * at phylum and species level for the microbiome
+  * at the class and gene level for the microbiome
+* diversity indices
+  * at phylum and species level for the microbiome
+  * at the class and gene level for the microbiome
