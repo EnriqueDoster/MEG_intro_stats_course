@@ -167,14 +167,14 @@ Statistical testing is necessary to assess differences between sample groups in 
 2. Select File → Open Project…
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
-5. Follow the instructions in the script, "Lesson2_Step2_Basic_stats.R"
+5. Follow the instructions in the script, "Lesson2_Step3_Basic_stats.R"
 
 ### Step 3) Deliverable
-* For both the microbiome and resistome, test for statistical differences between:
-  * non-host reads
-  * mapped reads
-    * at phylum and species level for the microbiome
-    * at the class and gene level for the microbiome
-  * diversity indices
-    * at phylum and species level for the microbiome
-    * at the class and gene level for the microbiome
+
+For both the microbiome and resistome, test for statistical differences between:
+ * mapped reads
+   * at phylum and species level for the microbiome
+   * at the class and gene level for the microbiome
+ * diversity indices
+   * at phylum and species level for the microbiome
+   * at the class and gene level for the microbiome
