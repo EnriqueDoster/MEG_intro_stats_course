@@ -148,16 +148,18 @@ Calculate summary statistics and visualize the results using ggplot figures:
 ### "There are lies, damn lies, and statistics..." -Anon
 "Statistics are a tool, not an aim. Simple inspection of data, without statistical treatment, by an experienced and dedicated analyst may be just as useful as statistical figures on the desk of the disinterested." - [FAO](http://www.fao.org/3/W7295E/w7295e08.htm)
 
-The value of statistics lies with organizing and simplifying data, to permit some objective estimate showing that an analysis is under control or that a change has occurred. Equally important is that the results of these statistical procedures are recorded and can be retrieved.
+The value of statistics lies with organizing and simplifying data, to permit some objective estimate showing that an analysis is under control or that a change has occurred. Equally important is that the results of these statistical procedures are recorded and can be retrieved.This is where R scripts come in handy. Instead of just having a spreadsheet of p-values to record all of your results, you can save scripts that replicate all of your analyses.
 
-This is where R scripts come in handy. Instead of just having a spreadsheet of p-values to record all of your results, you can save scripts that replicate all of your analyses. In Step 3, we'll learn how to use the Wilcoxon test and linear models to compare values between sample groups. We'll start with univariate tests to compare:
+In Step 3, we'll introduce you to using R for univariate statiscal testing of microbiome/resistome data. This means that there is only a single "dependent variable" involved. However, depending on the the type of dependent variable in question, we could use different statistical tests including t-tests, analysis of variance (ANOVA), analysis of covariance, linear regression, and generalized linear models such as binary logistic regression.  
+
+### Learning objectives for step 3:
+Statistical testing is necessary to assess differences between sample groups in a dataset. Studets will learn to perform statistical comparisons of the following values:
 * raw sequencing reads
 * non-host reads
 * mapped reads
 * diversity indices
 
-
-**Disclaimer:** We don't intend to go over the finer points of performing statistical analyses. We are doing something much more dangerous. We will show you how to analyze metagenomic data and get p-values. What you do with those values is then all up to you!
+**Disclaimer:** We don't intend to go over the finer points of performing and interpreting statistical analyses. We are doing something much more dangerous. We will show you how to analyze metagenomic data and get p-values, but what you do with those values is then all up to you! That being said, we'd happy to try and help you interpret your data.
 
 ### Task
 * To ensure you have the most up-to-date code,
@@ -165,7 +167,7 @@ This is where R scripts come in handy. Instead of just having a spreadsheet of p
 2. Select File → Open Project…
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
-5. Follow the instructions in the script, "Lesson3_basic_statistical_testing.R"
+5. Follow the instructions in the script, "Lesson2_Step2_Basic_stats.R"
 
 ### Step 3) Deliverable
 * For both the microbiome and resistome, test for statistical differences between:
