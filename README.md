@@ -89,6 +89,7 @@ Statistics
   * Nice package for "publication-ready" figures.
 * [Harvard's Data Science: R Basics](https://www.edx.org/course/data-science-r-basics)
 * [Collaborative spreadsheet of resources](https://docs.google.com/document/d/1A9BbOCsrg1ikLaBltKhXVKj-eetlrBqR-1u-2V99I2c/edit#)
+* [Choose the right test](https://stats.idre.ucla.edu/other/mult-pkg/whatstat/)
 
 ## Timeline
 We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom. Please check Slack for updates!
