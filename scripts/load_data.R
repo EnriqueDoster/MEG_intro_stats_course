@@ -67,7 +67,7 @@ row.names(kraken_taxonomy) <- kraken_taxonomy$id
 kraken_taxonomy <- within(kraken_taxonomy, rm(id))
 
 # Create kraken phyloseq object
-kraken_microbiome.ps <- merge_phyloseq(kraken_microbiome, tax_table(as.matrix(kraken_taxonomy)), sample_metadata)
+kraken_microbiome.ps <- merge_phyloseq(kraken_microbiome, tax_table(as.matrix(kraken_taxonomy)), sample_data(sample_metadata))
 
 # Estimating richness and diversity using the easy-to-use function estimate_richness()
 microbiome_shotgun_diversity_values <- estimate_richness(kraken_microbiome.ps)
