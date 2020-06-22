@@ -170,16 +170,5 @@ Statistical testing is necessary to assess differences between sample groups in 
 5. Follow the instructions in the script, "Lesson2_Step3_Basic_stats.R"
 
 ### Step 3) Deliverable
-
-Test for differences in sequencing results, 16S raw reads and shotgun raw reads, by the following sample metadata:
-* Treatment "Group"
-* "Sample_block"
-* "Lot"
-* For the shotgun reads, test by "shotgun_seq_lane"
-For both the microbiome and resistome, test for statistical differences between treatment groups for the following values:
-* mapped reads
-  * at phylum and species level for the microbiome
-  * at the class and gene level for the microbiome
-* diversity indices
-  * at phylum and species level for the microbiome
-  * at the class and gene level for the microbiome
+* Follow along with the R code and then modify those commands to answer questions on the following survey:
+https://www.surveymonkey.com/r/9CRJYJN
