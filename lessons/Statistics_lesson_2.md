@@ -135,7 +135,7 @@ Calculate summary statistics and visualize the results using ggplot figures:
   * Add a facet by treatment "Group" and correctly change the "scales"
   * Add a plot label that describes what's in the figure.
   * y-axis 
-    * label it "Shannon's diversity index"
+    * label it "Relative abundance"
     * change the size of the "text" and "title" of the y axis to "18"
   * x-axis 
     * make x-axis labels be at a 45 degree angle
