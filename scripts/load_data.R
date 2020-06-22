@@ -1,6 +1,6 @@
 
 # Load sample metadata
-sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, sep=',', row.names = 1)
+sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, sep=',', row.names = 1, quote = "")
 
 #
 ##
@@ -11,7 +11,7 @@ sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, se
 # We import the .biom as in Lesson 1 step 4
 microbiome <- import_biom("data/Exported_16S_qiime2_results/Lesson2_16S_asv_table.biom")
 # Load the taxonomy file from qiime2
-taxa <- read.table("data/Exported_16S_qiime2_results/Lesson2_taxonomy.tsv", header=T, row.names=1, sep='\t')
+taxa <- read.table("data/Exported_16S_qiime2_results/Lesson2_taxonomy.tsv", header=T, row.names=1, sep='\t', quote = "")
 row.names(taxa) <- paste(row.names(taxa),taxa[,1], sep= '; ')
 taxa.dt <- data.table(id=rownames(taxa)) # we'll make a column with the name "id"
 taxa.dt[, c('feature',
@@ -43,7 +43,7 @@ microbiome_16S_diversity_values <- estimate_richness(microbiome.ps)
 #
 
 # Load the kraken count table                                        
-kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, row.names=1, sep=',')
+kraken_microbiome <- read.table('./data/kraken_analytic_matrix.csv', header=T, row.names=1, sep=',', quote = "")
 
 # Convert to format that phyloseq likes with otu_table()                                      
 kraken_microbiome <- otu_table(kraken_microbiome, taxa_are_rows = TRUE)
@@ -80,10 +80,10 @@ microbiome_shotgun_diversity_values <- estimate_richness(kraken_microbiome.ps)
 #
                                          
 # Load MEGARes counts                                         
-amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',')
+amr <- read.table('./data/AMR_analytic_matrix.csv', header=T, row.names=1, sep=',', quote = "")
 # We can convert our amr count object to the otu_table format required for phyloseq
 amr <- otu_table(amr, taxa_are_rows = TRUE)
-annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names=1, sep=",")
+annotations <- read.table('data/megares_full_annotations_v2.0.csv', header=T, row.names=1, sep=",", quote = "")
                                                       
 # We can now merge these objects to make a phyloseq object
 amr.ps <- merge_phyloseq(amr, tax_table(as.matrix(annotations)), sample_data(sample_metadata))
