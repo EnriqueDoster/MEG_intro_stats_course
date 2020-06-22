@@ -32,7 +32,6 @@ qnorm(0.1056498, mean = 50, sd = 20) # inverse look-up
 dnorm(25, mean = 50, sd = 20) # density
 rnorm(4, mean = 50, sd = 20) # random variates following distribution
 
-
 # The distribution of the dependent variable is important for deciding the correct test.
 # For example, we might want to compare the number of raw reads between treatment groups
 
@@ -182,3 +181,18 @@ plot(fit_shotgun_reads[[1]]) # View the first plot
 
 # In the deliverable for Lesson 2 step 3, you'll practice using these statistical
 # tests to compare different values between relevant sample groups. 
+
+# Here's a quick example with the combined_diversity_values object to get you started
+# Notice, this is quite messy but try to understand everything that is going on,
+# if you prefer, you can also just subset the data into smalller subsets.
+
+# Full command, subsetting just data from the 16S microbiome data
+# NB: we can move to other lines because the command is within "()"
+wilcox.test(
+ (combined_diversity_values %>% filter(DataType == "16S microbiome"))$Shannon 
+ ~ (combined_diversity_values %>% filter(DataType == "16S microbiome"))$Group
+)
+
+# Or, subset the data first
+diversity_16S_microbiome <- combined_diversity_values %>% filter(DataType == "16S microbiome")
+wilcox.test(diversity_16S_microbiome$Shannon ~ diversity_16S_microbiome$Group)
