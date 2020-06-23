@@ -147,11 +147,13 @@ friedman.test( shotgun_reads ~  sample_groups| sample_blocks)
 
 # We can fit a model using lm()
 # NB: we use the same y ~ x1 + x2 notation to describe the formula
-fit_shotgun_reads <- lm(data=sample_metadata, Shotgun_raw_reads ~ Group + Sample_block)
+# Also, we use use "as.factor()" on the Sample_block column. If you don't convert these values to a factor,
+# the model will treat the variable as a continuous variable.
+fit_shotgun_reads <- lm(data=sample_metadata, Shotgun_raw_reads ~ Group + as.factor(Sample_block))
 fit_shotgun_reads
 
 # we can also use "*" to include the interaction of two variables
-fit_shotgun_reads <- lm(data=sample_metadata, Shotgun_raw_reads ~ Group * Sample_block)
+fit_shotgun_reads <- lm(data=sample_metadata, Shotgun_raw_reads ~ Group * as.factor(Sample_block))
 fit_shotgun_reads
 
 # Get more information about model
@@ -195,4 +197,8 @@ wilcox.test(
 
 # Or, subset the data first
 diversity_16S_microbiome <- combined_diversity_values %>% filter(DataType == "16S microbiome")
+# wilcox
 wilcox.test(diversity_16S_microbiome$Shannon ~ diversity_16S_microbiome$Group)
+# linear model
+anova(lm(Shannon ~ Group + as.factor(Sample_block), data = diversity_16S_microbiome))
+
