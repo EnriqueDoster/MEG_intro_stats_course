@@ -85,11 +85,14 @@ Statistics
 * [LHS 610: Exploratory Data Analysis for Health](https://kdpsingh.lab.medicine.umich.edu/lhs-610)
   * We haven't personally tried this course, but they provide great videos and code examples for learning how to explore data using R.
 * [#bioinformatics live twitter feed](https://twitter.com/search?q=%23bioinformatics&src=hash)
-* [ggpubr](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/)
-  * Nice package for "publication-ready" figures.
-* [Harvard's Data Science: R Basics](https://www.edx.org/course/data-science-r-basics)
+* R-specific resources
+  * [ggpubr](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/)
+    * Nice package for "publication-ready" figures.
+  * [Harvard's Data Science: R Basics](https://www.edx.org/course/data-science-r-basics)
 * [Collaborative spreadsheet of resources](https://docs.google.com/document/d/1A9BbOCsrg1ikLaBltKhXVKj-eetlrBqR-1u-2V99I2c/edit#)
 * [Choose the right test](https://stats.idre.ucla.edu/other/mult-pkg/whatstat/)
+* Batch effects
+  * 
 
 ## Timeline
 We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom. Please check Slack for updates!
