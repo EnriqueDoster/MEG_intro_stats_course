@@ -1,3 +1,11 @@
+##### Set up environment
+library("phyloseq")
+library("dplyr")
+library("ggplot2")
+library("data.table")
+library("tidyr")
+library("forcats")
+library("vegan")
 
 # Load sample metadata
 sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, sep=',', row.names = 1, quote = "")
