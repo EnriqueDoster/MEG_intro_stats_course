@@ -4,6 +4,16 @@
 # You can find more information about changing the color in plots here:
 # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
 
+##### Set up environment
+library("phyloseq")
+library("dplyr")
+library("ggplot2")
+library("data.table")
+library("tidyr")
+library("forcats")
+library("vegan")
+
+
 # Load the data
 source("./scripts/load_data.R")
 
@@ -61,8 +71,6 @@ phylum_kraken.ps.rel.melt$mean_phylum_rel_abundance <- as.numeric(phylum_kraken.
 
 phylum_kraken.ps.rel.melt$phylum[phylum_kraken.ps.rel.melt$mean_phylum_rel_abundance < 0.005] <- "Low abundance phyla (< 0.5%)"
 
-
-phylum_kraken.ps.rel.melt <- left_join(phylum_kraken.ps.rel.melt, sample_metadata, by= "Sample")
 
 ##### Plot phyla relative abundances
 deliverable_fig2 <-  ggplot(phylum_kraken.ps.rel.melt, aes(x = Sample, y = Abundance, fill = phylum)) +
