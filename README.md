@@ -17,10 +17,10 @@ Slack group: https://meg-research.slack.com
 
 ## Course content
 * [Course summary](#summary)
-* [Learning objectives(#learning-objectives:)
-* [Resources](#resources:)
-* [Timeline](#timeline:)
-* [Deliverables](#deliverables:)
+* [Learning objectives(#learning-objectives)
+* [Resources](#resources)
+* [Timeline](#timeline)
+* [Deliverables](#deliverables)
 
 ### Summary
 These lessons are designed to introduce researchers to the R programming language for statistical analysis of metagenomic sequencing data. While we are primarily developing these training resources for the Microbial Ecology Group (MEG), we would love to get your input on improvements to any component so that we can one day provide this as a useful public resource. As the lessons are meant to be an informal collection of resources and tutorials, we have have liberally used parts and pieces of other online lessons and tailored it for our purposes. We attempt to give credit when possible by linking the original source and we are happy to hear recommendations for other resources to include.
