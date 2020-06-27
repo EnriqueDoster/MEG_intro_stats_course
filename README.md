@@ -17,7 +17,7 @@ Slack group: https://meg-research.slack.com
 
 ## Course content
 * [Course summary](#summary)
-* [Learning objectives(#learning-objectives)
+* [Learning objectives](#learning-objectives)
 * [Resources](#resources)
 * [Timeline](#timeline)
 * [Deliverables](#deliverables)
