@@ -79,6 +79,8 @@ Data visualization
    * You can also check out [this interactive figure](http://ft-interactive.github.io/visual-vocabulary/) of the same material
 * [FT Visual Journalism Team](https://www.ft.com/visual-and-data-journalism)
   * Awesome site with articles covering various topics and with the emphasis on creating awesome graphics to convey
+* [Interactive Jupyter notebooks](https://voila-gallery.org/)
+  * Also use [this site for neat jupyter tips and tricks](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)
 
 Command-line
 * [Explain shell](https://explainshell.com/)
