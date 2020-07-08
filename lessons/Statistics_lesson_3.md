@@ -40,19 +40,19 @@ Statistics
 ### Addressing bias with count normalization
 As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session as we discuss how count normalization can help address sources of bias.
 
-### Below, we use information from an online resource(https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html) 
-The main factors often considered during normalization are:
-
+In particular, we'll focus on addressing differences in sequencing depth.
 * Sequencing depth: Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in Sample A relative to Sample B, however this is a consequence of Sample A having double the sequencing depth.
 
   <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_depth.png" width="500" height="300" />  
     
       NOTE: In the figure above, each pink and green rectangle represents a read aligned to a gene. Reads connected by dashed lines connect a read spanning an intron.
     
-* Gene length: Accounting for gene length is necessary for comparing expression between different genes within the same sample. In the example, Gene X and Gene Y have similar levels of expression, but the number of reads mapped to Gene X would be many more than the number mapped to Gene Y because Gene X is longer.
+## Learning Objectives:
+Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, but we'll go over a few examples and teach you how to perform the following normalization methods:
+* Rarefying - randomly “downsample” every sample to a level even with the sample with the lowest number of reads
+* Total Sum Scaling (TSS) - the number of ”feature” reads divided by the total number of sequenced reads
+* Cumulative Sum Scaling (CSS) - applies a normalization scale quantile, which is derived from the data itself
 
-  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
- 
 
 
 ### Task
