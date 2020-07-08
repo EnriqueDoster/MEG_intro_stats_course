@@ -36,12 +36,35 @@ Statistics
 ---
 
 # Step 1 - Count normalization
-### Addressing sequencing bias
+
+### Addressing bias with count normalization
+As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session as we discuss how count normalization can help address sources of bias.
+
+### Below, we use information from an online resource(https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html) 
+The main factors often considered during normalization are:
+
+* Sequencing depth: Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in Sample A relative to Sample B, however this is a consequence of Sample A having double the sequencing depth.
+
+  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_depth.png" width="500" height="300" />  
+    
+      NOTE: In the figure above, each pink and green rectangle represents a read aligned to a gene. Reads connected by dashed lines connect a read spanning an intron.
+    
+* Gene length: Accounting for gene length is necessary for comparing expression between different genes within the same sample. In the example, Gene X and Gene Y have similar levels of expression, but the number of reads mapped to Gene X would be many more than the number mapped to Gene Y because Gene X is longer.
+
+  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
+ 
 
 
 ### Task
+* To ensure you have the most up-to-date code,
+1. Open RStudio.
+2. Select File → Open Project…
+3. Find your R project from Lesson 1 → Click Open.
+4. Click on Tools → Version Control → Pull branches
+5. Follow the instructions in the script, "Lesson3_Step1_Count_normalization.R"
 
-### Step 1) Deliverable
+
+### Lesson 3 Step 1) Deliverable
 
 
 
