@@ -9,6 +9,7 @@ library("vegan")
 
 # Load sample metadata
 sample_metadata <- read.table('./data/Lesson2_sample_metadata.csv', header=T, sep=',', row.names = 1, quote = "")
+colnames(sample_metadata)[1] <- "Sample_name"
 
 #
 ##
