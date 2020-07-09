@@ -29,8 +29,10 @@ plot_raw_qiime_phylum <- plot_bar(phylum_qiime.ps, fill = "phylum") +
         legend.text=element_text(size=8))
 plot_raw_qiime_phylum
 
-# By looking at the mapped reads for each taxa, we can clearly see this difference in count 
-# distribution.
+# By looking at the mapped reads for each taxa, we can clearly see the variability of count 
+# distribution for different taxa.
+# Notice that some features are only present in a few samples, this is what a "sparse"
+# dataset looks like.
 plot_bar(phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ phylum, scales = "free") +
   theme_classic()
@@ -75,6 +77,19 @@ plot_bar(clean_phylum_qiime.ps, fill = "phylum") +
 
 
 #
+## Removing samples with low counts
+#
+
+# Alternatively, you might want to only keep samples containing more than X counts
+test_clean_phylum_qiime.ps = prune_samples(sample_sums(clean_phylum_qiime.ps)>=100000, clean_phylum_qiime.ps)
+
+# Notice, one sample was removed.
+plot_bar(test_clean_phylum_qiime.ps, fill = "phylum") + 
+  facet_wrap(~ Group, scales = "free_x") +
+  theme_classic()
+
+
+#
 ## Subsetting taxa
 #
 
@@ -88,31 +103,25 @@ plot_bar(firmicutes_microbiome.ps, fill = "phylum") +
   theme_classic()
 
 #
-## Removing samples with low counts
-#
-
-# You might want to only keep samples containing more than X counts
-test_clean_phylum_qiime.ps = prune_samples(sample_sums(clean_phylum_qiime.ps)>=100000, clean_phylum_qiime.ps)
-
-# Notice, one sample was removed.
-plot_bar(test_clean_phylum_qiime.ps, fill = "phylum") + 
-  facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
-
-#
 ## Filtering low abundance taxa
 #
 
 # Prior to using the full dataset for count normalization, we might choose a threshold of 
-# counts that each taxa much meet. As example we can choose "50"
+# counts that each taxa much meet. For a simple example, we'll use "50" counts as the minimum threshold.
 filtered_microbiome.ps = filter_taxa(microbiome.ps, function(x) sum(x) > 50, TRUE)
 # Notice the change in taxa number, aggregate to phylum level
 filtered_phylum_qiime.ps <- tax_glom(filtered_microbiome.ps, "phylum")
 
 # Plot mapped counts for each sample, faceted by treatment group
-plot_bar(filtered_phylum_qiime.ps, fill = "phylum") + 
+plot_filtered_raw_qiime_phylum <- plot_bar(filtered_phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
+  labs(title= "Raw qiime microbiome counts") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(size = 6, angle = 45),
+        panel.background = element_blank(),
+        legend.title = element_text( size=8), 
+        legend.text=element_text(size=8))
+plot_filtered_raw_qiime_phylum
 
 # Plot mapped counts for each sample, faceted by taxa
 plot_bar(filtered_phylum_qiime.ps, fill = "phylum") + 
@@ -144,8 +153,13 @@ plot_bar(filtered_phylum_qiime.ps, fill = "phylum") +
 # R session for reproducibility.
 set.seed(42) # choose any number, or use an R function to choose a random value for you.
 
-# Rarefy using the entire dataset
-rarefied_qiime.ps <- rarefy_even_depth(microbiome.ps, sample.size = min(sample_sums(microbiome.ps)))
+# Rarefy using the filtered qiime2 dataset
+rarefied_qiime.ps <- rarefy_even_depth(filtered_microbiome.ps, sample.size = min(sample_sums(filtered_microbiome.ps)))
+
+# Here's an example of what it would look like if you try rarefying your raw count data.
+# Notice that some OTUs (ASVs) are lost after rarefying
+test_rarefied_qiime.ps <- rarefy_even_depth(microbiome.ps, sample.size = min(sample_sums(microbiome.ps)))
+
 # Aggregate counts to phylum
 rarefied_phylum_qiime.ps <- tax_glom(rarefied_qiime.ps, "phylum")
 # Bar plot to visualize results
@@ -166,7 +180,7 @@ plot_rarefied_qiime_phylum
 
 # Normalize counts using total sum scaling
 # Notice we multiple the proportions by 1000000.
-tss_normalized_qiime.ps  = transform_sample_counts(microbiome.ps, function(x) x / sum(x) *1000000)
+tss_normalized_qiime.ps  = transform_sample_counts(filtered_microbiome.ps, function(x) x / sum(x) *1000000)
 
 # Aggregate counts to phylum
 tss_normalized_phylum_qiime.ps <- tax_glom(tss_normalized_qiime.ps, "phylum")
@@ -199,7 +213,7 @@ plot_tss_qiime_phylum
 
 # First, we convert the phyloseq object to metagenomeSeq
 library(metagenomeSeq)
-microbiome.metaseq <- phyloseq_to_metagenomeSeq(microbiome.ps)
+microbiome.metaseq <- phyloseq_to_metagenomeSeq(filtered_microbiome.ps)
 
 # Check out this object:
 microbiome.metaseq
@@ -212,7 +226,7 @@ microbiome.metaseq <- cumNorm(microbiome.metaseq)
 CSS_microbiome_counts <- MRcounts(microbiome.metaseq, norm = TRUE)
 
 # Use the new counts and merge with components from our original phyloseq object.
-CSS_normalized_qiime.ps <- merge_phyloseq(otu_table(CSS_microbiome_counts, taxa_are_rows = TRUE),sample_data(microbiome.ps),tax_table(microbiome.ps), phy_tree(microbiome.ps))
+CSS_normalized_qiime.ps <- merge_phyloseq(otu_table(CSS_microbiome_counts, taxa_are_rows = TRUE),sample_data(filtered_microbiome.ps),tax_table(filtered_microbiome.ps), phy_tree(filtered_microbiome.ps))
 
 # Aggregate counts to phylum
 CSS_normalized_phylum_qiime.ps <- tax_glom(CSS_normalized_qiime.ps, "phylum")
@@ -235,7 +249,7 @@ plot_css_qiime_phylum
 #
 
 # Normalize the entire dataset to the median sequencing depth
-median_normalized_qiime.ps = transform_sample_counts(microbiome.ps, function(x, t=median(sample_sums(microbiome.ps))) round(t * (x / sum(x))))
+median_normalized_qiime.ps = transform_sample_counts(filtered_microbiome.ps, function(x, t=median(sample_sums(filtered_microbiome.ps))) round(t * (x / sum(x))))
 
 # Aggregate counts to phylum
 median_normalized_phylum_qiime.ps <- tax_glom(median_normalized_qiime.ps, "phylum")
@@ -261,7 +275,7 @@ library(ggpubr) # use "install.packages()" first if you don't have this package
 # Below, we can use the "ggarrange()" to group our 4 plots saved from above.
 # Notice, we can use "common.legend" to specify that we only need one legend.
 # We also can add a label for each plot.
-combined_figures <- ggarrange(plot_raw_qiime_phylum  + rremove("x.text"),plot_tss_qiime_phylum  + rremove("x.text"),
+combined_figures <- ggarrange(plot_filtered_raw_qiime_phylum  + rremove("x.text"),plot_tss_qiime_phylum  + rremove("x.text"),
           plot_rarefied_qiime_phylum,plot_css_qiime_phylum, common.legend = TRUE,
            legend = "right", labels = c("A)", "B)", "C)","D)"))
 combined_figures
