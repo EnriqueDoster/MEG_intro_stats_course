@@ -62,9 +62,10 @@ In particular, we'll focus on addressing differences in sequencing depth between
      In the equation above, N<sub>AMR−likesequence</sub> is defined as the number of alignments to one specific AMR gene sequence; L<sub>reads</sub> as the sequence length of the Illumina reads (125 nt); L<sub>AMRreferencesequence</sub> as the sequence length of the corresponding AMR gene sequence; N<sub>16Ssequence</sub> as the number of alignments to 16S sequences; and L<sub>16Ssequence</sub> as the average length of the 16S sequences in the Greengenes database (mean = 1,401 nt). 
     
 ## Learning Objectives:
-** Disclaimer) As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, and as we have discussed, the statistical analyses for metagenomic studies require many nuanced decisions, each of which has the potential to substantially impact study results **
 
-In lesson 3, step 1 you'll learn how to perform the following normalization methods**:
+**Disclaimer) As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, and as we have discussed, the statistical analyses for metagenomic studies require many nuanced decisions, each of which has the potential to substantially impact study results**
+
+In lesson 3, step 1 you'll learn how to perform the following normalization methods:
 * Rarefying - randomly “downsample” every sample to a level even with the sample with the lowest number of reads
 * Total Sum Scaling (TSS) - the number of ”feature” reads divided by the total number of sequenced reads (can then be multiplied by X to get absolute abundance)
 * Cumulative Sum Scaling (CSS) - applies a normalization scale quantile, which is derived from the data itself
