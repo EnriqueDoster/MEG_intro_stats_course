@@ -6,31 +6,37 @@ source("./scripts/load_data.R")
 # In general, we use raw counts to report mapping statistics and to calculate diversity indices.
 
 # On the other hand, for further analysis such as ordination and testing for differential
-# feature abundance we typically have to "normalize" sample counts. In this script, we'll go over
-# normalization methods to account for differences in sequencing depth 
+# feature abundance we typically have "normalize" sample counts. In this script, we'll go over
+# normalization methods to account for to account for differences in sequencing depth 
 # between samples.
 
 # We'll use the 16S microbiome dataset, go over why we need to normalize counts,
 # and then go over a few examples of different normalization techniques.
 
-# While we normalize counts based on the entire dataset (prior to taxa aggregation), in this step
+# While we normalize counts based on the entire dataset (prior to aggregation), in this step
 # we'll aggregate counts to the phylum level for easier processing and visualization.
 # If you are curious, you can try plotting the entire dataset to test how your computer handles it. 
 phylum_qiime.ps <- tax_glom(microbiome.ps, "phylum")
 
 # Just visually, we can observe differences in the number of total mapped reads between samples
-plot_bar(phylum_qiime.ps, fill = "phylum") + 
+plot_raw_qiime_phylum <- plot_bar(phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
+  labs(title= "Raw qiime microbiome counts") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(size = 6, angle = 45),
+        panel.background = element_blank(),
+        legend.title = element_text( size=8), 
+        legend.text=element_text(size=8))
+plot_raw_qiime_phylum
 
-# By looking at the mapped reads for each taxa, we can clearly see this differences in count 
+# By looking at the mapped reads for each taxa, we can clearly see this difference in count 
 # distribution.
 plot_bar(phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ phylum, scales = "free") +
   theme_classic()
 
 
-# For count normalization, we have a few options available including:
+# For count normalization, we have a few options available including standardizing using:
 # median sequencing depth, total sum scaling, rarefying, and cumulative sum scaling. 
 
 # Additionally, we might consider further processing our data prior to normalization.
@@ -48,7 +54,7 @@ plot_bar(phylum_qiime.ps, fill = "phylum") +
 #
 
 # In the figures above, you probably noticed the taxa named "p__". This signifies that some features
-# were not classified at the phylum level and only received a label for the kingdom.
+# were not classified at the phylum level and only got a label for the kingdom.
 # Below, we'll remove this feature using "prune_taxa()"
 
 # First, we need to know the name of the "ASV" feature that corrresponds with the phylum label "p__"
@@ -72,7 +78,7 @@ plot_bar(clean_phylum_qiime.ps, fill = "phylum") +
 ## Subsetting taxa
 #
 
-# We might want to focus on a specific taxon, so we can use the "subset_taxa()" function on
+# We might want to focus on a specific taxa, so we can use the "subset_taxa()" function on
 # the raw count dataset
 firmicutes_microbiome.ps = subset_taxa(clean_phylum_qiime.ps, phylum=="p__Firmicutes")
 # The error you get is due to the phylogenetic tree that we can't subset from the full dataset.
@@ -127,40 +133,6 @@ plot_bar(filtered_phylum_qiime.ps, fill = "phylum") +
 
 #
 ##
-### Normalizing to relative abundances
-##
-#
-
-# Using the raw counts, aggregated at the phylum level, we can calculate relative abundances
-
-rel_abundance_phylum_qiime.ps  = transform_sample_counts(phylum_qiime.ps, function(x) x / sum(x) )
-
-plot_bar(rel_abundance_phylum_qiime.ps, fill = "phylum") + 
-  facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
-
-#
-##
-### Normalizing to the median sequencing depth
-##
-#
-
-# Normalize the entire dataset to the median sequencing depth
-median_normalized_qiime.ps = transform_sample_counts(microbiome.ps, function(x, t=median(sample_sums(microbiome.ps))) round(t * (x / sum(x))))
-
-# Aggregate counts to phylum
-median_normalized_phylum_qiime.ps <- tax_glom(median_normalized_qiime.ps, "phylum")
-
-# Notice the y-axis values are counts and not proportions.
-plot_bar(median_normalized_phylum_qiime.ps, fill = "phylum") + 
-  facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
-
-
-
-
-#
-##
 ### Rarefying
 ##
 #
@@ -177,11 +149,15 @@ rarefied_qiime.ps <- rarefy_even_depth(microbiome.ps, sample.size = min(sample_s
 # Aggregate counts to phylum
 rarefied_phylum_qiime.ps <- tax_glom(rarefied_qiime.ps, "phylum")
 # Bar plot to visualize results
-plot_bar(rarefied_phylum_qiime.ps, fill = "phylum") + 
+plot_rarefied_qiime_phylum <- plot_bar(rarefied_phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
-
-
+  labs(title= "Rarefied qiime microbiome counts") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(size = 6, angle = 45),
+        panel.background = element_blank(),
+        legend.title = element_text( size=8), 
+        legend.text=element_text(size=8))
+plot_rarefied_qiime_phylum
 #
 ##
 ### Normalizing using total sum scaling
@@ -189,16 +165,22 @@ plot_bar(rarefied_phylum_qiime.ps, fill = "phylum") +
 #
 
 # Normalize counts using total sum scaling
+# Notice we multiple the proportions by 1000000.
 tss_normalized_qiime.ps  = transform_sample_counts(microbiome.ps, function(x) x / sum(x) *1000000)
 
 # Aggregate counts to phylum
 tss_normalized_phylum_qiime.ps <- tax_glom(tss_normalized_qiime.ps, "phylum")
 
 # Notice the y-axis values are counts and not proportions.
-plot_bar(tss_normalized_phylum_qiime.ps, fill = "phylum") + 
+plot_tss_qiime_phylum <- plot_bar(tss_normalized_phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
-  theme_classic()
-
+  labs(title= "TSS normalized qiime microbiome counts") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(size = 8, angle = 45),
+        panel.background = element_blank(),
+        legend.title = element_text( size=10), 
+        legend.text=element_text(size=10))
+plot_tss_qiime_phylum
 
 #
 ##
@@ -236,7 +218,55 @@ CSS_normalized_qiime.ps <- merge_phyloseq(otu_table(CSS_microbiome_counts, taxa_
 CSS_normalized_phylum_qiime.ps <- tax_glom(CSS_normalized_qiime.ps, "phylum")
 
 # Notice the y-axis values are counts and not proportions.
-plot_bar(CSS_normalized_phylum_qiime.ps, fill = "phylum") + 
+plot_css_qiime_phylum <- plot_bar(CSS_normalized_phylum_qiime.ps, fill = "phylum") + 
+  facet_wrap(~ Group, scales = "free_x") +
+  labs(title= "CSS normalized qiime microbiome counts") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(size = 6, angle = 45),
+        panel.background = element_blank(),
+        legend.title = element_text( size=8), 
+        legend.text=element_text(size=8))
+plot_css_qiime_phylum
+
+#
+##
+### Normalizing to the median sequencing depth
+##
+#
+
+# Normalize the entire dataset to the median sequencing depth
+median_normalized_qiime.ps = transform_sample_counts(microbiome.ps, function(x, t=median(sample_sums(microbiome.ps))) round(t * (x / sum(x))))
+
+# Aggregate counts to phylum
+median_normalized_phylum_qiime.ps <- tax_glom(median_normalized_qiime.ps, "phylum")
+
+# Notice the y-axis values are counts and not proportions.
+plot_bar(median_normalized_phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
   theme_classic()
 
+
+
+################################
+#                              #
+#   Visualizing the results    #
+#                              #
+################################
+
+# You don't have to install the next package, but below is an example of how we can group
+# multiple plots in a page. The "ggpubr" package has a lot of great functions for making
+# publication-ready figures in combination with ggplot2.
+library(ggpubr) # use "install.packages()" first if you don't have this package
+
+# Below, we can use the "ggarrange()" to group our 4 plots saved from above.
+# Notice, we can use "common.legend" to specify that we only need one legend.
+# We also can add a label for each plot.
+combined_figures <- ggarrange(plot_raw_qiime_phylum  + rremove("x.text"),plot_tss_qiime_phylum  + rremove("x.text"),
+          plot_rarefied_qiime_phylum,plot_css_qiime_phylum, common.legend = TRUE,
+           legend = "right", labels = c("A)", "B)", "C)","D)"))
+combined_figures
+
+# Additionally, you can further annotate your figures using the "annotate_figure" function
+annotate_figure(combined_figures,
+                bottom = text_grob("Data source: 16S rRNA sequencing of beef feedlot cattle feces", color = "blue",
+                                   hjust = 1, x = 1, face = "italic", size = 8))
