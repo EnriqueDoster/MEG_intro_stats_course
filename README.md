@@ -37,7 +37,7 @@ We wholeheartedly encourage students to independently troubleshoot the majority 
 * getting help from other students by using our slackgroup channel #2020-stats-tutorial-group
 * searching bioinformatic forums such as (stackoverflow.com, biostars.org, seqanswers.com, etc.)
 
-In addition, we will have "techie time" every Thursday at 12pm MST on Slack to help address any ongoing issues.
+In addition, we will have "techie time" every Monday at 12pm-2pm MST on Slack to help address any ongoing issues.
 
 
 ### Learning objectives:
