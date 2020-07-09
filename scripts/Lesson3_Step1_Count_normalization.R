@@ -6,14 +6,14 @@ source("./scripts/load_data.R")
 # In general, we use raw counts to report mapping statistics and to calculate diversity indices.
 
 # On the other hand, for further analysis such as ordination and testing for differential
-# feature abundance we typically have "normalize" sample counts. In this script, we'll go over
-# normalization methods to account for to account for differences in sequencing depth 
+# feature abundance we typically have to "normalize" sample counts. In this script, we'll go over
+# normalization methods to account for differences in sequencing depth 
 # between samples.
 
 # We'll use the 16S microbiome dataset, go over why we need to normalize counts,
 # and then go over a few examples of different normalization techniques.
 
-# While we normalize counts based on the entire dataset (prior to aggregation), in this step
+# While we normalize counts based on the entire dataset (prior to taxa aggregation), in this step
 # we'll aggregate counts to the phylum level for easier processing and visualization.
 # If you are curious, you can try plotting the entire dataset to test how your computer handles it. 
 phylum_qiime.ps <- tax_glom(microbiome.ps, "phylum")
@@ -23,14 +23,14 @@ plot_bar(phylum_qiime.ps, fill = "phylum") +
   facet_wrap(~ Group, scales = "free_x") +
   theme_classic()
 
-# By looking at the mapped reads for each taxa, we can clearly see this difference in count 
+# By looking at the mapped reads for each taxa, we can clearly see this differences in count 
 # distribution.
 plot_bar(phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ phylum, scales = "free") +
   theme_classic()
 
 
-# For count normalization, we have a few options available including standardizing using:
+# For count normalization, we have a few options available including:
 # median sequencing depth, total sum scaling, rarefying, and cumulative sum scaling. 
 
 # Additionally, we might consider further processing our data prior to normalization.
@@ -48,7 +48,7 @@ plot_bar(phylum_qiime.ps, fill = "phylum") +
 #
 
 # In the figures above, you probably noticed the taxa named "p__". This signifies that some features
-# were not classified at the phylum level and only got a label for the kingdom.
+# were not classified at the phylum level and only received a label for the kingdom.
 # Below, we'll remove this feature using "prune_taxa()"
 
 # First, we need to know the name of the "ASV" feature that corrresponds with the phylum label "p__"
@@ -72,7 +72,7 @@ plot_bar(clean_phylum_qiime.ps, fill = "phylum") +
 ## Subsetting taxa
 #
 
-# We might want to focus on a specific taxa, so we can use the "subset_taxa()" function on
+# We might want to focus on a specific taxon, so we can use the "subset_taxa()" function on
 # the raw count dataset
 firmicutes_microbiome.ps = subset_taxa(clean_phylum_qiime.ps, phylum=="p__Firmicutes")
 # The error you get is due to the phylogenetic tree that we can't subset from the full dataset.
