@@ -55,7 +55,7 @@ In this course, we'll focus on addressing differences in sequencing depth, but b
 
   <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/Li_equation_AMR_gene_abundance.png" width="600" height="200" />  
 
-      N<sub>AMR−likesequence</sub> as the number of alignments to one specific AMR gene sequence; Lreads as the sequence length of the Illumina reads (125 nt); LAMRreferencesequence as the sequence length of the corresponding AMR gene sequence; N16Ssequence as the number of alignments to 16S sequences; and L16Ssequence as the average length of the 16S sequences in the Greengenes database (mean = 1,401 nt). 
+     In the equation above, N<sub>AMR−likesequence</sub> is defined as the number of alignments to one specific AMR gene sequence; L<sub>reads</sub> as the sequence length of the Illumina reads (125 nt); L<sub>AMRreferencesequence</sub> as the sequence length of the corresponding AMR gene sequence; N<sub>16Ssequence</sub> as the number of alignments to 16S sequences; and L<sub>16Ssequence</sub> as the average length of the 16S sequences in the Greengenes database (mean = 1,401 nt). 
     
 ## Learning Objectives:
 As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, but we'll go over a few examples and teach you how to perform the following normalization methods:
