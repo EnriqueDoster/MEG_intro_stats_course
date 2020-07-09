@@ -55,7 +55,8 @@ In particular, we'll focus on addressing differences in sequencing depth between
 
   <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
   
-  * Gene length might have not greatly impact your 16S rRNA sequencing projects, but this is an important consideration when targeting genes with variable sequence lengths (e.g. virulence factors, mobile genetic elements, metabolic genes, etc). We won't go over this example in our course, but we have also previously used the equation first described by [Li et. al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4611512/?report=reader). Equation shown below:
+  * Gene length might have not greatly impact your 16S rRNA sequencing projects, but this is an important consideration when targeting genes with variable sequence lengths (e.g. virulence factors, mobile genetic elements, metabolic genes, etc). 
+  * We won't go over this example in our course, but we have also previously used the equation described by [Li et. al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4611512/?report=reader) to normalize resistome counts by bacterial abundance and AMR gene length. Equation shown below:
 
   <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/Li_equation_AMR_gene_abundance.png" width="600" height="200" />  
 
