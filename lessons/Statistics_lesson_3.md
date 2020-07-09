@@ -7,7 +7,7 @@
 * be able to run MEG's R GUI code to automate data processing and the creation of exploratory figures
 * learn to make ordination plots, heatmaps, and volcano plots
 
-## Task overview:
+## Lesson 3 overview:
 We will break up this lesson into 5 steps. We'll meet once a week to discuss each step and students will independently work on the "task" and associated "deliverable" that must be sent to meglab.metagenomics@gmail.com.
 * [Step 1](#step-1---count-normalization): Count normalization
 * [Step 2](#step-2---ordination-with-non---metric-multidimensional-scaling-and-statistical-comparisons): Ordination with non-metric multidimensional scaling and statistical comparisons
@@ -38,17 +38,27 @@ Statistics
 # Step 1 - Count normalization
 
 ### Addressing bias with count normalization
-As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session as we discuss how count normalization can help address sources of bias.
+As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session (in the dropbox folder) as we discuss how count normalization can help address sources of bias.
 
-In particular, we'll focus on addressing differences in sequencing depth.
+In this course, we'll focus on addressing differences in sequencing depth, but below are a few other examples for your consideration. Adapted the following figures from the HBC training course, ["Intro to DGE"](https://hbctraining.github.io/DGE_workshop/).
 * Sequencing depth: Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in Sample A relative to Sample B, however this is a consequence of Sample A having double the sequencing depth.
 
-  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_depth.png" width="500" height="300" />  
+  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_depth.png" width="600" height="300" />  
     
       NOTE: In the figure above, each pink and green rectangle represents a read aligned to a gene. Reads connected by dashed lines connect a read spanning an intron.
     
+* Gene length: Accounting for gene length is necessary for comparing expression between different genes within the same sample. In the example, Gene X and Gene Y have similar levels of expression, but the number of reads mapped to Gene X would be many more than the number mapped to Gene Y because Gene X is longer.
+
+  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
+  
+  * Gene length is less likely to affect your 16S sequencing projects, but this is an important consideration for projects targeting genes with variable sequence lengths (e.g. virulence factors, mobile genetic elements, metabolic genes, etc). We won't go over this example in our course, but we have also previously used the equation first described by [Li et. al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4611512/?report=reader). Equation shown below:
+
+  <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/Li_equation_AMR_gene_abundance.png" width="600" height="200" />  
+
+      N<sub>AMR−likesequence</sub> as the number of alignments to one specific AMR gene sequence; Lreads as the sequence length of the Illumina reads (125 nt); LAMRreferencesequence as the sequence length of the corresponding AMR gene sequence; N16Ssequence as the number of alignments to 16S sequences; and L16Ssequence as the average length of the 16S sequences in the Greengenes database (mean = 1,401 nt). 
+    
 ## Learning Objectives:
-Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, but we'll go over a few examples and teach you how to perform the following normalization methods:
+As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, but we'll go over a few examples and teach you how to perform the following normalization methods:
 * Rarefying - randomly “downsample” every sample to a level even with the sample with the lowest number of reads
 * Total Sum Scaling (TSS) - the number of ”feature” reads divided by the total number of sequenced reads
 * Cumulative Sum Scaling (CSS) - applies a normalization scale quantile, which is derived from the data itself
@@ -71,7 +81,7 @@ Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best 
 
 
 
-
+---
 
 # Step 2 - Ordination with non-metric multidimensional scaling and statistical comparisons
 ###
@@ -90,6 +100,7 @@ Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best 
 
 
 
+---
 
 # Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
 ###
@@ -101,7 +112,7 @@ Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best 
 
 
 
-
+---
 
 # Step 4 - Learn to run MEG R GUI code for exploratory figures
 ###
@@ -113,7 +124,7 @@ Like in Lesson 2 Step 3, we can't go over all the nuances of selecting the best 
 
 
 
-
+---
 
 # Step 5 - Advance plotting
 ###
