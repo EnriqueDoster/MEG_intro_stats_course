@@ -77,8 +77,7 @@ In lesson 3, step 1 you'll learn how to perform the following normalization meth
 
 
 ### Lesson 3 Step 1) Deliverable
-
-
+Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer the questions on the following survey: https://www.surveymonkey.com/r/ZYLND8N
 
 
 
