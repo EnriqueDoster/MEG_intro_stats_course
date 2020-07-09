@@ -15,8 +15,6 @@ We will break up this lesson into 5 steps. We'll meet once a week to discuss eac
 * [Step 4](#step-4---learn-to-run-meg-r-gui-code-for-exploratory-figures): Learn to run MEG R GUI code for exploratory figures
 * [Step 5](#step-5---advanced-plotting): Advanced plotting (heatmaps, volcano plots, ordination)
 
-https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_3.md#step-2---ordination-with-non-metric-multidimensional-scaling-and-statistical-comparisons
-
 ## Additional resources:
 MEG resources
 * [MEG bioinformatic term glossary](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/Glossary.md)
