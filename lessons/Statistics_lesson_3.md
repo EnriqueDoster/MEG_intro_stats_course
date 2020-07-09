@@ -38,7 +38,7 @@ Statistics
 # Step 1 - Count normalization
 
 ### Addressing bias with count normalization
-As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session (in the dropbox folder) as we discuss how count normalization can help address sources of bias.
+As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session on July 9, 2020(in the dropbox folder) as we discuss how count normalization can help address sources of bias.
 
 In this course, we'll focus on addressing differences in sequencing depth, but below are a few other examples for your consideration. Adapted the following figures from the HBC training course, ["Intro to DGE"](https://hbctraining.github.io/DGE_workshop/).
 * Sequencing depth: Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in Sample A relative to Sample B, however this is a consequence of Sample A having double the sequencing depth.
@@ -51,16 +51,18 @@ In this course, we'll focus on addressing differences in sequencing depth, but b
 
   <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
   
-  * Gene length is less likely to affect your 16S sequencing projects, but this is an important consideration for projects targeting genes with variable sequence lengths (e.g. virulence factors, mobile genetic elements, metabolic genes, etc). We won't go over this example in our course, but we have also previously used the equation first described by [Li et. al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4611512/?report=reader). Equation shown below:
+  * Gene length might have not greatly impact your 16S rRNA sequencing projects, but this is an important consideration when targeting genes with variable sequence lengths (e.g. virulence factors, mobile genetic elements, metabolic genes, etc). We won't go over this example in our course, but we have also previously used the equation first described by [Li et. al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4611512/?report=reader). Equation shown below:
 
   <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/Li_equation_AMR_gene_abundance.png" width="600" height="200" />  
 
      In the equation above, N<sub>AMR−likesequence</sub> is defined as the number of alignments to one specific AMR gene sequence; L<sub>reads</sub> as the sequence length of the Illumina reads (125 nt); L<sub>AMRreferencesequence</sub> as the sequence length of the corresponding AMR gene sequence; N<sub>16Ssequence</sub> as the number of alignments to 16S sequences; and L<sub>16Ssequence</sub> as the average length of the 16S sequences in the Greengenes database (mean = 1,401 nt). 
     
 ## Learning Objectives:
-As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, but we'll go over a few examples and teach you how to perform the following normalization methods:
+** Disclaimer) As in Lesson 2 Step 3, we can't go over all the nuances of selecting the best normalization method for your data, and as we have discussed, the statistical analyses for metagenomic studies require many nuanced decisions, each of which has the potential to substantially impact study results **
+
+In lesson 3, step 1 you'll learn how to perform the following normalization methods**:
 * Rarefying - randomly “downsample” every sample to a level even with the sample with the lowest number of reads
-* Total Sum Scaling (TSS) - the number of ”feature” reads divided by the total number of sequenced reads
+* Total Sum Scaling (TSS) - the number of ”feature” reads divided by the total number of sequenced reads (can then be multiplied by X to get absolute abundance)
 * Cumulative Sum Scaling (CSS) - applies a normalization scale quantile, which is derived from the data itself
 
 
