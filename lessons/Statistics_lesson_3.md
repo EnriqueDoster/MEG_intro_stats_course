@@ -10,11 +10,12 @@
 ## Lesson 3 overview:
 We will break up this lesson into 5 steps. We'll meet once a week to discuss each step and students will independently work on the "task" and associated "deliverable" that must be sent to meglab.metagenomics@gmail.com.
 * [Step 1](#step-1---count-normalization): Count normalization
-* [Step 2](#step-2---ordination-with-non---metric-multidimensional-scaling-and-statistical-comparisons): Ordination with non-metric multidimensional scaling and statistical comparisons
+* [Step 2](#step-2---ordination-with-non-metric-multidimensional-scaling-and-statistical-comparisons): Ordination with non-metric multidimensional scaling and statistical comparisons
 * [Step 3](#step-3---differential-abundance-testing-with-a-zero-inflated-gaussian-model): Differential abundance testing with a Zero-inflated Gaussian model
 * [Step 4](#step-4---learn-to-run-meg-r-gui-code-for-exploratory-figures): Learn to run MEG R GUI code for exploratory figures
 * [Step 5](#step-5---advanced-plotting): Advanced plotting (heatmaps, volcano plots, ordination)
 
+https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_3.md#step-2---ordination-with-non-metric-multidimensional-scaling-and-statistical-comparisons
 
 ## Additional resources:
 MEG resources
@@ -38,9 +39,14 @@ Statistics
 # Step 1 - Count normalization
 
 ### Addressing bias with count normalization
-As we have been reviewing in this course, there are multiple sources of bias that can be introduced in a metagenomic sequencing study. Please review the recording of our class session on July 9, 2020(in the dropbox folder) as we discuss how count normalization can help address sources of bias.
+As we have been reviewing in this course, there are multiple sources of bias that can be introduced in any step of a metagenomic sequencing study. It is important to remember that this course only goes over the stastistal analysis component of a multi-stage process involved in an analyzing metagenomic sequencing samples.
 
-In this course, we'll focus on addressing differences in sequencing depth, but below are a few other examples for your consideration. Adapted the following figures from the HBC training course, ["Intro to DGE"](https://hbctraining.github.io/DGE_workshop/).
+  <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/metagenomic_workflow.png" width="1100" height="300" />  
+ 
+
+Please review the recording of our class session on July 9, 2020(in the dropbox folder) as we discuss how count normalization can help address sources of bias. 
+
+In particular, we'll focus on addressing differences in sequencing depth between samples, but below are a few other examples for your consideration. Adapted the following figures from the HBC training course, ["Intro to DGE"](https://hbctraining.github.io/DGE_workshop/).
 * Sequencing depth: Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in Sample A relative to Sample B, however this is a consequence of Sample A having double the sequencing depth.
 
   <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_depth.png" width="600" height="300" />  
@@ -127,7 +133,7 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 
 ---
 
-# Step 5 - Advance plotting
+# Step 5 - Advanced plotting
 ###
 
 ### Task
