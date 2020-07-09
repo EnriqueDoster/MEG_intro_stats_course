@@ -132,14 +132,23 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
   * Start: June 22, 2020
   * Requested completion: June 28, 2020
 
-Lesson 3 - Advanced statistical analyses and plotting
-* Scheduled to begin June 29, 2020. Dates will be updated as we finalize scheduling.
+[Lesson 3 - Advanced statistical analyses and plotting](https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/lessons/Statistics_lesson_3.md)
+* Scheduled to begin July 9, 2020. Dates will be updated as we finalize scheduling.
 * Step 1 - Count normalization
+  * Start: July 9, 2020
+  * Requested completion: July 15, 2020
 * Step 2 - Ordination with non-metric multidimensional and statistical comparisons
+  * Start: July 16, 2020
+  * Requested completion: July 22, 2020
 * Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
+  * Start: July 23, 2020
+  * Requested completion: July 29, 2020
 * Step 4 - Learn to run R GUI code for exploratory figures
+  * Start: July 30, 2020
+  * Requested completion: August 5, 2020
 * Step 5 - Advanced plotting (heatmaps, volcano plots, ordination)
-
+  * Start: August 6, 2020
+  * Requested completion: August 12, 2020
 
 ## Deliverables:
 Lesson 1 deliverables
