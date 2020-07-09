@@ -69,7 +69,6 @@ goodTaxa <- setdiff(taxa_names(phylum_qiime.ps), "9f55ae2ce9e1a8f8ea202f5e507017
 # Use "prune_taxa()"
 clean_phylum_qiime.ps = prune_taxa(goodTaxa, phylum_qiime.ps)
 
-
 # Notice, just the phylum label "p__" is gone
 plot_bar(clean_phylum_qiime.ps, fill = "phylum") + 
   facet_wrap(~ Group, scales = "free_x") +
@@ -157,7 +156,7 @@ set.seed(42) # choose any number, or use an R function to choose a random value 
 rarefied_qiime.ps <- rarefy_even_depth(filtered_microbiome.ps, sample.size = min(sample_sums(filtered_microbiome.ps)))
 
 # Here's an example of what it would look like if you try rarefying your raw count data.
-# Notice that some OTUs (ASVs) are lost after rarefying
+# Notice that some OTUs (ASVs) are lost after rarefying.
 test_rarefied_qiime.ps <- rarefy_even_depth(microbiome.ps, sample.size = min(sample_sums(microbiome.ps)))
 
 # Aggregate counts to phylum
@@ -284,3 +283,4 @@ combined_figures
 annotate_figure(combined_figures,
                 bottom = text_grob("Data source: 16S rRNA sequencing of beef feedlot cattle feces", color = "blue",
                                    hjust = 1, x = 1, face = "italic", size = 8))
+
