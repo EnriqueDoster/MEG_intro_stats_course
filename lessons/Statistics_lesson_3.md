@@ -37,7 +37,7 @@ Statistics
 # Step 1 - Count normalization
 
 ### Addressing bias with count normalization
-As we have been reviewing in this course, there are multiple sources of bias that can be introduced in any step of a metagenomic sequencing study. It is important to remember that this course only goes over the stastistal analysis component of a multi-stage process involved in an analyzing metagenomic sequencing samples.
+As we have been reviewing in this course, there are multiple sources of bias that can be introduced in any step of a metagenomic sequencing study. It is important to remember that this course only goes over the stastistal analysis component of a multi-stage process involved in analyzing metagenomic sequencing samples.
 
   <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/metagenomic_workflow.png" width="1100" height="300" />  
  
