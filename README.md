@@ -101,6 +101,10 @@ Statistics
 * Batch effects
   * [Tackling the widespread and critical impact of batch effects in high-throughput data](https://www.nature.com/articles/nrg2825)
   * [Why Batch Effects Matter in Omics Data, and How to Avoid Them](https://www.sciencedirect.com/science/article/pii/S0167779917300367?casa_token=HQ5ZeDg7XccAAAAA:djpolv0azNOtCZk9XaKjUw8Z1A055LbdgtwFg8CLf6_B4jZggIdVv4GI2dvrDzS8i-LBp9p1aQ)
+  * [Beware the bane of batch effects](https://bitesizebio.com/20998/beware-the-bane-of-batch-effects/#:~:text=Batch%20effects%20occur%20whenever%20external,a%20wrench%20in%20your%20findings.)
+  * [Mitigating the adverse impact of batch effects in sample pattern detection](https://academic.oup.com/bioinformatics/article/34/15/2634/4916062)
+  * [Identifying and mitigating batch effects in whole genome sequencing data](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1756-z)
+  * [Why Batch Effects Matter in Omics Data, and How to Avoid Them](https://www.cell.com/trends/biotechnology/pdf/S0167-7799(17)30036-7.pdf)
 
 ## Timeline
 We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom. Please check Slack for updates!
