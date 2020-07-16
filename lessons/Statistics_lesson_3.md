@@ -96,6 +96,7 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 * https://sites.google.com/site/mb3gustame/
 * https://archetypalecology.wordpress.com/2018/02/21/permutational-multivariate-analysis-of-variance-permanova-in-r-preliminary/
 * http://ordination.okstate.edu/overview.htm
+* https://www.rdocumentation.org/packages/vegan/versions/2.4-2/topics/vegdist
 
 
 So far, we've looked at the microbiome and resistome composition and calculated alpha diversity values (richness, Shannon's index) to compare samples by treatment group. In Lesson 3 step 2 we'll use multivariate analysis to compare beta-diversity (between-sample diversity),visualize our results using ordination, and then test for differences between sample groups. 
