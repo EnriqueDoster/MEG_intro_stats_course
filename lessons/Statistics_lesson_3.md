@@ -100,17 +100,17 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 
 So far, we've looked at the microbiome and resistome composition and calculated alpha diversity values (richness, Shannon's index) to compare samples by treatment group. In Lesson 3 step 2 we'll use multivariate analysis to compare beta-diversity (between-sample diversity),visualize our results using ordination, and then test for differences between sample groups. 
 
-As with alpha-diversity, there are many different ways to calculate beta-diversity including Euclidean distances and the Bray-Curtis dissimilarity index. Beta-diversity is calculated on a count matrix with samples on the rows and features on the column (Figure 1. A) and the results are stored in a (dis)similarity matrix (Figure 1. B).
+As with alpha-diversity, there are many different ways to calculate beta-diversity including Euclidean distances and the Bray-Curtis dissimilarity index. Beta-diversity is calculated on a count matrix with samples on the rows and features on the column (A panel) and the results are stored in a (dis)similarity matrix (B panel).
 
   <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/beta_diversity_tables.png" width="500" height="300" />  
 
-Then with ordination, this multidimensional data is represented into a reduced number of orthogonal axes. Again, there are different ordination methods to choose from, but they all attempt to maintain the main trends of the data to help with visualizing in 2 (or 3) dimensions (Figure 2). Three of the most common methods of ordination are; Principal component analysis (PCA), Principal Coordinates Analysis (PCoA), and Non-metric multidimensional scaling (NMDS).
+Then with ordination, this multidimensional data is represented into a reduced number of orthogonal axes. Again, there are different ordination methods to choose from, but they all attempt to maintain the main trends of the data to help with visualizing in 2 (or 3) dimensions. Three of the most common methods of ordination are; Principal component analysis (PCA), Principal Coordinates Analysis (PCoA), and Non-metric multidimensional scaling (NMDS).
 
   <img src="http://ordination.okstate.edu/overvi5.gif" width="500" height="300" />  
 
-     Figure 2. Principal Coordinates Analysis (PCoA) as a projection of samples connected by distances.
+     Example Figure 1. Principal Coordinates Analysis (PCoA) as a projection of samples connected by distances.
 
-Finally, we can test the beta-diversity measures to test for clustering of samples by specific metadata variables. Here, we'll discuss 2 permutation-based statistical methods:
+Finally, we can test the beta-diversity measures to test for clustering of samples by specific metadata variables. In this step, we'll discuss 2 permutation-based statistical methods:
   * Analysis of similarities (ANOSIM) 
   * Permutational Multivariate Analysis of Variance Using (PERMANOVA)
 
