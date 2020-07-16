@@ -92,16 +92,28 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 
 # Step 2 - Ordination with non-metric multidimensional scaling and statistical comparisons
 ### Multivariate analysis
-**Figures and information adapted from https://sites.google.com/site/mb3gustame/**
+**Figures and information adapted from the following sites:**
+* https://sites.google.com/site/mb3gustame/
+* https://archetypalecology.wordpress.com/2018/02/21/permutational-multivariate-analysis-of-variance-permanova-in-r-preliminary/
+* http://ordination.okstate.edu/overview.htm
+
 
 So far, we've looked at the microbiome and resistome composition and calculated alpha diversity values (richness, Shannon's index) to compare samples by treatment group. In Lesson 3 step 2 we'll use multivariate analysis to compare beta-diversity (between-sample diversity),visualize our results using ordination, and then test for differences between sample groups. 
 
 As with alpha-diversity, there are many different ways to calculate beta-diversity including Euclidean distances and the Bray-Curtis dissimilarity index. Beta-diversity is calculated on a count matrix with samples on the rows and features on the column (Figure 1. A) and the results are stored in a (dis)similarity matrix (Figure 1. B).
 
-  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
+  <img src="https://github.com/EnriqueDoster/MEG_intro_stats_course/blob/master/misc_resources/example_pictures/beta_diversity_tables.png" width="500" height="300" />  
 
+Then with ordination, this multidimensional data is represented into a reduced number of orthogonal axes. Again, there are different ordination methods to choose from, but they all attempt to maintain the main trends of the data to help with visualizing in 2 (or 3) dimensions (Figure 2). Three of the most common methods of ordination are; Principal component analysis (PCA), Principal Coordinates Analysis (PCoA), and Non-metric multidimensional scaling (NMDS).
 
-With ordination, the multidimensional data is represented into a reduced number of orthogonal axes while keeping the main trends of the data and preserving the distances among samples as much as possible. 
+  <img src="http://ordination.okstate.edu/overvi5.gif" width="500" height="300" />  
+
+     Figure 2. Principal Coordinates Analysis (PCoA) as a projection of samples connected by distances.
+
+Finally, we can test the beta-diversity measures to test for clustering of samples by specific metadata variables. Here, we'll discuss 2 permutation-based statistical methods:
+  * Analysis of similarities (ANOSIM) 
+  * Permutational Multivariate Analysis of Variance Using (PERMANOVA)
+
 
 ## Learning Objectives:
 At the end of step 2, you'll know how to:
@@ -117,11 +129,10 @@ At the end of step 2, you'll know how to:
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
 5. Follow the instructions in the script, "Lesson3_Step2_Ordination_stats.R"
-6. Explore the website https://sites.google.com/site/mb3gustame/ for more information on multivariate analysis.
+6. Explore the website https://sites.google.com/site/mb3gustame/ for more information on multivariate analysis and (dis)similarity measures.
 
 ### Step 2) Deliverable
-
-
+After completing the task for Lesson 3 step 2, create an ordination plot of the resistome data at the "Class" level and use adonis to test for differences between the "Group" metadata variable. Export the ordination plot and send it to us at "meglab.metagenomics@gmail.com" along with a short description of your findings and your model selection. Don't worry about giving us the perfect answer, the goal is just to use your comments as a starting point for discussing statistics at the next course session.
 
 
 
