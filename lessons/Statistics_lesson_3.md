@@ -131,7 +131,7 @@ At the end of step 2, you'll know how to:
 5. Follow the instructions in the script, "Lesson3_Step2_Ordination_stats.R"
 6. Explore the website https://sites.google.com/site/mb3gustame/ for more information on multivariate analysis and (dis)similarity measures.
 
-### Step 2) Deliverable
+### Lesson 3 Step 2) Deliverable
 After completing the task for Lesson 3 step 2, create an ordination plot of the resistome data at the "Class" level and use adonis to test for differences between the "Group" metadata variable. Export the ordination plot and send it to us at "meglab.metagenomics@gmail.com" along with a short description of your findings and your model selection. Don't worry about giving us the perfect answer, the goal is just to use your comments as a starting point for discussing statistics at the next course session.
 
 
