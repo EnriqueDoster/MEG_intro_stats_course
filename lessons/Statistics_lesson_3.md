@@ -91,7 +91,24 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 ---
 
 # Step 2 - Ordination with non-metric multidimensional scaling and statistical comparisons
-###
+### Multivariate analysis
+**Figures and information adapted from https://sites.google.com/site/mb3gustame/**
+
+So far, we've looked at the microbiome and resistome composition and calculated alpha diversity values (richness, Shannon's index) to compare samples by treatment group. In Lesson 3 step 2 we'll use multivariate analysis to compare beta-diversity (between-sample diversity),visualize our results using ordination, and then test for differences between sample groups. 
+
+As with alpha-diversity, there are many different ways to calculate beta-diversity including Euclidean distances and the Bray-Curtis dissimilarity index. Beta-diversity is calculated on a count matrix with samples on the rows and features on the column (Figure 1. A) and the results are stored in a (dis)similarity matrix (Figure 1. B).
+
+  <img src="https://hbctraining.github.io/DGE_workshop/img/normalization_methods_length.png" width="500" height="300" />  
+
+
+With ordination, the multidimensional data is represented into a reduced number of orthogonal axes while keeping the main trends of the data and preserving the distances among samples as much as possible. 
+
+## Learning Objectives:
+At the end of step 2, you'll know how to:
+* Calculate beta-diversity on microbiome/resistome data
+* Visualize beta-diversity using ordination
+* Test for statistical differences between sample clusters
+
 
 ### Task
 * To ensure you have the most up-to-date code,
@@ -99,7 +116,8 @@ Use the script from this step, "Lesson3_Step1_Count_normalization.R", to answer 
 2. Select File → Open Project…
 3. Find your R project from Lesson 1 → Click Open.
 4. Click on Tools → Version Control → Pull branches
-5. Follow the instructions in the script, "Lesson2_basic_plotting.R"
+5. Follow the instructions in the script, "Lesson3_Step2_Ordination_stats.R"
+6. Explore the website https://sites.google.com/site/mb3gustame/ for more information on multivariate analysis.
 
 ### Step 2) Deliverable
 
