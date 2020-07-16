@@ -78,7 +78,7 @@ phylum_ord_plot +  geom_polygon(aes(fill=Group)) +
   geom_point(size=5) +
   ggtitle("Microbiome ordination at the phylum level by sample group")
 
-phylum_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color = as.factor(Lot), shape = "Group")
+phylum_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color = as.factor(Sample_block), shape = "Group")
 
 
 ################################
@@ -197,7 +197,9 @@ anosim_phylum_by_group
 plot(anosim_phylum_by_group)
 
 #
-## Permunation MANOVA (adonis)
+##
+### Permunation MANOVA (adonis)
+##
 #
 
 # The creators of the vegan package suggest that using permunation MANOVA, as implemented
@@ -206,11 +208,81 @@ plot(anosim_phylum_by_group)
 # while modeling for the effect from multiple variables.
 
 # We'll need to convert our data to a data.frame object
-df = as.data.frame(sample_data(CSS_normalized_phylum_qiime.ps))
-# Calculate distance on phyloseq object
-d = distance(CSS_normalized_phylum_qiime.ps, "bray")
-# Create the perMANOVA model
-adonis_phylum_by_Group_Lot = adonis(d ~ Group + Lot, df)
-adonis_phylum_by_Group_Lot
+# There is probably a better way to extract the data than using
+# all of the nested functions you'll see below, but this works for us!
+df = as.data.frame(as(sample_data(CSS_normalized_phylum_qiime.ps),"matrix"))
+# Extract counts from the phyloseq object, convert to data.frame
+ASV_counts = as.data.frame(as(otu_table(CSS_normalized_phylum_qiime.ps),"matrix"))
+# Notice that the features still have their full ID name
+ASV_counts
 
-plot(adonis_phylum_by_Group_Lot$aov.tab)
+# Instead, we might want to change those names to their corresponding phylum classification
+phylum_taxa = as.data.frame(as(tax_table(CSS_normalized_phylum_qiime.ps), "matrix"))
+phylum_taxa$phylum
+
+row.names(ASV_counts) <- phylum_taxa$phylum
+
+# Now we can see the updated names
+ASV_counts
+ 
+# Create the perMANOVA model
+# NB. We have to tranpose the counts so that ASV features are columns
+adonis_phylum_by_Group_Sample_block = adonis(t(ASV_counts) ~ Group + as.factor(Sample_block), data = df, method = "bray")
+
+# View results
+adonis_phylum_by_Group_Sample_block
+
+# View model plots
+plot(adonis_phylum_by_Group_Sample_block$aov.tab)
+
+# Check assumption of similar multivariate spread among the treatment groups.
+# PERMANOVA works with the assumption that dispersion of the data in your 
+# samples is the ~same among each other, so before running PERMANOVA,
+# you must run the betadisper->permutest to know if the dispersions are the 
+# same. For that to be true, the permutest has to have a 
+# non-significant p-value. Knowing the previous, 
+# then you can run the PERMANOVA test, otherwise your interpretations will be wrong”
+
+# Above, the adonis() function calculated the bray distance matrix as part
+# of it's calculation. Now, we'll calculate that seperately.
+phylum_bray_dist <- distance(CSS_normalized_phylum_qiime.ps, "bray")
+
+# We are most interested in differences between treatment "Group".
+# The result from this test is non-significant and suggests we can continue
+# with our perMANOVA analysis.
+permutest(betadisper(phylum_bray_dist, df$Group), pairwise = TRUE)
+
+
+# We can pull out the model coefficients and plot wich taxa contribute most
+# to the community differences.
+coef <- coefficients(adonis_phylum_by_Group_Sample_block)["Group1",]
+top.coef <- coef[rev(order(abs(coef)))[1:20]]
+par(mar = c(3, 14, 2, 1))
+barplot(sort(top.coef), horiz = T, las = 1, main = "Top taxa")
+
+
+#
+##
+### Permunation MANOVA with sequential, marginal, and overall tests (adonis2)
+##
+#
+
+# We are less familiar with adonis2, but it adds functions you might find useful
+adonis2_phylum_by_Group_Sample_block = adonis2(t(ASV_counts) ~ Group + as.factor(Sample_block), data = df, method = "bray")
+adonis2_phylum_by_Group_Sample_block
+anova.cca(adonis2_phylum_by_Group_Sample_block)
+
+marginal_adonis2_phylum_by_Group_Sample_block = adonis2(t(ASV_counts) ~ Group + as.factor(Sample_block), data = df, method = "bray", by = NULL)
+
+# With adonis2, we can perform pairwise contrasts but we'll need an additional
+# library from github. Try the following commands to see if you can get 
+# everything installed.
+library(devtools)
+install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
+install.packages("Rtools")
+library(pairwiseAdonis)
+
+posthoc_group_comparison <-pairwise.adonis2(phylum_bray_dist~Group+ as.factor(Sample_block), data=df, strata="Sample_block")
+posthoc_group_comparison
+
+posthoc_group_comparison$Treatment_vs_Control
