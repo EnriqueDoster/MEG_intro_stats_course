@@ -63,6 +63,11 @@ plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "
 split_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "split",color = "phylum", shape = "Group")
 split_ord_plot
 
+# We can visualize both comparisons at the same time using "biplot" 
+biplot_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "biplot",color = "phylum", shape = "Group")
+biplot_ord_plot                                     
+                                     
+
 #
 ## More plotting options
 #
