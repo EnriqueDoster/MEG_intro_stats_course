@@ -282,7 +282,9 @@ install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
 install.packages("Rtools")
 library(pairwiseAdonis)
 
-posthoc_group_comparison <-pairwise.adonis2(phylum_bray_dist~Group+ as.factor(Sample_block), data=df, strata="Sample_block")
+# Use "pairwise.adonis2()" just like the adonis() function                                     
+posthoc_group_comparison <-pairwise.adonis2(phylum_bray_dist~Group+ as.factor(Sample_block), data=df)
 posthoc_group_comparison
 
+# View results from pairwise comparison                                     
 posthoc_group_comparison$Treatment_vs_Control
