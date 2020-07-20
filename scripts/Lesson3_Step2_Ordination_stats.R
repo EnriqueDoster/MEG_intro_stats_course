@@ -65,8 +65,7 @@ split_ord_plot
 
 # We can visualize both comparisons at the same time using "biplot" 
 biplot_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "biplot",color = "phylum", shape = "Group")
-biplot_ord_plot                                     
-                                     
+biplot_ord_plot
 
 #
 ## More plotting options
@@ -74,17 +73,20 @@ biplot_ord_plot
 
 # Remember, we can make plots with phyloseq functions and then modify them with 
 # ggplot2 layers.
-phylum_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color = "Group", shape = "Group")
-phylum_ord_plot
+phylum_ord_plot1 <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color = "Group", shape = "Group")
+phylum_ord_plot1
 
 # For example, you can add a polygon around sample groups, but doesn't work as well 
 # when the sample groups don't cluster
-phylum_ord_plot +  geom_polygon(aes(fill=Group)) + 
+phylum_ord_plot1 +  geom_polygon(aes(fill=Group)) + 
   geom_point(size=5) +
   ggtitle("Microbiome ordination at the phylum level by sample group")
 
-phylum_ord_plot <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color = as.factor(Sample_block), shape = "Group")
-
+# Here, we convert our metadata variable "Sample_block" from numeric to factor
+sample_data(CSS_normalized_phylum_qiime.ps)$Sample_block <- as.factor(sample_data(CSS_normalized_phylum_qiime.ps)$Sample_block)
+# Plot ordination and change point shape based on treatment "Group"
+phylum_ord_plot2 <- plot_ordination(CSS_normalized_phylum_qiime.ps, ordination_phylum_bray, type = "samples",color ="Sample_block", shape = "Group")
+phylum_ord_plot2
 
 ################################
 #                              #
@@ -275,7 +277,6 @@ barplot(sort(top.coef), horiz = T, las = 1, main = "Top taxa")
 # We are less familiar with adonis2, but it adds functions you might find useful
 adonis2_phylum_by_Group_Sample_block = adonis2(t(ASV_counts) ~ Group + as.factor(Sample_block), data = df, method = "bray")
 adonis2_phylum_by_Group_Sample_block
-anova.cca(adonis2_phylum_by_Group_Sample_block)
 
 marginal_adonis2_phylum_by_Group_Sample_block = adonis2(t(ASV_counts) ~ Group + as.factor(Sample_block), data = df, method = "bray", by = NULL)
 
@@ -287,9 +288,8 @@ install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
 install.packages("Rtools")
 library(pairwiseAdonis)
 
-# Use "pairwise.adonis2()" just like the adonis() function                                     
-posthoc_group_comparison <-pairwise.adonis2(phylum_bray_dist~Group+ as.factor(Sample_block), data=df)
-posthoc_group_comparison
-
-# View results from pairwise comparison                                     
+# With pairwise.adonis2() , we can specify the "strata" factor which controls for
+# nested (e.g. block) designs
+posthoc_group_comparison <-pairwise.adonis2(phylum_bray_dist ~ Group ,data=df, strata="Sample_block")
+# View pairwise comparison
 posthoc_group_comparison$Treatment_vs_Control
