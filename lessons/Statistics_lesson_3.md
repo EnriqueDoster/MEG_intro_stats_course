@@ -134,7 +134,8 @@ At the end of step 2, you'll know how to:
 
 ### Lesson 3 Step 2) Deliverable
 After completing the task for Lesson 3 step 2:
-* create an ordination plot using the "bray-curtis" distance of the resistome data at the "Class" level (with any additional flair you want to add). 
+* Create an ordination plot using the "bray-curtis" distance of the resistome data at the "Class" level (with any additional flair you want to add). 
+  * NB. If you try to replicate all the code for the resistome data, delete the "DPCoA" method from the "ord_meths" R object. DPCoA requires a phylogenetic tree and will cause an error with the resistome data.
 * Then, use "adonis()" to test for differences between the "Group" metadata variable. 
 * Export the ordination plot and send it to us at "meglab.metagenomics@gmail.com" along with a short description of your findings and your model selection.
   * Don't worry about giving us the perfect answer, the goal is just to use your comments as a starting point for discussing statistics at the next course session.
