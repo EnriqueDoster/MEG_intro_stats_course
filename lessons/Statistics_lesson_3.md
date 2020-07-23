@@ -30,6 +30,9 @@ Statistics
   * We haven't personally tried this course, but they provide great videos and code examples for learning how to explore data using R
 * [#bioinformatics live twitter feed](https://twitter.com/search?q=%23bioinformatics&src=hash)
   * Stay up to date with other researchers doing bioinformatics
+* [Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)
+* [Comparison of normalization methods for the analysis of metagenomic gene abundance data](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-4637-6)
+* [Normalization and microbial differential abundance strategies depend upon data characteristics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5335496/)
 
 
 ---
