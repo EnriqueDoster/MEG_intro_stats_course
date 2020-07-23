@@ -143,16 +143,27 @@ After completing the task for Lesson 3 step 2:
 
 
 ---
-
 # Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
-###
+### Identifying differentially abundant features
+In Lesson 3 step 2, we looked at comparing the microbiome/resistome composition of sample groups. With perMANOVA, we were able to estimate the influence of certain taxa on differences between sample groups, but we did not test for significant differences in the abundance of each feature.
+
+Differential abundance (DA) testing is often a critical component in your analysis, but as we've re-iterated again and again, there is no "gold-standard" for many of these analyses. Additionaly, the correct method for testing differential abundance in compositional and sparse count data is still under debate, with new methods being published almost yearly. Therefore, similar to in step 2, we'll show you a few different methods that you can use for DA. Then, we'll focus on the DA method that MEG currently uses, a zero-inflated Gaussian model (ZIG).
+
+### Learning objectives
+* Test for differential abundance of features in the microbiome/resistome between treatment "Group" using the zero-inflated Gaussian model.
+* Create basic plots of the ZIG results.
 
 ### Task
+* To ensure you have the most up-to-date code,
+1. Open RStudio.
+2. Select File → Open Project…
+3. Find your R project for this Course → Click Open.
+4. Click on Tools → Version Control → Pull branches
+5. Follow the instructions in the script, "Lesson3_Step3_Differential_abundance_testing.R"
 
 ### Step 3) Deliverable
-
-
-
+* Modify the code from "Lesson3_Step3_Differential_abundance_testing.R" and use a ZIG model to test for differential abundance of resistome features between treatment "Group" at the class level. Create a simple volcano plot that shows the ZIG results. Send an email to meglab.metagenomics@gmail.com with your figure and include short description of what the ZIG results suggest about the data. Keep in mind the ordination and adonis() results from Lesson 3 Step 2.
+  * Again don't worry about giving a perfect description, just keep summarize the overall trends (e.g. X features were significantly different, etc)
 
 ---
 
