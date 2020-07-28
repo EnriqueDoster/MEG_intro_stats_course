@@ -147,10 +147,10 @@ We'll start on May 11, 2020 at 12pm MT and have weekly virtual meetings on zoom.
 * Step 3 - Differential abundance testing with a Zero-inflated Gaussian model
   * Start: July 23, 2020
   * Requested completion: July 29, 2020
-* Step 4 - Learn to run R GUI code for exploratory figures
+* Step 4 - Advanced plotting (heatmaps, volcano plots, ordination)
   * Start: July 30, 2020
   * Requested completion: August 5, 2020
-* Step 5 - Advanced plotting (heatmaps, volcano plots, ordination)
+* Step 5 - Learn to run R GUI code for exploratory figures
   * Start: August 6, 2020
   * Requested completion: August 12, 2020
 
