@@ -12,8 +12,9 @@ We will break up this lesson into 5 steps. We'll meet once a week to discuss eac
 * [Step 1](#step-1---count-normalization): Count normalization
 * [Step 2](#step-2---ordination-with-non-metric-multidimensional-scaling-and-statistical-comparisons): Ordination with non-metric multidimensional scaling and statistical comparisons
 * [Step 3](#step-3---differential-abundance-testing-with-a-zero-inflated-gaussian-model): Differential abundance testing with a Zero-inflated Gaussian model
-* [Step 4](#step-4---learn-to-run-meg-r-gui-code-for-exploratory-figures): Learn to run MEG R GUI code for exploratory figures
-* [Step 5](#step-5---advanced-plotting): Advanced plotting (heatmaps, volcano plots, ordination)
+* [Step 4](#step-4---advanced-plotting): Advanced plotting (heatmaps, volcano plots, ordination)
+* [Step 5](#step-5---learn-to-run-meg-r-gui-code-for-exploratory-figures): Learn to run MEG R GUI code for exploratory figures
+
 
 ## Additional resources:
 MEG resources
@@ -170,7 +171,7 @@ Differential abundance (DA) testing is often a critical component in your analys
 
 ---
 
-# Step 4 - Learn to run MEG R GUI code for exploratory figures
+# Step 4 - Advanced plotting
 ###
 
 ### Task
@@ -178,13 +179,14 @@ Differential abundance (DA) testing is often a critical component in your analys
 ### Step 4) Deliverable
 
 
-
-
 ---
 
-# Step 5 - Advanced plotting
+# Step 5 - Learn to run MEG R GUI code for exploratory figures
 ###
 
 ### Task
 
 ### Step 5) Deliverable
+
+
+
