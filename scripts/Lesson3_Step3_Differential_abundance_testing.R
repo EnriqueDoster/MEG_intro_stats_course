@@ -95,7 +95,7 @@ featurePlot(CSS_normalized_phylum_qiime.ps, predictor = "Group",feature = "ccf6c
 # Below we'll show you the native functions used for creating a ZIG model.
 
 # We can use metagenomeSeq's function aggTax to aggregate counts as in phyloseq
-phylum_microbiome.metaseq <- aggTax(microbiome.metaseq, lvl = "phylum")
+phylum_microbiome.metaseq <- aggTax(CSS_microbiome_counts, lvl = "phylum")
 
 # metagenomeSeq also has functions for filtering data
 filtered_phylum_microbiome.metaseq <- filterData(phylum_microbiome.metaseq, present = 3)
@@ -106,6 +106,10 @@ zero_mod <- model.matrix(~0+log(libSize(microbiome.metaseq)))
 Group <- pData(phylum_microbiome.metaseq)$Group
 design_group = model.matrix(~0 + Group)
 
+# We still need to use cumNorm even thought we aren't using the normalization factor because of the "useCSSoffset = FALSE)                                     
+cumNorm(filtered_phylum_microbiome.metaseq)
+                                     
+# Create ZIG model                                     
 zig_model <- fitZig(obj= filtered_phylum_microbiome.metaseq, mod = design_group, zeroMod=zero_mod, useCSSoffset = FALSE)
 
 # Use Ebayes to adjust model fit
