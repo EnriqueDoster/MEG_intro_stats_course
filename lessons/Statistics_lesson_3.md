@@ -1,11 +1,11 @@
 # Lesson 3 - "Advanced statistical analyses and plotting"
 
-## Learning objectives
+## Learning objectives for Lesson 3
 * normalize count matrices to account for differences in sequence depth
 * visualize multivariate data with ordination and statistically compare sample clustering
 * compare differential abundance for individual taxa using a Zero-inflated Gaussian model
-* be able to run MEG's R GUI code to automate data processing and the creation of exploratory figures
 * learn to make ordination plots, heatmaps, and volcano plots
+* be able to run MEG's R GUI code to automate data processing and the creation of exploratory figures
 
 ## Lesson 3 overview:
 We will break up this lesson into 5 steps. We'll meet once a week to discuss each step and students will independently work on the "task" and associated "deliverable" that must be sent to meglab.metagenomics@gmail.com.
