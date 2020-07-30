@@ -175,9 +175,16 @@ Differential abundance (DA) testing is often a critical component in your analys
 ###
 
 ### Task
+* To ensure you have the most up-to-date code,
+1. Open RStudio.
+2. Select File → Open Project…
+3. Find your R project for this Course → Click Open.
+4. Click on Tools → Version Control → Pull branches
+5. Follow the instructions in the script, "Lesson3_Step4_Advanced_plotting.R"
+
 
 ### Step 4) Deliverable
-
+* This is the final deliverible for our course. Instead of assigning a specific deliverable, play around with the code you have learned to use so far and make a figure that you think summarizes the main trends in the microbiome data. Send your figure to "meglab.metagenomics@gmail.com".
 
 ---
 
