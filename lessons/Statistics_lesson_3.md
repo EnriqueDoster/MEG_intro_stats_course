@@ -172,7 +172,13 @@ Differential abundance (DA) testing is often a critical component in your analys
 ---
 
 # Step 4 - Advanced plotting
-###
+### Many options for plotting figures
+As we've seen thus far, there are many ways to visualize your metagenomic data. In Lesson 3 Step 4, we'll go over a few more examples for ways to plot your data with heatmaps and volcano plots.
+
+
+### Learning objectives
+* Be able to plot different types of heatmaps, with sample and feature clustering
+* Create informative volcano plots to visualize differential abundance testing results.
 
 ### Task
 * To ensure you have the most up-to-date code,
