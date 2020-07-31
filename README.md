@@ -15,6 +15,8 @@ Slack group: https://meg-research.slack.com
 [Dropbox link](https://www.dropbox.com/sh/1xvpvxecesddfsc/AADYGmwC1p52eBeYjy_4qJ_-a?dl=0)
   * This dropbox folder contains all of the videos from our zoom course sessions and recordings from a previous MEG bioinformatics workshop.
 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master)
 ## Course content
 * [Course summary](#summary)
 * [Learning objectives](#learning-objectives)
