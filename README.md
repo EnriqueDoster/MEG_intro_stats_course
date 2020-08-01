@@ -17,6 +17,11 @@ Slack group: https://meg-research.slack.com
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master)
+
+
+[![RStudio Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master?urlpath=rstudio)
+
+
 ## Course content
 * [Course summary](#summary)
 * [Learning objectives](#learning-objectives)
