@@ -95,7 +95,7 @@ design_group = model.matrix(~0 + Group)
 # the fitZig function, but notice that we use the flag, useCSSoffset = FALSE so that it does not use
 # the normalization factor is not used and instead, we feed it the "zeroMod" which is
 # based on the raw counts.
-cumNorm(filtered_phylum_microbiome.metaseq)
+filtered_phylum_microbiome.metaseq <- cumNorm(filtered_phylum_microbiome.metaseq)
 
 zig_model <- fitZig(obj= filtered_phylum_microbiome.metaseq, mod = design_group, zeroMod=zero_mod, useCSSoffset = FALSE)
 
