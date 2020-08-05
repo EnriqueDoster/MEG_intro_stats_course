@@ -16,11 +16,11 @@ Slack group: https://meg-research.slack.com
   * This dropbox folder contains all of the videos from our zoom course sessions and recordings from a previous MEG bioinformatics workshop.
 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master)
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://hub.gke.mybinder.org/user/enriquedoster-m-ro_stats_course-ag2p4r3f/tree)
 
 [![RStudio Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master?urlpath=rstudio)
 
+https://mybinder.org/v2/gh/EnriqueDoster/MEG_intro_stats_course/master?urlpath=rstudio
 
 ## Course content
 * [Course summary](#summary)
