@@ -176,5 +176,5 @@ Lesson 3 deliverables
 * TBD
 
 ## Funding Information:
-The development of this tutorial was supported in part by USDA NIFA Grant No. 2018-51300-28563, University of Minnesota College of Veterinary Medicine, West Texas A&M University, and the State of Minnesota Agricultural Research, Education, Extension and Technology Transfer program.
+The development of this tutorial was supported in part by USDA NIFA Grant No. 2018-51300-28563, University of Minnesota College of Veterinary Medicine, The VERO Program at Texas A&M University and West Texas A&M University, and the State of Minnesota Agricultural Research, Education, Extension and Technology Transfer program.
 
