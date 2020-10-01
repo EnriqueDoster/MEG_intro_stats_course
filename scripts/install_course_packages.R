@@ -5,7 +5,7 @@ BiocManager::install(c('phyloseq','metagenomeSeq'))
 
 # Install packages from CRAN repository
 install.packages(c("dplyr","ggplot2","data.table","tidyr","forcats", "vegan","plyr", "devtools",
-                   "pheatmap","dendsort","ggrepel","ggpubr","Rtools"))
+                   "pheatmap","dendsort","ggrepel","ggpubr","Rtools","tidyverse","ggthemes"))
 
 # Install "pairwiseAdonis" from github for adding pairwise comparisons to models build with the adonis() function
 install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
