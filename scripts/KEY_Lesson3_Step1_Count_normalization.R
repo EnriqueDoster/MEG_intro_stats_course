@@ -16,6 +16,9 @@ source("./scripts/load_data.R")
 # While we normalize counts based on the entire dataset (prior to aggregation), in this step
 # we'll aggregate counts to the phylum level for easier processing and visualization.
 # If you are curious, you can try plotting the entire dataset to test how your computer handles it. 
+
+# Below, we'll use the qiime results as an example, but you can switch out the "microbiome.ps" object to "kraken_microbiome.ps"
+# if you want to explore the kraken results from shotgun read analysis. 
 phylum_qiime.ps <- tax_glom(microbiome.ps, "phylum")
 
 # Just visually, we can observe differences in the number of total mapped reads between samples
